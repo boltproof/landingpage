@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BoltProof • Managed Storage-as-a-Service for SMEs</title>
+  <meta name="description" content="BoltProof delivers managed Storage-as-a-Service and immutable off-site backups that satisfy GDPR Article 32, cyber-insurance requirements and industry retention rules for SMEs across Ireland, Northern Ireland and the UK.">
+
+  <!-- Inter (clean, modern) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Simple shield favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.8em' font-size='70'>🛡️</text></svg>">
+
+  <style>
+    :root {
+      --bg-page: #ffffff;
+      --bg-soft: #f5f5f7;
+      --bg-subtle: #f9fafb;
+      --text-main: #0b1120;
+      --text-muted: #6b7280;
+      --accent: #2563eb;
+      --accent-deep: #1d4ed8;
+      --accent-soft: #e0edff;
+      --border-subtle: #e5e7eb;
+      --danger: #dc2626;
+      --radius-card: 22px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.06);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background: var(--bg-page);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px 48px;
+    }
+
+    /* HEADER / NAV */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.7);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--text-main);
+    }
+
+    .logo-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--text-main);
+      transition: width 0.2s ease-out;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 80px 0;
+    }
+
+    /* HERO */
+    .hero-shell {
+      margin-top: 24px;
+      background: radial-gradient(circle at top, #ffffff 0, #f5f5f7 55%, #eef2ff 100%);
+      border-radius: 32px;
+      padding: 48px 40px;
+      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      line-height: 1.2;
+      font-weight: 800;
+      margin-bottom: 14px;
+      color: var(--text-main);
+    }
+
+    .hero-lead {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .hero-lead-strong {
+      margin-top: 12px;
+      font-size: 16px;
+      color: #374151;
+    }
+
+    .hero-alert {
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--danger);
+      font-weight: 600;
+    }
+
+    .hero-cta {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-deep);
+      background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 600;
+      box-shadow: 0 18px 35px rgba(37, 99, 235, 0.35);
+      cursor: pointer;
+    }
+
+    .btn-primary span.icon {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .hero-note {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-card {
+      width: 100%;
+      max-width: 340px;
+      background: #ffffff;
+      border-radius: var(--radius-card);
+      padding: 22px 22px 24px;
+      border: 1px solid #e0e7ff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-card-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .hero-lock {
+      height: 140px;
+      border-radius: 18px;
+      background: radial-gradient(circle at top, #ffffff 0, #dbeafe 45%, #bfdbfe 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .lock-body {
+      width: 62px;
+      height: 72px;
+      border-radius: 18px;
+      background: #ffffff;
+      position: relative;
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.28);
+    }
+
+    .lock-body::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      top: -22px;
+      height: 30px;
+      border-radius: 999px;
+      border: 4px solid #ffffff;
+      border-bottom-color: transparent;
+    }
+
+    .lock-body::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 34px;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 22px;
+      border-radius: 999px;
+      background: #1e3a8a;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hero-metrics strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* RISK SECTION */
+    .risk-section {
+      padding-top: 72px;
+    }
+
+    .risk-heading {
+      font-size: 25px;
+      line-height: 1.4;
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 40px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .risk-heading span {
+      color: var(--danger);
+    }
+
+    .risk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 26px;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .risk-card {
+      background: #ffffff;
+      border-radius: var(--radius-card);
+      padding: 24px 22px 26px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: #fee2e2;
+      color: #991b1b;
+      margin-bottom: 14px;
+    }
+
+    .risk-card h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .risk-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .risk-card p.emph {
+      margin-top: 8px;
+      color: var(--danger);
+      font-weight: 600;
+    }
+
+    /* CLOUD SECTION */
+    .cloud-section {
+      padding-top: 48px;
+    }
+
+    .cloud-shell {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--bg-subtle);
+      border-radius: 24px;
+      padding: 32px 28px 30px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .cloud-shell h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .cloud-shell p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .cloud-cols {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 24px;
+      margin-top: 10px;
+    }
+
+    .cloud-box h3 {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .cloud-box ul {
+      font-size: 13px;
+      line-height: 1.7;
+      padding-left: 18px;
+      color: #374151;
+    }
+
+    .cloud-box ul li + li {
+      margin-top: 2px;
+    }
+
+    .cloud-quote {
+      font-size: 13px;
+      color: #4b5563;
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    /* STaaS SECTION */
+    .staas-shell {
+      margin-top: 80px;
+      background: var(--bg-subtle);
+      border-radius: 26px;
+      padding: 48px 32px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .staas-shell h2 {
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .staas-shell p {
+      max-width: 820px;
+      margin: 0 auto;
+      font-size: 15px;
+      text-align: center;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ARCH DIAGRAM */
+    .arch-diagram {
+      margin-top: 26px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .arch-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+
+    .arch-node {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      font-weight: 500;
+    }
+
+    /* REG SECTION */
+    .reg-section {
+      padding-top: 72px;
+    }
+
+    .reg-grid {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .reg-card {
+      border-radius: 18px;
+      border: 1px solid var(--border-subtle);
+      background: #ffffff;
+      padding: 20px 18px 22px;
+      font-size: 13px;
+      color: #374151;
+    }
+
+    .reg-card h3 {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .reg-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: #eff6ff;
+      color: #1d4ed8;
+      margin-bottom: 6px;
+    }
+
+    .reg-card ul {
+      margin-top: 8px;
+      padding-left: 16px;
+      line-height: 1.6;
+    }
+
+    /* CASES SECTION */
+    .cases-section {
+      padding-top: 72px;
+    }
+
+    .cases-shell {
+      max-width: 960px;
+      margin: 0 auto;
+      border-radius: 24px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-soft);
+      padding: 28px 26px 26px;
+    }
+
+    .cases-shell h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .cases-shell p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .case-list {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+      font-size: 13px;
+      color: #111827;
+    }
+
+    .case-item strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .case-item span {
+      color: #4b5563;
+    }
+
+    /* PRICING */
+    .pricing-section {
+      padding-top: 80px;
+    }
+
+    .pricing-title {
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .pricing-subtitle {
+      font-size: 14px;
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .pricing-card {
+      background: #ffffff;
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      padding: 24px 22px 26px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pricing-card.popular {
+      border-color: var(--accent);
+      box-shadow: 0 22px 50px rgba(37, 99, 235, 0.18);
+      position: relative;
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      left: 20px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
+
+    .pricing-card h3 {
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .price {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .price span {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .pricing-for {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .pricing-extra {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: -4px;
+    }
+
+    .pricing-card ul {
+      margin-top: 10px;
+      padding-left: 18px;
+      font-size: 14px;
+      color: #374151;
+      line-height: 1.7;
+    }
+
+    .pricing-card ul li + li {
+      margin-top: 4px;
+    }
+
+    /* TWO-COL SECTION */
+    .two-col-section {
+      padding-top: 80px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .two-col h2 {
+      font-size: 26px;
+      margin-bottom: 16px;
+    }
+
+    .two-col ul {
+      font-size: 15px;
+      color: #374151;
+      line-height: 1.8;
+      padding-left: 20px;
+      margin-bottom: 22px;
+    }
+
+    .two-col ul li + li {
+      margin-top: 6px;
+    }
+
+    .about-text {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .about-locations {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 72px;
+      background: #020617;
+      color: #e5e7eb;
+      border-radius: 28px;
+      padding: 40px 24px 38px;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    footer h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    footer p {
+      font-size: 14px;
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+
+    footer a {
+      color: #e5e7eb;
+    }
+
+    .footer-cta {
+      margin-top: 16px;
+    }
+
+    .btn-outline-light {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 28px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      font-size: 14px;
+      font-weight: 500;
+      color: #f9fafb;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .footer-meta {
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 22px;
+      line-height: 1.7;
+    }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 20px;
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      background: #22c55e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 36px rgba(22, 163, 74, 0.45);
+      z-index: 60;
+      cursor: pointer;
+    }
+
+    .whatsapp-float svg {
+      width: 26px;
+      height: 26px;
+      fill: #ffffff;
+    }
+
+    .whatsapp-float:hover {
+      filter: brightness(1.05);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-shell {
+        padding: 36px 24px;
+      }
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+      }
+      .hero h1 {
+        font-size: 30px;
+      }
+      .nav-links {
+        display: none;
+      }
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .cloud-cols {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      footer {
+        border-radius: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .section {
+        padding: 64px 0;
+      }
+      .risk-heading {
+        font-size: 22px;
+      }
+      .pricing-title {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="logo">
+        <div class="logo-mark">BP</div>
+        <span>BoltProof</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#top">Home</a>
+        <a href="#pricing">Plans &amp; Pricing</a>
+        <a href="#about">About</a>
+        <a href="#audit">Free Backup Audit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- HERO -->
+    <section class="section hero" id="top">
+      <div class="hero-shell">
+        <div class="hero-inner">
+          <div>
+            <div class="hero-tag">Managed Storage-as-a-Service for SMEs</div>
+            <h1>If your data disappeared tonight, could you be back in business tomorrow?</h1>
+            <p class="hero-lead">
+              Ransomware • Accidental deletion • Corrupted OneDrive • Malicious insiders • Stolen laptops.
+              Most SMEs only discover the truth on the worst day of their business life: there is no real backup.
+            </p>
+            <p class="hero-lead-strong">
+              Cloud is brilliant for access and collaboration. But cloud is not a backup.
+              When data is deleted, encrypted or overwritten, the cloud simply syncs the damage.
+            </p>
+            <p class="hero-alert">
+              If you were hit tonight, could you restore everything — fast — and prove it to your insurer and to GDPR regulators?
+              If you’re not sure, the answer is no.
+            </p>
+
+            <div class="hero-cta">
+              <a href="https://calendly.com/YOURCALENDLY/15min" class="btn-primary" target="_blank" rel="noopener">
+                Book your FREE 15-minute backup audit
+                <span class="icon">↗</span>
+              </a>
+              <div class="hero-note">No jargon, no pressure — just the truth about your current risk.</div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-card">
+              <div class="hero-card-title">Insurance &amp; Recovery Posture</div>
+              <div class="hero-lock">
+                <div class="lock-body"></div>
+              </div>
+              <div class="hero-metrics">
+                <div><strong>Immutable backups:</strong> Required by modern cyber policies.</div>
+                <div><strong>Off-site copies:</strong> Must be encrypted &amp; independent.</div>
+                <div><strong>Restore proof:</strong> GDPR Article 32 requires demonstrable restorability.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RISK / WHY -->
+    <section class="section risk-section">
+      <h2 class="risk-heading">
+        Most SMEs in Ireland, Northern Ireland &amp; the UK are one incident away from a
+        <span>denied insurance claim</span> or a <span>GDPR Article 32 breach</span>.
+      </h2>
+
+      <div class="risk-grid">
+        <article class="risk-card">
+          <div class="pill">GDPR</div>
+          <h3>GDPR Article 32: Restorable, Resilient Systems</h3>
+          <p>You are <strong>legally required</strong> to ensure the “integrity, availability and resilience” of your systems.</p>
+          <p>You must be able to restore personal data from backups after an incident — and prove that you can.</p>
+          <p class="emph">Cloud-only setups with no independent backup are not compliant.</p>
+        </article>
+
+        <article class="risk-card">
+          <div class="pill">Insurance</div>
+          <h3>Cyber Insurance Demands 3-2-1 Backups</h3>
+          <p>Insurers increasingly require 3-2-1 backup, immutable copies and regular restore testing.</p>
+          <p>“We thought OneDrive was our backup” is not acceptable to an assessor.</p>
+          <p class="emph">No independent off-site backup → your claim can be refused.</p>
+        </article>
+
+        <article class="risk-card">
+          <div class="pill">Real Loss</div>
+          <h3>Cloud Syncs the Damage</h3>
+          <p>When ransomware encrypts files, or a staff member deletes a folder, your cloud syncs that change everywhere.</p>
+          <p>By the time you realise, the “backup” has already overwritten itself.</p>
+          <p class="emph">If your cloud copy is gone, it’s gone — unless you have a real backup.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CLOUD ≠ BACKUP -->
+    <section class="section cloud-section">
+      <div class="cloud-shell">
+        <h2>Cloud Is Not a Backup — and Microsoft Says So</h2>
+        <p>
+          Cloud solves convenience. It does not solve data protection, ransomware resilience, or disaster recovery.
+          This is why MSPs worldwide make millions selling backup on top of Microsoft 365 and Google Workspace.
+        </p>
+
+        <div class="cloud-cols">
+          <div class="cloud-box">
+            <h3>Cloud is great for:</h3>
+            <ul>
+              <li>✔ File sync</li>
+              <li>✔ Collaboration</li>
+              <li>✔ Access from anywhere</li>
+            </ul>
+          </div>
+          <div class="cloud-box">
+            <h3>Cloud is not a backup for:</h3>
+            <ul>
+              <li>❌ Immutable backups</li>
+              <li>❌ Long-term retention</li>
+              <li>❌ Offline / independent copies</li>
+              <li>❌ Ransomware resilience</li>
+              <li>❌ Disaster recovery</li>
+              <li>❌ Regulatory compliance in many sectors</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="cloud-quote">
+          Microsoft and Google both state that customers are responsible for backing up their own data and maintaining their own retention policies.
+          BoltProof is the independent backup and DR layer your cloud does not provide.
+        </p>
+      </div>
+    </section>
+
+    <!-- STaaS EXPLAINER -->
+    <section class="section">
+      <div class="staas-shell">
+        <h2>What BoltProof Actually Does</h2>
+        <p>
+          BoltProof installs a dedicated backup appliance in your office and replicates your encrypted data to two secure
+          locations in Ireland. If anything goes wrong — ransomware, fire, theft, hardware failure, accidental deletion —
+          we restore everything. Fast. This is managed Storage-as-a-Service for SMEs who need to be back in business
+          tomorrow, not “when IT gets around to it”.
+        </p>
+
+        <div class="arch-diagram">
+          <div class="arch-flow">
+            <div class="arch-node">Client Office (Onsite NAS)</div>
+            <span>→</span>
+            <div class="arch-node">BoltProof Vault (Primary Encrypted Copy)</div>
+            <span>→</span>
+            <div class="arch-node">BoltProof DR Site (Secondary Encrypted Copy)</div>
+          </div>
+          <div>3 copies. 2 locations. 1 outcome: your data always comes back.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGULATORY / INSURANCE -->
+    <section class="section reg-section">
+      <h2 class="pricing-title">Why Regulators, Insurers &amp; Professional Bodies Care</h2>
+      <p class="pricing-subtitle">
+        BoltProof is designed to meet the expectations of GDPR, cyber insurers and sector regulators in accounting,
+        legal, health and construction.
+      </p>
+
+      <div class="reg-grid">
+        <article class="reg-card">
+          <div class="reg-pill">GDPR Article 32</div>
+          <h3>Integrity, Availability &amp; Resilience</h3>
+          <p>Requires:</p>
+          <ul>
+            <li>Independent backups</li>
+            <li>Ability to fully restore systems</li>
+            <li>Disaster recovery processes</li>
+            <li>Regular verification of effectiveness</li>
+          </ul>
+        </article>
+
+        <article class="reg-card">
+          <div class="reg-pill">Cyber Insurance</div>
+          <h3>Eligibility &amp; Claim Defence</h3>
+          <p>Insurers expect:</p>
+          <ul>
+            <li>3-2-1 backup approach</li>
+            <li>Offline / immutable copy</li>
+            <li>Non-production backup environment</li>
+            <li>Evidence of restore testing</li>
+          </ul>
+        </article>
+
+        <article class="reg-card">
+          <div class="reg-pill">Accountants &amp; Legal</div>
+          <h3>Retention &amp; Client File Protection</h3>
+          <p>Typical obligations:</p>
+          <ul>
+            <li>6+ year file retention</li>
+            <li>“Secure, recoverable systems”</li>
+            <li>Ability to restore full client histories</li>
+            <li>Evidence of DR capability</li>
+          </ul>
+        </article>
+
+        <article class="reg-card">
+          <div class="reg-pill">Clinics &amp; Construction</div>
+          <h3>Health Data &amp; Project Records</h3>
+          <p>Common requirements:</p>
+          <ul>
+            <li>Versioned backups of patient data</li>
+            <li>Offsite copies of key systems</li>
+            <li>Retention of drawings &amp; revisions</li>
+            <li>Documented DR plans</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- CASE EXAMPLES -->
+    <section class="section cases-section">
+      <div class="cases-shell">
+        <h2>Cloud-Only Failures Happen Every Year</h2>
+        <p>
+          These anonymised real-world scenarios show what happens when SMEs rely on cloud sync instead of independent backup.
+        </p>
+
+        <div class="case-list">
+          <div class="case-item">
+            <strong>Dental clinic – OneDrive only</strong>
+            <span>Ransomware encrypted local files → OneDrive synced encrypted files → no independent backup.  
+            Insurance refused the claim. Entire practice had to rebuild from paper and memory.</span>
+          </div>
+          <div class="case-item">
+            <strong>Law firm – cloud storage account deleted</strong>
+            <span>Disgruntled insider deleted a cloud storage account. No backups.  
+            10 years of case files gone. Firm never recovered.</span>
+          </div>
+          <div class="case-item">
+            <strong>Construction firm – SharePoint library deleted</strong>
+            <span>Project library deleted. Nobody noticed for 3 months.  
+            SharePoint retention expired → permanent loss of drawings and documentation.  
+            BoltProof-style retention would have restored everything in minutes.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section pricing-section" id="pricing">
+      <h2 class="pricing-title">Plans &amp; Pricing</h2>
+      <p class="pricing-subtitle">
+        Simple, contract-backed pricing. Hardware included. No hidden fees.  
+        Pricing based on total protected data size across PCs, servers &amp; cloud.
+      </p>
+
+      <div class="pricing-grid">
+        <!-- Standard -->
+        <article class="pricing-card">
+          <h3>Standard</h3>
+          <div class="price">€99<span>/month</span></div>
+          <div class="pricing-for">Up to 2TB of total data.</div>
+          <div class="pricing-extra">24-month contract. Rolling monthly thereafter.</div>
+          <ul>
+            <li>Onsite backup appliance (DS423+ class)</li>
+            <li>Onsite + BoltProof Vault + DR copy</li>
+            <li>30–90 day version history</li>
+            <li>Quarterly restore testing</li>
+            <li>Encrypted at rest and in transit</li>
+            <li>GDPR Article 32 compliance summary</li>
+          </ul>
+        </article>
+
+        <!-- Plus -->
+        <article class="pricing-card popular">
+          <div class="popular-badge">Most popular</div>
+          <h3>Plus</h3>
+          <div class="price">€129<span>/month</span></div>
+          <div class="pricing-for">Up to 6TB of total data.</div>
+          <div class="pricing-extra">24-month contract. Hardware owned by BoltProof.</div>
+          <ul>
+            <li>Onsite backup appliance (DS425+ class)</li>
+            <li>Everything in Standard</li>
+            <li>Microsoft 365 / Google Workspace backup (mail &amp; files)</li>
+            <li>90–180 day version history</li>
+            <li>Continuous backup monitoring</li>
+            <li>Full insurance &amp; GDPR evidence pack</li>
+          </ul>
+        </article>
+
+        <!-- Pro -->
+        <article class="pricing-card">
+          <h3>Pro</h3>
+          <div class="price">€149–€199<span>/month</span></div>
+          <div class="pricing-for">Up to 12TB of total data.</div>
+          <div class="pricing-extra">Price depends on retention (180–365 days).</div>
+          <ul>
+            <li>Onsite backup appliance (DS925+ class)</li>
+            <li>Everything in Plus</li>
+            <li>180–365 day version history</li>
+            <li>Monthly restore testing</li>
+            <li>Written incident response &amp; DR runbook</li>
+            <li>Direct liaison with insurers &amp; assessors</li>
+            <li>Director-friendly annual risk &amp; resilience report</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- AUDIT + ABOUT -->
+    <section class="section two-col-section" id="audit">
+      <div class="two-col">
+        <div>
+          <h2>How the Free Backup Audit Works</h2>
+          <ul>
+            <li>We review how your data is currently stored (cloud, servers, laptops, NAS, USB).</li>
+            <li>We check whether you can actually restore after ransomware, loss or deletion.</li>
+            <li>We compare your setup against GDPR Article 32 and typical cyber-insurance wording.</li>
+            <li>You get a simple one-page report: Safe, At Risk, or Critical — with plain English findings.</li>
+            <li>No sales pressure. You can take the report to your existing IT provider or ask us to implement BoltProof.</li>
+          </ul>
+          <a href="https://calendly.com/YOURCALENDLY/15min" class="btn-primary" target="_blank" rel="noopener">
+            Book audit now
+          </a>
+        </div>
+
+        <div id="about">
+          <h2>About BoltProof</h2>
+          <p class="about-text">
+            BoltProof is an Irish-owned managed Storage-as-a-Service and disaster recovery provider for SMEs across
+            Ireland, Northern Ireland and the United Kingdom. We specialise in practical, insurance-ready backup systems
+            for construction companies, trades, accountants, architects, solicitors, clinics and local businesses who
+            cannot afford data loss — but don’t want big-city consultancy fees or IT jargon.
+          </p>
+          <p class="about-locations">
+            Serving clients across Ireland, Northern Ireland &amp; the UK from Galway and the West.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <h2>The most expensive day in business is the day you discover you can’t restore.</h2>
+      <p>Insurance won’t wait. GDPR won’t wait. Ransomware won’t wait. Your backup has to be working before anything happens.</p>
+      <p style="margin-top:10px;">Phone: <a href="tel:+353892339862">+353 89 233 9862</a></p>
+      <p>Email: <a href="mailto:info@boltproof.com">info@boltproof.com</a></p>
+      <p style="margin-top:10px;">
+        Service area: All of Ireland, Northern Ireland &amp; the United Kingdom
+        (remote support and on-site by arrangement).
+      </p>
+
+      <div class="footer-cta">
+        <a href="https://calendly.com/YOURCALENDLY/15min" class="btn-outline-light" target="_blank" rel="noopener">
+          Book my free audit
+        </a>
+      </div>
+
+      <div class="footer-meta">
+        BoltProof is an Irish-owned managed Storage-as-a-Service provider • Galway, Ireland<br />
+        © 2025 BoltProof. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/353892339862" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16 3C9.373 3 4 8.373 4 15c0 2.57.842 4.95 2.293 6.899L5 27l5.25-1.26A11.9 11.9 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10a9.9 9.9 0 0 1-4.9-1.318l-.35-.205-3.11.747.83-3.03-.22-.312A9.9 9.9 0 0 1 6 15C6 9.486 10.486 5 16 5zm-3.13 4.5a1 1 0 0 0-.7.33c-.3.33-.98.96-.98 2.26 0 1.3.83 2.56.95 2.74.13.18 1.63 2.6 4.02 3.54 2.39.93 2.88.75 3.4.7.52-.05 1.68-.69 1.92-1.37.24-.68.24-1.26.17-1.37-.07-.11-.26-.18-.54-.32-.28-.14-1.68-.83-1.94-.92-.26-.1-.45-.14-.64.14-.19.27-.74.92-.9 1.11-.17.19-.33.21-.61.07-.28-.14-1.2-.44-2.29-1.4-.85-.76-1.42-1.7-1.59-1.98-.17-.28-.02-.43.13-.57.14-.14.28-.33.42-.49.14-.16.19-.27.28-.46.09-.19.04-.35-.02-.49-.07-.14-.61-1.46-.86-2-.22-.53-.45-.46-.63-.47z"/>
+    </svg>
+  </a>
+
+</body>
+</html>
