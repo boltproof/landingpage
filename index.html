@@ -25,8 +25,8 @@
       --accent-deep: #1d4ed8;
       --border-subtle: #e5e7eb;
       --danger: #dc2626;
-      --radius-card: 22px;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.06);
+      --radius-card: 14px;
+      --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.05);
     }
 
     * {
@@ -54,7 +54,7 @@
     .page {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 0 20px 48px;
+      padding: 0 16px 40px;
     }
 
     /* HEADER / NAV */
@@ -62,7 +62,7 @@
       position: sticky;
       top: 0;
       z-index: 40;
-      backdrop-filter: blur(18px);
+      backdrop-filter: blur(14px);
       background: rgba(255, 255, 255, 0.9);
       border-bottom: 1px solid rgba(229, 231, 235, 0.7);
     }
@@ -70,46 +70,46 @@
     .nav {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 14px 20px;
+      padding: 10px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 18px;
     }
 
     .logo {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       font-weight: 700;
-      font-size: 20px;
+      font-size: 18px;
       color: var(--text-main);
     }
 
     .logo-mark {
-      width: 26px;
-      height: 26px;
-      border-radius: 8px;
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
       background: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #ffffff;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
     }
 
     .nav-links {
       display: flex;
-      gap: 26px;
-      font-size: 14px;
+      gap: 20px;
+      font-size: 13px;
       font-weight: 500;
       color: var(--text-muted);
     }
 
     .nav-links a {
       position: relative;
-      padding-bottom: 3px;
+      padding-bottom: 2px;
     }
 
     .nav-links a::after {
@@ -133,77 +133,77 @@
 
     /* GENERAL SECTIONS */
     .section {
-      padding: 80px 0;
+      padding: 56px 0;
     }
 
     .section-title {
-      font-size: 26px;
+      font-size: 24px;
       text-align: left;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .section-intro {
       font-size: 14px;
       color: var(--text-muted);
-      margin-bottom: 26px;
+      margin-bottom: 20px;
       max-width: 720px;
     }
 
     /* HERO */
     .hero-shell {
-      margin-top: 24px;
+      margin-top: 18px;
       background: radial-gradient(circle at top, #ffffff 0, #f5f5f7 55%, #eef2ff 100%);
-      border-radius: 32px;
-      padding: 48px 40px;
-      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+      border-radius: 22px;
+      padding: 32px 24px;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
     }
 
     .hero-inner {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 40px;
+      gap: 24px;
       align-items: center;
     }
 
     .hero-tag {
-      font-size: 11px;
-      letter-spacing: 0.18em;
+      font-size: 10px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-
-    .hero h1 {
-      font-size: 32px;
-      line-height: 1.2;
-      font-weight: 800;
-      margin-bottom: 14px;
-      color: var(--text-main);
-    }
-
-    .hero-lead {
-      font-size: 15px;
       color: var(--text-muted);
       margin-bottom: 8px;
     }
 
+    .hero h1 {
+      font-size: 26px;
+      line-height: 1.25;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    .hero-lead {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
     .hero-lead-strong {
-      margin-top: 10px;
-      font-size: 15px;
+      margin-top: 8px;
+      font-size: 14px;
       color: #374151;
     }
 
     .hero-fact {
-      margin-top: 12px;
-      font-size: 13px;
+      margin-top: 10px;
+      font-size: 12px;
       color: var(--danger);
       font-weight: 600;
     }
 
     .hero-note {
-      margin-top: 16px;
-      font-size: 13px;
+      margin-top: 10px;
+      font-size: 12px;
       color: var(--text-muted);
     }
 
@@ -214,48 +214,48 @@
 
     .hero-card {
       width: 100%;
-      max-width: 340px;
+      max-width: 320px;
       background: #ffffff;
-      border-radius: 22px;
-      padding: 22px 22px 24px;
+      border-radius: var(--radius-card);
+      padding: 18px 18px 20px;
       border: 1px solid #e0e7ff;
       box-shadow: var(--shadow-soft);
-      font-size: 13px;
+      font-size: 12px;
     }
 
     .hero-card-title {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--text-muted);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .hero-lock {
-      height: 120px;
-      border-radius: 18px;
+      height: 110px;
+      border-radius: 16px;
       background: radial-gradient(circle at top, #ffffff 0, #dbeafe 45%, #bfdbfe 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .lock-body {
-      width: 62px;
-      height: 72px;
-      border-radius: 18px;
+      width: 56px;
+      height: 64px;
+      border-radius: 16px;
       background: #ffffff;
       position: relative;
-      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.28);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.26);
     }
 
     .lock-body::before {
       content: "";
       position: absolute;
-      left: 10px;
-      right: 10px;
-      top: -22px;
-      height: 30px;
+      left: 9px;
+      right: 9px;
+      top: -18px;
+      height: 26px;
       border-radius: 999px;
       border: 4px solid #ffffff;
       border-bottom-color: transparent;
@@ -265,10 +265,10 @@
       content: "";
       position: absolute;
       left: 50%;
-      top: 34px;
+      top: 30px;
       transform: translateX(-50%);
-      width: 10px;
-      height: 22px;
+      width: 9px;
+      height: 20px;
       border-radius: 999px;
       background: #1e3a8a;
     }
@@ -276,8 +276,8 @@
     .hero-metrics {
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      font-size: 12px;
+      gap: 3px;
+      font-size: 11px;
       color: var(--text-muted);
     }
 
@@ -288,11 +288,11 @@
 
     /* FACT GRID */
     .fact-heading {
-      font-size: 24px;
+      font-size: 22px;
       line-height: 1.4;
       text-align: center;
-      max-width: 780px;
-      margin: 0 auto 40px;
+      max-width: 760px;
+      margin: 0 auto 28px;
       font-weight: 600;
       color: var(--text-main);
     }
@@ -304,15 +304,15 @@
     .fact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 26px;
+      gap: 20px;
       max-width: 1040px;
       margin: 0 auto;
     }
 
     .fact-card {
       background: #ffffff;
-      border-radius: 22px;
-      padding: 24px 22px 26px;
+      border-radius: var(--radius-card);
+      padding: 20px 18px 20px;
       border: 1px solid var(--border-subtle);
       font-size: 14px;
       color: #374151;
@@ -322,170 +322,171 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 4px 10px;
+      padding: 3px 9px;
       border-radius: 999px;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       background: #eef2ff;
       color: #1d4ed8;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     .fact-card h3 {
-      font-size: 16px;
-      margin-bottom: 8px;
+      font-size: 15px;
+      margin-bottom: 6px;
     }
 
     .fact-card p {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .fact-card p.emph {
-      margin-top: 8px;
+      margin-top: 6px;
       color: var(--danger);
       font-weight: 600;
     }
 
     .fact-card ul {
-      margin-top: 8px;
-      padding-left: 18px;
-      line-height: 1.7;
+      margin-top: 6px;
+      padding-left: 16px;
+      line-height: 1.6;
     }
 
     /* CLOUD SECTION */
     .cloud-section {
-      padding-top: 48px;
+      padding-top: 40px;
     }
 
     .cloud-shell {
       max-width: 960px;
       margin: 0 auto;
       background: var(--bg-subtle);
-      border-radius: 24px;
-      padding: 32px 28px 30px;
+      border-radius: 18px;
+      padding: 24px 22px 22px;
       border: 1px solid var(--border-subtle);
     }
 
     .cloud-shell h2 {
-      font-size: 22px;
-      margin-bottom: 10px;
+      font-size: 20px;
+      margin-bottom: 8px;
     }
 
     .cloud-shell p {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .cloud-cols {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 24px;
-      margin-top: 12px;
+      gap: 18px;
+      margin-top: 10px;
     }
 
     .cloud-box h3 {
-      font-size: 14px;
-      margin-bottom: 6px;
+      font-size: 13px;
+      margin-bottom: 4px;
     }
 
     .cloud-box ul {
-      font-size: 13px;
-      line-height: 1.7;
-      padding-left: 18px;
+      font-size: 12px;
+      line-height: 1.6;
+      padding-left: 16px;
       color: #374151;
     }
 
     .cloud-quote {
-      font-size: 13px;
+      font-size: 12px;
       color: #4b5563;
-      margin-top: 12px;
+      margin-top: 10px;
       font-style: italic;
     }
 
     /* ARCH */
     .staas-shell {
-      margin-top: 80px;
+      margin-top: 48px;
       background: var(--bg-subtle);
-      border-radius: 26px;
-      padding: 40px 32px 34px;
+      border-radius: 18px;
+      padding: 26px 22px 22px;
       border: 1px solid var(--border-subtle);
     }
 
     .staas-shell h2 {
-      font-size: 24px;
+      font-size: 20px;
       text-align: left;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .staas-shell p {
       max-width: 820px;
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-muted);
-      line-height: 1.8;
-      margin-bottom: 6px;
+      line-height: 1.7;
+      margin-bottom: 5px;
     }
 
     .arch-diagram {
-      margin-top: 20px;
+      margin-top: 14px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 10px;
-      font-size: 13px;
+      gap: 8px;
+      font-size: 12px;
       color: var(--text-muted);
     }
 
     .arch-flow {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
-      font-size: 13px;
+      font-size: 12px;
     }
 
     .arch-node {
-      padding: 7px 12px;
+      padding: 6px 10px;
       border-radius: 999px;
       background: #ffffff;
       border: 1px solid var(--border-subtle);
       font-weight: 500;
+      font-size: 12px;
     }
 
     /* CASES */
     .cases-section {
-      padding-top: 72px;
+      padding-top: 48px;
     }
 
     .cases-shell {
       max-width: 960px;
       margin: 0 auto;
-      border-radius: 24px;
+      border-radius: 18px;
       border: 1px solid var(--border-subtle);
       background: var(--bg-soft);
-      padding: 28px 26px 26px;
+      padding: 22px 20px 20px;
     }
 
     .cases-shell h2 {
-      font-size: 22px;
-      margin-bottom: 10px;
+      font-size: 20px;
+      margin-bottom: 8px;
     }
 
     .cases-shell p {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .case-list {
       display: grid;
       grid-template-columns: minmax(0, 1fr);
-      gap: 12px;
-      font-size: 13px;
+      gap: 10px;
+      font-size: 12px;
       color: #111827;
     }
 
@@ -500,75 +501,76 @@
 
     /* ABOUT / SKILLS / CONTACT */
     .two-col-section {
-      padding-top: 80px;
+      padding-top: 56px;
     }
 
     .two-col {
       display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-      gap: 40px;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 28px;
       align-items: flex-start;
     }
 
     .two-col h2 {
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
-
-    .two-col ul {
-      font-size: 14px;
-      color: #374151;
-      line-height: 1.8;
-      padding-left: 20px;
-      margin-bottom: 18px;
-    }
-
-    .two-col ul li + li {
-      margin-top: 6px;
-    }
-
-    .about-text {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.8;
+      font-size: 22px;
       margin-bottom: 10px;
     }
 
-    .about-locations {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--accent);
+    .two-col ul {
+      font-size: 13px;
+      color: #374151;
+      line-height: 1.7;
+      padding-left: 18px;
+      margin-bottom: 14px;
     }
 
-    .skills-list {
-      font-size: 14px;
-      color: #374151;
-      line-height: 1.8;
-      padding-left: 20px;
+    .two-col ul li + li {
+      margin-top: 4px;
+    }
+
+    .about-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+
+    .about-locations {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
       margin-top: 8px;
     }
 
+    .skills-list {
+      font-size: 13px;
+      color: #374151;
+      line-height: 1.7;
+      padding-left: 18px;
+      margin-top: 6px;
+    }
+
     .skills-list li + li {
-      margin-top: 4px;
+      margin-top: 3px;
     }
 
     .contact-card {
       background: #020617;
       color: #e5e7eb;
-      border-radius: 20px;
-      padding: 22px 20px 20px;
+      border-radius: 16px;
+      padding: 18px 16px 16px;
     }
 
     .contact-card h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
+      font-size: 16px;
+      margin-bottom: 6px;
       color: #ffffff;
     }
 
     .contact-card p {
-      font-size: 13px;
+      font-size: 12px;
       color: #9ca3af;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
 
     .contact-card a {
@@ -576,62 +578,62 @@
     }
 
     .contact-note {
-      margin-top: 10px;
-      font-size: 12px;
+      margin-top: 8px;
+      font-size: 11px;
       color: #9ca3af;
     }
 
     /* FOOTER */
     footer {
-      margin-top: 72px;
-      padding: 20px 0 10px;
+      margin-top: 48px;
+      padding: 14px 0 8px;
       border-top: 1px solid #e5e7eb;
     }
 
     .footer-inner {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 16px;
       font-size: 11px;
       color: #6b7280;
       text-align: left;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     /* WHATSAPP FLOAT */
     .whatsapp-float {
       position: fixed;
-      right: 18px;
-      bottom: 20px;
-      width: 54px;
-      height: 54px;
+      right: 16px;
+      bottom: 18px;
+      width: 50px;
+      height: 50px;
       border-radius: 999px;
       background: #22c55e;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 18px 36px rgba(22, 163, 74, 0.45);
+      box-shadow: 0 14px 28px rgba(22, 163, 74, 0.4);
       z-index: 60;
       cursor: pointer;
     }
 
     .whatsapp-float svg {
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
       fill: #ffffff;
     }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .hero-shell {
-        padding: 36px 24px;
+        padding: 26px 18px;
       }
       .hero-inner {
         grid-template-columns: minmax(0, 1fr);
-        gap: 32px;
+        gap: 20px;
       }
       .hero h1 {
-        font-size: 28px;
+        font-size: 23px;
       }
       .nav-links {
         display: none;
@@ -646,10 +648,10 @@
 
     @media (max-width: 600px) {
       .section {
-        padding: 64px 0;
+        padding: 44px 0;
       }
       .fact-heading {
-        font-size: 21px;
+        font-size: 19px;
       }
     }
   </style>
@@ -884,7 +886,7 @@
             small organisations can think about resilience without huge budgets.
           </p>
 
-          <h3 style="font-size:16px;margin-top:18px;margin-bottom:6px;">Areas I’m comfortable with</h3>
+          <h3 style="font-size:15px;margin-top:14px;margin-bottom:4px;">Areas I’m comfortable with</h3>
           <ul class="skills-list">
             <li>Designing simple 3-2-1 style backup layouts for small offices.</li>
             <li>Microsoft 365 / OneDrive / SharePoint basic administration and data-protection considerations.</li>
