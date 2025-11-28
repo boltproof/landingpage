@@ -57,6 +57,11 @@
       padding: 0 16px 40px;
     }
 
+    /* NEW FIX: Prevent anchor sections from scrolling under sticky header */
+    section[id] {
+      scroll-margin-top: 90px;
+    }
+
     /* HEADER / NAV */
     header {
       position: sticky;
@@ -656,305 +661,287 @@
     }
   </style>
 </head>
+
 <body>
 
-  <header>
-    <div class="nav">
-      <div class="logo">
-        <div class="logo-mark">BP</div>
-        <span>BoltProof</span>
-      </div>
-      <nav class="nav-links">
-        <a href="#top">Overview</a>
-        <a href="#facts">Key Facts</a>
-        <a href="#risk">Examples</a>
-        <a href="#about">About</a>
-      </nav>
+<header>
+  <div class="nav">
+    <div class="logo">
+      <div class="logo-mark">BP</div>
+      <span>BoltProof</span>
     </div>
-  </header>
+    <nav class="nav-links">
+      <a href="#top">Overview</a>
+      <a href="#facts">Key Facts</a>
+      <a href="#risk">Examples</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+</header>
 
-  <main class="page">
+<main class="page">
 
-    <!-- HERO: FACTUAL INTRO -->
-    <section class="section hero" id="top">
-      <div class="hero-shell">
-        <div class="hero-inner">
-          <div>
-            <div class="hero-tag">Cloud • Backup • Ransomware • Compliance</div>
-            <h1>The reality of data protection for small and mid-sized organisations.</h1>
-            <p class="hero-lead">
-              Many SMEs assume that using Microsoft 365, Google Workspace or similar platforms automatically means they are “backed up”.
-            </p>
-            <p class="hero-lead-strong">
-              In practice, these services are designed for access and collaboration — not for independent, offline, versioned backup or full disaster recovery.
-            </p>
-            <p class="hero-fact">
-              If a file is deleted, encrypted or overwritten in a typical cloud-only setup, that change is usually synchronised everywhere.
-              Without a separate backup, the data is often gone.
-            </p>
-            <p class="hero-note">
-              This page is purely informational. It summarises how cloud, backup, ransomware and compliance interact in real life for SMEs in Ireland, Northern Ireland and the UK.
-              It does not constitute legal advice or formal security guidance.
-            </p>
-          </div>
+  <!-- HERO -->
+  <section class="section hero" id="top">
+    <div class="hero-shell">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-tag">Cloud • Backup • Ransomware • Compliance</div>
+          <h1>The reality of data protection for small and mid-sized organisations.</h1>
+          <p class="hero-lead">
+            Many SMEs assume that using Microsoft 365, Google Workspace or similar platforms automatically means they are “backed up”.
+          </p>
+          <p class="hero-lead-strong">
+            In practice, these services are designed for access and collaboration — not for independent, offline, versioned backup or full disaster recovery.
+          </p>
+          <p class="hero-fact">
+            If a file is deleted, encrypted or overwritten in a typical cloud-only setup, that change is usually synchronised everywhere.
+            Without a separate backup, the data is often gone.
+          </p>
+          <p class="hero-note">
+            This page is purely informational. It summarises how cloud, backup, ransomware and compliance interact in real life for SMEs in Ireland, Northern Ireland and the UK.
+            It does not constitute legal advice or formal security guidance.
+          </p>
+        </div>
 
-          <div class="hero-visual">
-            <div class="hero-card">
-              <div class="hero-card-title">At a glance</div>
-              <div class="hero-lock">
-                <div class="lock-body"></div>
-              </div>
-              <div class="hero-metrics">
-                <div><strong>Cloud:</strong> Excellent for access, collaboration and sync.</div>
-                <div><strong>Backup:</strong> Requires independent copies, retention and restore testing.</div>
-                <div><strong>Compliance:</strong> Driven by GDPR, insurance wording and sector rules.</div>
-              </div>
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="hero-card-title">At a glance</div>
+            <div class="hero-lock">
+              <div class="lock-body"></div>
+            </div>
+            <div class="hero-metrics">
+              <div><strong>Cloud:</strong> Excellent for access, collaboration and sync.</div>
+              <div><strong>Backup:</strong> Requires independent copies, retention and restore testing.</div>
+              <div><strong>Compliance:</strong> Driven by GDPR, insurance wording and sector rules.</div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- KEY FACTS -->
-    <section class="section" id="facts">
-      <h2 class="fact-heading">
-        Key points: cloud sync is not the same as independent backup, and this has consequences for
-        <span>data loss</span>, <span>regulatory duties</span> and <span>insurance cover</span>.
-      </h2>
+  <!-- KEY FACTS -->
+  <section class="section" id="facts">
+    <h2 class="fact-heading">
+      Key points: cloud sync is not the same as independent backup, and this has consequences for
+      <span>data loss</span>, <span>regulatory duties</span> and <span>insurance cover</span>.
+    </h2>
 
-      <div class="fact-grid">
-        <article class="fact-card">
-          <div class="pill">Cloud vs Backup</div>
-          <h3>Cloud services are not full backups</h3>
-          <p>
-            Cloud storage (OneDrive, Google Drive, Dropbox, etc.) is primarily a synchronisation and access service.
-            It keeps multiple devices in step and makes files easy to reach from different locations.
-          </p>
-          <p>
-            When files are deleted, encrypted or overwritten, those changes are normally propagated to the cloud copy as well.
-          </p>
-          <p class="emph">
-            Without a separate backup system, the “copy” in the cloud is likely to be affected in the same way as the original.
-          </p>
-        </article>
-
-        <article class="fact-card">
-          <div class="pill">Responsibilities</div>
-          <h3>Vendors expect customers to handle backup</h3>
-          <p>
-            Major cloud providers operate on a shared-responsibility model: they keep their platforms running, but customers are expected
-            to manage their own backup, retention and recovery strategies.
-          </p>
-          <p>
-            This is standard, but it can be surprising for organisations who assume that “in the cloud” automatically means “fully protected”.
-          </p>
-        </article>
-
-        <article class="fact-card">
-          <div class="pill">Regulation</div>
-          <h3>GDPR emphasises resilience and restoration</h3>
-          <p>
-            Article 32 of the GDPR refers to the “integrity, availability and resilience” of systems and the ability to restore access to personal data in a timely manner after an incident.
-          </p>
-          <p class="emph">
-            In real-world practice, this typically requires independent backups and the ability to demonstrate that restoration is possible.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- CLOUD SECTION -->
-    <section class="section cloud-section">
-      <div class="cloud-shell">
-        <h2>What cloud does well – and where it stops</h2>
+    <div class="fact-grid">
+      <article class="fact-card">
+        <div class="pill">Cloud vs Backup</div>
+        <h3>Cloud services are not full backups</h3>
         <p>
-          Cloud platforms are hugely valuable, and this page is not an argument against using them. The goal is simply
-          to clarify what they do, and what they do not do, from a data-protection perspective.
-        </p>
-
-        <div class="cloud-cols">
-          <div class="cloud-box">
-            <h3>Cloud services typically provide:</h3>
-            <ul>
-              <li>✔ File synchronisation across multiple devices</li>
-              <li>✔ Browser and mobile access from almost anywhere</li>
-              <li>✔ Collaboration features such as sharing and co-authoring</li>
-              <li>✔ Basic recycle-bin or short-term retention</li>
-            </ul>
-          </div>
-          <div class="cloud-box">
-            <h3>They are not a full replacement for:</h3>
-            <ul>
-              <li>❌ Long-term, independent backup copies</li>
-              <li>❌ Offline or immutable copies resistant to ransomware</li>
-              <li>❌ Structured retention for 6+ years of client or patient records</li>
-              <li>❌ Tested disaster-recovery plans for whole servers or locations</li>
-              <li>❌ Detailed evidence packs for insurers or regulators</li>
-            </ul>
-          </div>
-        </div>
-
-        <p class="cloud-quote">
-          In simple terms: cloud is about working with your data. Backup and disaster recovery are about getting it back
-          when something goes badly wrong.
-        </p>
-      </div>
-    </section>
-
-    <!-- ARCHITECTURE EXAMPLE -->
-    <section class="section">
-      <div class="staas-shell">
-        <h2>A typical resilient approach (vendor-neutral)</h2>
-        <p>
-          Many organisations move towards a “3-2-1” style model: at least three copies of important data, on two
-          different types of storage or locations, with at least one copy kept logically separate from everyday systems.
+          Cloud storage (OneDrive, Google Drive, Dropbox, etc.) is primarily a synchronisation and access service.
+          It keeps multiple devices in step and makes files easy to reach from different locations.
         </p>
         <p>
-          The exact design varies, but a common pattern is to combine local backup, an encrypted off-site copy, and a
-          separate disaster-recovery location or service.
+          When files are deleted, encrypted or overwritten, those changes are normally propagated to the cloud copy as well.
         </p>
+        <p class="emph">
+          Without a separate backup system, the “copy” in the cloud is likely to be affected in the same way as the original.
+        </p>
+      </article>
 
-        <div class="arch-diagram">
-          <div class="arch-flow">
-            <div class="arch-node">Production systems (PCs, servers, cloud)</div>
-            <span>→</span>
-            <div class="arch-node">Local backup (onsite)</div>
-            <span>→</span>
-            <div class="arch-node">Encrypted off-site backup</div>
-            <span>→</span>
-            <div class="arch-node">Optional DR site or service</div>
-          </div>
-          <div>
-            This does not eliminate all risk, but it significantly reduces the chance that a single event can remove
-            every copy of critical data at once.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CASES / REAL INCIDENTS -->
-    <section class="section cases-section" id="risk">
-      <div class="cases-shell">
-        <h2>Examples of what can go wrong with cloud-only setups</h2>
+      <article class="fact-card">
+        <div class="pill">Responsibilities</div>
+        <h3>Vendors expect customers to handle backup</h3>
         <p>
-          The scenarios below are simplified and anonymised, but they reflect patterns seen repeatedly in small and
-          mid-sized organisations.
+          Major cloud providers operate on a shared-responsibility model: they keep their platforms running, but customers are expected
+          to manage their own backup, retention and recovery strategies.
         </p>
+        <p>
+          This is standard, but it can be surprising for organisations who assume that “in the cloud” automatically means “fully protected”.
+        </p>
+      </article>
 
-        <div class="case-list">
-          <div class="case-item">
-            <strong>Healthcare clinic – cloud sync and ransomware</strong>
-            <span>
-              Workstations were synchronised to a cloud drive. Ransomware encrypted local files and the encrypted
-              versions were promptly synchronised. With no independent backup, there was no clean copy to restore.
-              Operations were severely disrupted and a great deal of time was spent rebuilding records.
-            </span>
-          </div>
-          <div class="case-item">
-            <strong>Professional services firm – insider deletion</strong>
-            <span>
-              A departing staff member deleted shared folders from a cloud workspace. The deletion was only noticed
-              months later, after standard retention had expired. Without separate backups, years of documents were lost.
-            </span>
-          </div>
-          <div class="case-item">
-            <strong>Construction business – accidental overwrites</strong>
-            <span>
-              Drawings and project documents were stored entirely in a single cloud location. Overwrites and deletions
-              during a project left the team unsure which version was correct. With no structured backup or versioning
-              strategy, some earlier states could not be recovered.
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
+      <article class="fact-card">
+        <div class="pill">Regulation</div>
+        <h3>GDPR emphasises resilience and restoration</h3>
+        <p>
+          Article 32 of the GDPR refers to the “integrity, availability and resilience” of systems and the ability to restore access to personal data in a timely manner after an incident.
+        </p>
+        <p class="emph">
+          In real-world practice, this typically requires independent backups and the ability to demonstrate that restoration is possible.
+        </p>
+      </article>
+    </div>
+  </section>
 
-    <!-- ABOUT / SKILLS / CONTACT -->
-    <section class="section two-col-section" id="about">
-      <div class="two-col">
-        <div>
-          <h2>About this page &amp; the person behind it</h2>
-          <p class="about-text">
-            My name is <strong>Elias Thomaidis</strong>. I live in the Ballinasloe / Galway area and have spent years
-            working with cloud services, backup technologies and financial-services infrastructure. This page exists
-            purely to explain, in plain language, how cloud, backup, ransomware and compliance interact for smaller
-            organisations.
-          </p>
-          <p class="about-text">
-            It is not tied to a commercial package or a product. The goal is simply to show that I understand the
-            practical realities: what actually fails in the real world, what regulators and insurers expect, and how
-            small organisations can think about resilience without huge budgets.
-          </p>
+  <!-- CLOUD SECTION -->
+  <section class="section cloud-section">
+    <div class="cloud-shell">
+      <h2>What cloud does well – and where it stops</h2>
+      <p>
+        Cloud platforms are hugely valuable, and this page is not an argument against using them. The goal is simply
+        to clarify what they do, and what they do not do, from a data-protection perspective.
+      </p>
 
-          <h3 style="font-size:15px;margin-top:14px;margin-bottom:4px;">Areas I’m comfortable with</h3>
-          <ul class="skills-list">
-            <li>Designing simple 3-2-1 style backup layouts for small offices.</li>
-            <li>Microsoft 365 / OneDrive / SharePoint basic administration and data-protection considerations.</li>
-            <li>Synology NAS setup (RAID, SHR, snapshots, Hyper Backup, off-site replication).</li>
-            <li>Basic networking for small sites (routers, VLANs, remote access, VPN considerations).</li>
-            <li>Translating technical risk into plain-English explanations for owners and managers.</li>
+      <div class="cloud-cols">
+        <div class="cloud-box">
+          <h3>Cloud services typically provide:</h3>
+          <ul>
+            <li>✔ File synchronisation across multiple devices</li>
+            <li>✔ Browser and mobile access from almost anywhere</li>
+            <li>✔ Collaboration features such as sharing and co-authoring</li>
+            <li>✔ Basic recycle-bin or short-term retention</li>
           </ul>
+        </div>
+        <div class="cloud-box">
+          <h3>They are not a full replacement for:</h3>
+          <ul>
+            <li>❌ Long-term, independent backup copies</li>
+            <li>❌ Offline or immutable copies resistant to ransomware</li>
+            <li>❌ Structured retention for 6+ years of client or patient records</li>
+            <li>❌ Tested disaster-recovery plans for whole servers or locations</li>
+            <li>❌ Detailed evidence packs for insurers or regulators</li>
+          </ul>
+        </div>
+      </div>
 
-          <p class="about-locations">
-            I’m currently open to local IT support / infrastructure roles in Galway, Ballinasloe, Athlone and the wider region.
-          </p>
+      <p class="cloud-quote">
+        In simple terms: cloud is about working with your data. Backup and disaster recovery are about getting it back
+        when something goes badly wrong.
+      </p>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE EXAMPLE -->
+  <section class="section">
+    <div class="staas-shell">
+      <h2>A typical resilient approach (vendor-neutral)</h2>
+      <p>
+        Many organisations move towards a “3-2-1” style model: at least three copies of important data, on two
+        different types of storage or locations, with at least one copy kept logically separate from everyday systems.
+      </p>
+      <p>
+        The exact design varies, but a common pattern is to combine local backup, an encrypted off-site copy, and a
+        separate disaster-recovery location or service.
+      </p>
+
+      <div class="arch-diagram">
+        <div class="arch-flow">
+          <div class="arch-node">Production systems (PCs, servers, cloud)</div>
+          <span>→</span>
+          <div class="arch-node">Local backup (onsite)</div>
+          <span>→</span>
+          <div class="arch-node">Encrypted off-site backup</div>
+          <span>→</span>
+          <div class="arch-node">Optional DR site or service</div>
+        </div>
+        <div>
+          This does not eliminate all risk, but it significantly reduces the chance that a single event can remove
+          every copy of critical data at once.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section class="section cases-section" id="risk">
+    <div class="cases-shell">
+      <h2>Examples of what can go wrong with cloud-only setups</h2>
+      <p>
+        The scenarios below are simplified and anonymised, but they reflect patterns seen repeatedly in small and
+        mid-sized organisations.
+      </p>
+
+      <div class="case-list">
+        <div class="case-item">
+          <strong>Healthcare clinic – cloud sync and ransomware</strong>
+          <span>
+            Workstations were synchronised to a cloud drive. Ransomware encrypted local files and the encrypted
+            versions were promptly synchronised. With no independent backup, there was no clean copy to restore.
+            Operations were severely disrupted and a great deal of time was spent rebuilding records.
+          </span>
         </div>
 
-        <aside class="contact-card">
-          <h3>Contact Elias</h3>
-          <p>
-            If you would like to talk about your current backup and recovery posture, or you are hiring for an IT support /
-            systems role and want to understand how I think about these topics, you can reach me here:
-          </p>
-          <p><strong>Phone:</strong> <a href="tel:+353892339862">+353 89 233 9862</a></p>
-          <p><strong>Email:</strong> <a href="mailto:elias@boltproof.com">elias@boltproof.com</a></p>
-          <p><strong>WhatsApp:</strong> Use the green icon in the corner of this page.</p>
-          <p class="contact-note">
-            Conversations are informal and factual. This site does not sell a specific service; it simply reflects how I
-            approach cloud, backup and resilience for smaller organisations.
-          </p>
-        </aside>
+        <div class="case-item">
+          <strong>Professional services firm – insider deletion</strong>
+          <span>
+            A departing staff member deleted shared folders from a cloud workspace. The deletion was only noticed
+            months later, after standard retention had expired. Without separate backups, years of documents were lost.
+          </span>
+        </div>
+
+        <div class="case-item">
+          <strong>Construction business – accidental overwrites</strong>
+          <span>
+            Drawings and project documents were stored entirely in a single cloud location. Overwrites and deletions
+            during a project left the team unsure which version was correct. With no structured backup or versioning
+            strategy, some earlier states could not be recovered.
+          </span>
+        </div>
       </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      This website is intended as a general, non-commercial information resource. It does not provide legal advice and
-      does not speak on behalf of regulators, insurers or professional bodies. Organisations should obtain their own
-      professional advice for their specific situation.<br />
-      © 2025 BoltProof / Elias Thomaidis. All rights reserved.
     </div>
-  </footer>
+  </section>
 
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/353892339862" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-    <svg viewBox="0 0 32 32" aria-hidden="true">
-      <path d="M16 3C9.373 3 4 8.373 4 15c0 2.57.842 4.95 2.293 6.899L5 27l5.25-1.26A11.9 11.9 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10a9.9 9.9 0 0 1-4.9-1.318l-.35-.205-3.11.747.83-3.03-.22-.312A9.9 9.9 0 0 1 6 15C6 9.486 10.486 5 16 5zm-3.13 4.5a1 1 0 0 0-.7.33c-.3.33-.98.96-.98 2.26 0 1.3.83 2.56.95 2.74.13.18 1.63 2.6 4.02 3.54 2.39.93 2.88.75 3.4.7.52-.05 1.68-.69 1.92-1.37.24-.68.24-1.26.17-1.37-.07-.11-.26-.18-.54-.32-.28-.14-1.68-.83-1.94-.92-.26-.1-.45-.14-.64.14-.19.27-.74.92-.9 1.11-.17.19-.33.21-.61.07-.28-.14-1.2-.44-2.29-1.4-.85-.76-1.42-1.7-1.59-1.98-.17-.28-.02-.43.13-.57.14-.14.28-.33.42-.49.14-.16.19-.27.28-.46.09-.19.04-.35-.02-.49-.07-.14-.61-1.46-.86-2-.22-.53-.45-.46-.63-.47z"/>
-    </svg>
-  </a>
+  <!-- ABOUT -->
+  <section class="section two-col-section" id="about">
+    <div class="two-col">
+      <div>
+        <h2>About this page &amp; the person behind it</h2>
+        <p class="about-text">
+          My name is <strong>Elias Thomaidis</strong>. I live in the Ballinasloe / Galway area and have spent years
+          working with cloud services, backup technologies and financial-services infrastructure. This page exists
+          purely to explain, in plain language, how cloud, backup, ransomware and compliance interact for smaller
+          organisations.
+        </p>
+        <p class="about-text">
+          It is not tied to a commercial package or a product. The goal is simply to show that I understand the
+          practical realities: what actually fails in the real world, what regulators and insurers expect, and how
+          small organisations can think about resilience without huge budgets.
+        </p>
 
-</body>
-</html>
+        <h3 style="font-size:15px;margin-top:14px;margin-bottom:4px;">Areas I’m comfortable with</h3>
+        <ul class="skills-list">
+          <li>Designing simple 3-2-1 style backup layouts for small offices.</li>
+          <li>Microsoft 365 / OneDrive / SharePoint basic administration and data-protection considerations.</li>
+          <li>Synology NAS setup (RAID, SHR, snapshots, Hyper Backup, off-site replication).</li>
+          <li>Basic networking for small sites (routers, VLANs, remote access, VPN considerations).</li>
+          <li>Translating technical risk into plain-English explanations for owners and managers.</li>
+        </ul>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      This website is intended as a general, non-commercial information resource. It does not provide legal advice and
-      does not speak on behalf of regulators, insurers or professional bodies. Organisations should obtain their own
-      professional advice for their specific situation.<br />
-      © 2025 BoltProof / Elias Thomaidis. All rights reserved.
+        <p class="about-locations">
+          I'm currently open to local IT support / infrastructure roles in Galway, Ballinasloe, Athlone and the wider region.
+        </p>
+      </div>
+
+      <aside class="contact-card">
+        <h3>Contact Elias</h3>
+        <p>
+          If you would like to talk about your current backup and recovery posture, or you are hiring for an IT support /
+          systems role and want to understand how I think about these topics, you can reach me here:
+        </p>
+        <p><strong>Phone:</strong> <a href="tel:+353892339862">+353 89 233 9862</a></p>
+        <p><strong>Email:</strong> <a href="mailto:elias@boltproof.com">elias@boltproof.com</a></p>
+        <p><strong>WhatsApp:</strong> Use the green icon in the corner of this page.</p>
+        <p class="contact-note">
+          Conversations are informal and factual. This site does not sell a specific service; it simply reflects how I
+          approach cloud, backup and resilience for smaller organisations.
+        </p>
+      </aside>
     </div>
-  </footer>
+  </section>
 
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/353892339862" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-    <svg viewBox="0 0 32 32" aria-hidden="true">
-      <path d="M16 3C9.373 3 4 8.373 4 15c0 2.57.842 4.95 2.293 6.899L5 27l5.25-1.26A11.9 11.9 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10a9.9 9.9 0 0 1-4.9-1.318l-.35-.205-3.11.747.83-3.03-.22-.312A9.9 9.9 0 0 1 6 15C6 9.486 10.486 5 16 5zm-3.13 4.5a1 1 0 0 0-.7.33c-.3.33-.98.96-.98 2.26 0 1.3.83 2.56.95 2.74.13.18 1.63 2.6 4.02 3.54 2.39.93 2.88.75 3.4.7.52-.05 1.68-.69 1.92-1.37.24-.68.24-1.26.17-1.37-.07-.11-.26-.18-.54-.32-.28-.14-1.68-.83-1.94-.92-.26-.1-.45-.14-.64.14-.19.27-.74.92-.9 1.11-.17.19-.33.21-.61.07-.28-.14-1.2-.44-2.29-1.4-.85-.76-1.42-1.7-1.59-1.98-.17-.28-.02-.43.13-.57.14-.14.28-.33.42-.49.14-.16.19-.27.28-.46.09-.19.04-.35-.02-.49-.07-.14-.61-1.46-.86-2-.22-.53-.45-.46-.63-.47z"/>
-    </svg>
-  </a>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    This website is intended as a general, non-commercial information resource. It does not provide legal advice and
+    does not speak on behalf of regulators, insurers or professional bodies. Organisations should obtain their own
+    professional advice for their specific situation.<br />
+    © 2025 BoltProof / Elias Thomaidis. All rights reserved.
+  </div>
+</footer>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/353892339862" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <path d="M16 3C9.373 3 4 8.373 4 15c0 2.57.842 4.95 2.293 6.899L5 27l5.25-1.26A11.9 11.9 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10a9.9 9.9 0 0 1-4.9-1.318l-.35-.205-3.11.747.83-3.03-.22-.312A9.9 9.9 0 0 1 6 15C6 9.486 10.486 5 16 5zm-3.13 4.5a1 1 0 0 0-.7.33c-.3.33-.98.96-.98 2.26 0 1.3.83 2.56.95 2.74.13.18 1.63 2.6 4.02 3.54 2.39.93 2.88.75 3.4.7.52-.05 1.68-.69 1.92-1.37.24-.68.24-1.26.17-1.37-.07-.11-.26-.18-.54-.32-.28-.14-1.68-.83-1.94-.92-.26-.1-.45-.14-.64.14-.19.27-.74.92-.9 1.11-.17.19-.33.21-.61.07-.28-.14-1.2-.44-2.29-1.4-.85-.76-1.42-1.7-1.59-1.98-.17-.28-.02-.43.13-.57.14-.14.28-.33.42-.49.14-.16.19-.27.28-.46.09-.19.04-.35-.02-.49-.07-.14-.61-1.46-.86-2-.22-.53-.45-.46-.63-.47z"/>
+  </svg>
+</a>
 
 </body>
 </html>
