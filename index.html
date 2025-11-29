@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BoltProof • Cloud, Backup & Compliance – A Practical Overview</title>
+  <meta name="description" content="Factual, non-commercial overview of how cloud, backup, ransomware and compliance really work for SMEs in Ireland, Northern Ireland and the UK. Maintained by Elias Thomaidis, Galway.">
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Simple shield favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.8em' font-size='70'>🛡️</text></svg>">
+
+  <style>
+    :root {
+      --bg-page: #ffffff;
+      --bg-soft: #f5f5f7;
+      --bg-subtle: #f9fafb;
+      --text-main: #0b1120;
+      --text-muted: #6b7280;
+      --accent: #2563eb;
+      --accent-deep: #1d4ed8;
+      --border-subtle: #e5e7eb;
+      --danger: #dc2626;
+      --radius-card: 14px;
+      --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.05);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background: var(--bg-page);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px 40px;
+    }
+
+    /* NEW FIX: Prevent anchor sections from scrolling under sticky header */
+    section[id] {
+      scroll-margin-top: 90px;
+    }
+
+    /* HEADER / NAV */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.7);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text-main);
+    }
+
+    .logo-mark {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--text-main);
+      transition: width 0.2s ease-out;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* GENERAL SECTIONS */
+    .section {
+      padding: 56px 0;
+    }
+
+    .section-title {
+      font-size: 24px;
+      text-align: left;
+      margin-bottom: 12px;
+    }
+
+    .section-intro {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      max-width: 720px;
+    }
+
+    /* HERO */
+    .hero-shell {
+      margin-top: 18px;
+      background: radial-gradient(circle at top, #ffffff 0, #f5f5f7 55%, #eef2ff 100%);
+      border-radius: 22px;
+      padding: 32px 24px;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: 26px;
+      line-height: 1.25;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    .hero-lead {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .hero-lead-strong {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #374151;
+    }
+
+    .hero-fact {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--danger);
+      font-weight: 600;
+    }
+
+    .hero-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-card {
+      width: 100%;
+      max-width: 320px;
+      background: #ffffff;
+      border-radius: var(--radius-card);
+      padding: 18px 18px 20px;
+      border: 1px solid #e0e7ff;
+      box-shadow: var(--shadow-soft);
+      font-size: 12px;
+    }
+
+    .hero-card-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .hero-lock {
+      height: 110px;
+      border-radius: 16px;
+      background: radial-gradient(circle at top, #ffffff 0, #dbeafe 45%, #bfdbfe 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .lock-body {
+      width: 56px;
+      height: 64px;
+      border-radius: 16px;
+      background: #ffffff;
+      position: relative;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.26);
+    }
+
+    .lock-body::before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      right: 9px;
+      top: -18px;
+      height: 26px;
+      border-radius: 999px;
+      border: 4px solid #ffffff;
+      border-bottom-color: transparent;
+    }
+
+    .lock-body::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 30px;
+      transform: translateX(-50%);
+      width: 9px;
+      height: 20px;
+      border-radius: 999px;
+      background: #1e3a8a;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .hero-metrics strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* FACT GRID */
+    .fact-heading {
+      font-size: 22px;
+      line-height: 1.4;
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 28px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .fact-heading span {
+      color: var(--danger);
+    }
+
+    .fact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .fact-card {
+      background: #ffffff;
+      border-radius: var(--radius-card);
+      padding: 20px 18px 20px;
+      border: 1px solid var(--border-subtle);
+      font-size: 14px;
+      color: #374151;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: #eef2ff;
+      color: #1d4ed8;
+      margin-bottom: 6px;
+    }
+
+    .fact-card h3 {
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .fact-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+    }
+
+    .fact-card p.emph {
+      margin-top: 6px;
+      color: var(--danger);
+      font-weight: 600;
+    }
+
+    .fact-card ul {
+      margin-top: 6px;
+      padding-left: 16px;
+      line-height: 1.6;
+    }
+
+    /* CLOUD SECTION */
+    .cloud-section {
+      padding-top: 40px;
+    }
+
+    .cloud-shell {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--bg-subtle);
+      border-radius: 18px;
+      padding: 24px 22px 22px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .cloud-shell h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .cloud-shell p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .cloud-cols {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .cloud-box h3 {
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .cloud-box ul {
+      font-size: 12px;
+      line-height: 1.6;
+      padding-left: 16px;
+      color: #374151;
+    }
+
+    .cloud-quote {
+      font-size: 12px;
+      color: #4b5563;
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    /* ARCH */
+    .staas-shell {
+      margin-top: 48px;
+      background: var(--bg-subtle);
+      border-radius: 18px;
+      padding: 26px 22px 22px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .staas-shell h2 {
+      font-size: 20px;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    .staas-shell p {
+      max-width: 820px;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 5px;
+    }
+
+    .arch-diagram {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .arch-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    .arch-node {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    /* CASES */
+    .cases-section {
+      padding-top: 48px;
+    }
+
+    .cases-shell {
+      max-width: 960px;
+      margin: 0 auto;
+      border-radius: 18px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-soft);
+      padding: 22px 20px 20px;
+    }
+
+    .cases-shell h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .cases-shell p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .case-list {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+      font-size: 12px;
+      color: #111827;
+    }
+
+    .case-item strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .case-item span {
+      color: #4b5563;
+    }
+
+    /* ABOUT / SKILLS / CONTACT */
+    .two-col-section {
+      padding-top: 56px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: flex-start;
+    }
+
+    .two-col h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .two-col ul {
+      font-size: 13px;
+      color: #374151;
+      line-height: 1.7;
+      padding-left: 18px;
+      margin-bottom: 14px;
+    }
+
+    .two-col ul li + li {
+      margin-top: 4px;
+    }
+
+    .about-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+
+    .about-locations {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 8px;
+    }
+
+    .skills-list {
+      font-size: 13px;
+      color: #374151;
+      line-height: 1.7;
+      padding-left: 18px;
+      margin-top: 6px;
+    }
+
+    .skills-list li + li {
+      margin-top: 3px;
+    }
+
+    .contact-card {
+      background: #020617;
+      color: #e5e7eb;
+      border-radius: 16px;
+      padding: 18px 16px 16px;
+    }
+
+    .contact-card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+      color: #ffffff;
+    }
+
+    .contact-card p {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-bottom: 5px;
+    }
+
+    .contact-card a {
+      color: #e5e7eb;
+    }
+
+    .contact-note {
+      margin-top: 8px;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 48px;
+      padding: 14px 0 8px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+      font-size: 11px;
+      color: #6b7280;
+      text-align: left;
+      line-height: 1.5;
+    }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp-float {
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      width: 50px;
+      height: 50px;
+      border-radius: 999px;
+      background: #22c55e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 14px 28px rgba(22, 163, 74, 0.4);
+      z-index: 60;
+      cursor: pointer;
+    }
+
+    .whatsapp-float svg {
+      width: 24px;
+      height: 24px;
+      fill: #ffffff;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-shell {
+        padding: 26px 18px;
+      }
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+      }
+      .hero h1 {
+        font-size: 23px;
+      }
+      .nav-links {
+        display: none;
+      }
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .cloud-cols {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .section {
+        padding: 44px 0;
+      }
+      .fact-heading {
+        font-size: 19px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <div class="logo-mark">BP</div>
+      <span>BoltProof</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#top">Overview</a>
+      <a href="#facts">Key Facts</a>
+      <a href="#risk">Examples</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- HERO -->
+  <section class="section hero" id="top">
+    <div class="hero-shell">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-tag">Cloud • Backup • Ransomware • Compliance</div>
+          <h1>The reality of data protection for small and mid-sized organisations.</h1>
+          <p class="hero-lead">
+            Many SMEs assume that using Microsoft 365, Google Workspace or similar platforms automatically means they are “backed up”.
+          </p>
+          <p class="hero-lead-strong">
+            In practice, these services are designed for access and collaboration — not for independent, offline, versioned backup or full disaster recovery.
+          </p>
+          <p class="hero-fact">
+            If a file is deleted, encrypted or overwritten in a typical cloud-only setup, that change is usually synchronised everywhere.
+            Without a separate backup, the data is often gone.
+          </p>
+          <p class="hero-note">
+            This page is purely informational. It summarises how cloud, backup, ransomware and compliance interact in real life for SMEs in Ireland, Northern Ireland and the UK.
+            It does not constitute legal advice or formal security guidance.
+          </p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="hero-card-title">At a glance</div>
+            <div class="hero-lock">
+              <div class="lock-body"></div>
+            </div>
+            <div class="hero-metrics">
+              <div><strong>Cloud:</strong> Excellent for access, collaboration and sync.</div>
+              <div><strong>Backup:</strong> Requires independent copies, retention and restore testing.</div>
+              <div><strong>Compliance:</strong> Driven by GDPR, insurance wording and sector rules.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY FACTS -->
+  <section class="section" id="facts">
+    <h2 class="fact-heading">
+      Key points: cloud sync is not the same as independent backup, and this has consequences for
+      <span>data loss</span>, <span>regulatory duties</span> and <span>insurance cover</span>.
+    </h2>
+
+    <div class="fact-grid">
+      <article class="fact-card">
+        <div class="pill">Cloud vs Backup</div>
+        <h3>Cloud services are not full backups</h3>
+        <p>
+          Cloud storage (OneDrive, Google Drive, Dropbox, etc.) is primarily a synchronisation and access service.
+          It keeps multiple devices in step and makes files easy to reach from different locations.
+        </p>
+        <p>
+          When files are deleted, encrypted or overwritten, those changes are normally propagated to the cloud copy as well.
+        </p>
+        <p class="emph">
+          Without a separate backup system, the “copy” in the cloud is likely to be affected in the same way as the original.
+        </p>
+      </article>
+
+      <article class="fact-card">
+        <div class="pill">Responsibilities</div>
+        <h3>Vendors expect customers to handle backup</h3>
+        <p>
+          Major cloud providers operate on a shared-responsibility model: they keep their platforms running, but customers are expected
+          to manage their own backup, retention and recovery strategies.
+        </p>
+        <p>
+          This is standard, but it can be surprising for organisations who assume that “in the cloud” automatically means “fully protected”.
+        </p>
+      </article>
+
+      <article class="fact-card">
+        <div class="pill">Regulation</div>
+        <h3>GDPR emphasises resilience and restoration</h3>
+        <p>
+          Article 32 of the GDPR refers to the “integrity, availability and resilience” of systems and the ability to restore access to personal data in a timely manner after an incident.
+        </p>
+        <p class="emph">
+          In real-world practice, this typically requires independent backups and the ability to demonstrate that restoration is possible.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CLOUD SECTION -->
+  <section class="section cloud-section">
+    <div class="cloud-shell">
+      <h2>What cloud does well – and where it stops</h2>
+      <p>
+        Cloud platforms are hugely valuable, and this page is not an argument against using them. The goal is simply
+        to clarify what they do, and what they do not do, from a data-protection perspective.
+      </p>
+
+      <div class="cloud-cols">
+        <div class="cloud-box">
+          <h3>Cloud services typically provide:</h3>
+          <ul>
+            <li>✔ File synchronisation across multiple devices</li>
+            <li>✔ Browser and mobile access from almost anywhere</li>
+            <li>✔ Collaboration features such as sharing and co-authoring</li>
+            <li>✔ Basic recycle-bin or short-term retention</li>
+          </ul>
+        </div>
+        <div class="cloud-box">
+          <h3>They are not a full replacement for:</h3>
+          <ul>
+            <li>❌ Long-term, independent backup copies</li>
+            <li>❌ Offline or immutable copies resistant to ransomware</li>
+            <li>❌ Structured retention for 6+ years of client or patient records</li>
+            <li>❌ Tested disaster-recovery plans for whole servers or locations</li>
+            <li>❌ Detailed evidence packs for insurers or regulators</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="cloud-quote">
+        In simple terms: cloud is about working with your data. Backup and disaster recovery are about getting it back
+        when something goes badly wrong.
+      </p>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE EXAMPLE -->
+  <section class="section">
+    <div class="staas-shell">
+      <h2>A typical resilient approach (vendor-neutral)</h2>
+      <p>
+        Many organisations move towards a “3-2-1” style model: at least three copies of important data, on two
+        different types of storage or locations, with at least one copy kept logically separate from everyday systems.
+      </p>
+      <p>
+        The exact design varies, but a common pattern is to combine local backup, an encrypted off-site copy, and a
+        separate disaster-recovery location or service.
+      </p>
+
+      <div class="arch-diagram">
+        <div class="arch-flow">
+          <div class="arch-node">Production systems (PCs, servers, cloud)</div>
+          <span>→</span>
+          <div class="arch-node">Local backup (onsite)</div>
+          <span>→</span>
+          <div class="arch-node">Encrypted off-site backup</div>
+          <span>→</span>
+          <div class="arch-node">Optional DR site or service</div>
+        </div>
+        <div>
+          This does not eliminate all risk, but it significantly reduces the chance that a single event can remove
+          every copy of critical data at once.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section class="section cases-section" id="risk">
+    <div class="cases-shell">
+      <h2>Examples of what can go wrong with cloud-only setups</h2>
+      <p>
+        The scenarios below are simplified and anonymised, but they reflect patterns seen repeatedly in small and
+        mid-sized organisations.
+      </p>
+
+      <div class="case-list">
+        <div class="case-item">
+          <strong>Healthcare clinic – cloud sync and ransomware</strong>
+          <span>
+            Workstations were synchronised to a cloud drive. Ransomware encrypted local files and the encrypted
+            versions were promptly synchronised. With no independent backup, there was no clean copy to restore.
+            Operations were severely disrupted and a great deal of time was spent rebuilding records.
+          </span>
+        </div>
+
+        <div class="case-item">
+          <strong>Professional services firm – insider deletion</strong>
+          <span>
+            A departing staff member deleted shared folders from a cloud workspace. The deletion was only noticed
+            months later, after standard retention had expired. Without separate backups, years of documents were lost.
+          </span>
+        </div>
+
+        <div class="case-item">
+          <strong>Construction business – accidental overwrites</strong>
+          <span>
+            Drawings and project documents were stored entirely in a single cloud location. Overwrites and deletions
+            during a project left the team unsure which version was correct. With no structured backup or versioning
+            strategy, some earlier states could not be recovered.
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section two-col-section" id="about">
+    <div class="two-col">
+      <div>
+        <h2>About this page &amp; the person behind it</h2>
+        <p class="about-text">
+          My name is <strong>Elias Thomaidis</strong>. I live in the Ballinasloe / Galway area and have spent years
+          working with cloud services, backup technologies and financial-services infrastructure. This page exists
+          purely to explain, in plain language, how cloud, backup, ransomware and compliance interact for smaller
+          organisations.
+        </p>
+        <p class="about-text">
+          It is not tied to a commercial package or a product. The goal is simply to show that I understand the
+          practical realities: what actually fails in the real world, what regulators and insurers expect, and how
+          small organisations can think about resilience without huge budgets.
+        </p>
+
+        <h3 style="font-size:15px;margin-top:14px;margin-bottom:4px;">Areas I’m comfortable with</h3>
+        <ul class="skills-list">
+          <li>Designing simple 3-2-1 style backup layouts for small offices.</li>
+          <li>Microsoft 365 / OneDrive / SharePoint basic administration and data-protection considerations.</li>
+          <li>Synology NAS setup (RAID, SHR, snapshots, Hyper Backup, off-site replication).</li>
+          <li>Basic networking for small sites (routers, VLANs, remote access, VPN considerations).</li>
+          <li>Translating technical risk into plain-English explanations for owners and managers.</li>
+        </ul>
+
+        <p class="about-locations">
+          I'm currently open to local IT support / infrastructure roles in Galway, Ballinasloe, Athlone and the wider region.
+        </p>
+      </div>
+
+      <aside class="contact-card">
+        <h3>Contact Elias</h3>
+        <p>
+          If you would like to talk about your current backup and recovery posture, or you are hiring for an IT support /
+          systems role and want to understand how I think about these topics, you can reach me here:
+        </p>
+        <p><strong>Phone:</strong> <a href="tel:+353892339862">+353 89 233 9862</a></p>
+        <p><strong>Email:</strong> <a href="mailto:elias@boltproof.com">elias@boltproof.com</a></p>
+        <p><strong>WhatsApp:</strong> Use the green icon in the corner of this page.</p>
+        <p class="contact-note">
+          Conversations are informal and factual. This site does not sell a specific service; it simply reflects how I
+          approach cloud, backup and resilience for smaller organisations.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    This website is intended as a general, non-commercial information resource. It does not provide legal advice and
+    does not speak on behalf of regulators, insurers or professional bodies. Organisations should obtain their own
+    professional advice for their specific situation.<br />
+    © 2025 BoltProof / Elias Thomaidis. All rights reserved.
+  </div>
+</footer>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/353892339862" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <path d="M16 3C9.373 3 4 8.373 4 15c0 2.57.842 4.95 2.293 6.899L5 27l5.25-1.26A11.9 11.9 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10a9.9 9.9 0 0 1-4.9-1.318l-.35-.205-3.11.747.83-3.03-.22-.312A9.9 9.9 0 0 1 6 15C6 9.486 10.486 5 16 5zm-3.13 4.5a1 1 0 0 0-.7.33c-.3.33-.98.96-.98 2.26 0 1.3.83 2.56.95 2.74.13.18 1.63 2.6 4.02 3.54 2.39.93 2.88.75 3.4.7.52-.05 1.68-.69 1.92-1.37.24-.68.24-1.26.17-1.37-.07-.11-.26-.18-.54-.32-.28-.14-1.68-.83-1.94-.92-.26-.1-.45-.14-.64.14-.19.27-.74.92-.9 1.11-.17.19-.33.21-.61.07-.28-.14-1.2-.44-2.29-1.4-.85-.76-1.42-1.7-1.59-1.98-.17-.28-.02-.43.13-.57.14-.14.28-.33.42-.49.14-.16.19-.27.28-.46.09-.19.04-.35-.02-.49-.07-.14-.61-1.46-.86-2-.22-.53-.45-.46-.63-.47z"/>
+  </svg>
+</a>
+
+</body>
+</html>
