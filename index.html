@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BoltProof • Synology NAS & Backup Specialist – Home & Small Business</title>
-  <meta name="description" content="Synology NAS setup, backup design and support for home users and small businesses in Ireland, Northern Ireland and the UK.">
+  <title>BoltProof • Case Studies – Synology & MSP-Style Work</title>
+  <meta name="description" content="Anonymised case studies from home lab and real-world scenarios, showing Synology, backup, DR and small-office networking skills for MSP / IT support roles.">
 
   <!-- Inter font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,15 +29,9 @@
       --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.05);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html, body {
-      height: 100%;
-    }
+    html, body { height: 100%; }
 
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -46,10 +40,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    a { text-decoration: none; color: inherit; }
 
     .page {
       max-width: 1120px;
@@ -57,12 +48,7 @@
       padding: 0 16px 40px;
     }
 
-    /* Anchor offset for sticky header */
-    section[id] {
-      scroll-margin-top: 80px;
-    }
-
-    /* HEADER / NAV */
+    /* HEADER */
     header {
       position: sticky;
       top: 0;
@@ -136,38 +122,44 @@
       width: 100%;
     }
 
-    /* GENERAL SECTIONS */
-    .section {
-      padding: 40px 0;
+    .nav-links a.active {
+      color: var(--text-main);
+      font-weight: 600;
     }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    /* GENERAL SECTIONS */
+    .section { padding: 26px 0; }
 
     .section-title {
       font-size: 22px;
       text-align: left;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     .section-intro {
       font-size: 14px;
       color: var(--text-muted);
-      margin-bottom: 18px;
-      max-width: 720px;
+      margin-bottom: 14px;
+      max-width: 780px;
     }
 
-    /* HERO */
+    /* HERO / INTRO */
     .hero-shell {
       margin-top: 16px;
       background: radial-gradient(circle at top, #ffffff 0, #f5f5f7 55%, #e0f2fe 100%);
       border-radius: 20px;
-      padding: 26px 22px;
-      box-shadow: 0 18px 36px rgba(15, 23, 42, 0.06);
+      padding: 18px 16px 18px;
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.06);
     }
 
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 22px;
-      align-items: center;
+    .hero-title {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 6px;
     }
 
     .hero-tag {
@@ -176,21 +168,14 @@
       text-transform: uppercase;
       font-weight: 600;
       color: var(--text-muted);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
-    .hero h1 {
-      font-size: 26px;
-      line-height: 1.25;
-      font-weight: 800;
-      margin-bottom: 10px;
-      color: var(--text-main);
-    }
-
-    .hero-lead {
+    .hero-text {
       font-size: 14px;
       color: #374151;
-      margin-bottom: 6px;
+      max-width: 820px;
+      line-height: 1.7;
     }
 
     .hero-note {
@@ -199,323 +184,90 @@
       margin-top: 6px;
     }
 
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .hero-badge {
-      font-size: 11px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: rgba(37, 99, 235, 0.06);
-      color: #1d4ed8;
-      border: 1px solid rgba(191, 219, 254, 0.9);
-    }
-
-    .hero-cta {
-      margin-top: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #ffffff;
-      font-size: 13px;
-      font-weight: 600;
-      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
-      border: none;
-    }
-
-    .btn-ghost {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .hero-visual {
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero-card {
-      width: 100%;
-      max-width: 320px;
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 16px 16px 18px;
-      border: 1px solid #e0e7ff;
-      box-shadow: var(--shadow-soft);
-      font-size: 12px;
-    }
-
-    .hero-card-title {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    .hero-lock {
-      height: 90px;
-      border-radius: 14px;
-      background: radial-gradient(circle at top, #ffffff 0, #dbeafe 50%, #bfdbfe 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 10px;
-    }
-
-    .lock-body {
-      width: 50px;
-      height: 58px;
-      border-radius: 16px;
-      background: #ffffff;
-      position: relative;
-      box-shadow: 0 9px 20px rgba(15, 23, 42, 0.26);
-    }
-
-    .lock-body::before {
-      content: "";
-      position: absolute;
-      left: 8px;
-      right: 8px;
-      top: -16px;
-      height: 24px;
-      border-radius: 999px;
-      border: 4px solid #ffffff;
-      border-bottom-color: transparent;
-    }
-
-    .lock-body::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 26px;
-      transform: translateX(-50%);
-      width: 8px;
-      height: 18px;
-      border-radius: 999px;
-      background: #1e3a8a;
-    }
-
-    .hero-metrics {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .hero-metrics strong {
-      color: var(--text-main);
-      font-weight: 600;
-    }
-
-    /* SERVICES */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-      margin-top: 12px;
-    }
-
-    .card {
-      background: #ffffff;
-      border-radius: var(--radius-card);
-      padding: 16px 16px 14px;
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.02);
-      font-size: 13px;
-      color: #374151;
-    }
-
-    .card h3 {
-      font-size: 15px;
-      margin-bottom: 6px;
-    }
-
-    .card p {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    .card ul {
-      margin-top: 4px;
-      padding-left: 16px;
-      line-height: 1.6;
-    }
-
-    .chip {
-      display: inline-flex;
-      font-size: 11px;
-      padding: 2px 7px;
-      border-radius: 999px;
-      background: #eff6ff;
-      color: #1d4ed8;
-      margin-bottom: 5px;
-    }
-
-    /* WHO FOR */
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 18px;
-      margin-top: 14px;
-    }
-
-    .two-col-box {
-      background: var(--bg-subtle);
-      border-radius: 14px;
-      padding: 14px 14px 12px;
-      border: 1px solid var(--border-subtle);
-      font-size: 13px;
-    }
-
-    .two-col-box h3 {
-      font-size: 15px;
-      margin-bottom: 6px;
-    }
-
-    .two-col-box ul {
-      padding-left: 16px;
-      line-height: 1.6;
-      color: #374151;
-    }
-
-    /* EXAMPLE SETUPS */
-    .examples-shell {
-      background: var(--bg-subtle);
-      border-radius: 16px;
-      padding: 18px 16px 16px;
-      border: 1px solid var(--border-subtle);
-      margin-top: 10px;
-    }
-
-    .examples-list {
+    /* CASE STUDIES LIST */
+    .case-list {
       display: grid;
       grid-template-columns: minmax(0, 1fr);
-      gap: 10px;
-      font-size: 13px;
-      color: #111827;
-    }
-
-    .example-item strong {
-      display: block;
-      margin-bottom: 2px;
-    }
-
-    .example-item span {
-      color: #4b5563;
-    }
-
-    /* HOW IT WORKS */
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
+      gap: 18px;
       margin-top: 12px;
     }
 
-    .step {
+    .case {
+      background: #ffffff;
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.03);
+      padding: 14px 14px 12px;
       font-size: 13px;
-      color: #374151;
     }
 
-    .step-num {
-      width: 20px;
-      height: 20px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #ffffff;
-      font-size: 11px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 6px;
-    }
-
-    /* ABOUT / CONTACT */
-    .about-section {
-      padding-top: 36px;
-    }
-
-    .about-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 20px;
-      align-items: flex-start;
-    }
-
-    .about-text {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 8px;
-    }
-
-    .about-locations {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--accent);
-      margin-top: 6px;
-    }
-
-    .skills-list {
-      font-size: 13px;
-      color: #374151;
-      line-height: 1.7;
-      padding-left: 16px;
-      margin-top: 6px;
-    }
-
-    .skills-list li + li {
-      margin-top: 3px;
-    }
-
-    .contact-card {
-      background: #020617;
-      color: #e5e7eb;
-      border-radius: 16px;
-      padding: 16px 14px 14px;
-    }
-
-    .contact-card h3 {
-      font-size: 16px;
+    .case-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
       margin-bottom: 6px;
-      color: #ffffff;
     }
 
-    .contact-card p {
-      font-size: 12px;
-      color: #9ca3af;
-      margin-bottom: 5px;
+    .case-title {
+      font-size: 16px;
+      font-weight: 700;
     }
 
-    .contact-card a {
-      color: #e5e7eb;
-    }
-
-    .contact-note {
-      margin-top: 8px;
+    .case-meta {
       font-size: 11px;
+      color: var(--text-muted);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .case-pill {
+      display: inline-flex;
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      margin-top: 2px;
+    }
+
+    .case-section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
       color: #9ca3af;
+      margin-top: 6px;
+      margin-bottom: 2px;
+      font-weight: 600;
+    }
+
+    .case p {
+      margin-bottom: 4px;
+      color: #374151;
+      line-height: 1.6;
+    }
+
+    .case ul {
+      padding-left: 16px;
+      margin-bottom: 4px;
+      color: #374151;
+      line-height: 1.6;
+    }
+
+    .case strong {
+      font-weight: 600;
+    }
+
+    .case-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
     }
 
     /* FOOTER */
     footer {
-      margin-top: 30px;
-      padding: 12px 0 8px;
+      margin-top: 26px;
+      padding: 10px 0 8px;
       border-top: 1px solid #e5e7eb;
     }
 
@@ -553,32 +305,10 @@
     }
 
     /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .hero-shell {
-        padding: 22px 16px;
-      }
-      .hero-inner {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 18px;
-      }
-      .hero h1 {
-        font-size: 23px;
-      }
-      .nav-links {
-        display: none;
-      }
-      .two-col {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .about-layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .section {
-        padding: 32px 0;
-      }
+    @media (max-width: 800px) {
+      .nav-links { display: none; }
+      .hero-shell { padding: 16px 14px; }
+      .hero-title { font-size: 22px; }
     }
   </style>
 </head>
@@ -592,261 +322,280 @@
       <span>BoltProof</span>
     </div>
     <nav class="nav-links">
-      <a href="#top">Home</a>
-      <a href="#services">Synology Services</a>
-      <a href="#who">Who I Help</a>
-      <a href="#examples">Example Setups</a>
-      <a href="#about">About & Contact</a>
+      <a href="index.html#top">Home</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#lab">Home Lab</a>
+      <a href="index.html#examples">Scenarios</a>
+      <a href="case-studies.html" class="active">Case Studies</a>
+      <a href="index.html#about">About & Contact</a>
     </nav>
   </div>
 </header>
 
 <main class="page">
 
-  <!-- HERO -->
-  <section class="section hero" id="top">
-    <div class="hero-shell">
-      <div class="hero-inner">
-        <div>
-          <div class="hero-tag">Synology • Backup • Home Lab • Small Business</div>
-          <h1>Synology NAS design, setup and support for real people and real businesses.</h1>
-          <p class="hero-lead">
-            I help home users and small organisations get more from Synology — secure backups, media servers, simple
-            file sharing and practical disaster recovery — without noise or jargon.
-          </p>
-          <p class="hero-note">
-            Side-hustle, one-to-one service. Based in Ballinasloe / Galway, available remotely across Ireland,
-            Northern Ireland and the UK.
-          </p>
-
-          <div class="hero-badges">
-            <span class="hero-badge">Synology NAS planning & setup</span>
-            <span class="hero-badge">3-2-1 backup design</span>
-            <span class="hero-badge">Off-site replication</span>
-            <span class="hero-badge">Home lab & Plex</span>
-          </div>
-
-          <div class="hero-cta">
-            <a href="mailto:elias@boltproof.com" class="btn-primary">Email Elias – share your setup</a>
-            <span class="btn-ghost">or message me on WhatsApp using the green icon.</span>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="hero-card">
-            <div class="hero-card-title">Typical Synology outcomes</div>
-            <div class="hero-lock">
-              <div class="lock-body"></div>
-            </div>
-            <div class="hero-metrics">
-              <div><strong>Home:</strong> Photos, media and documents backed up and easy to find.</div>
-              <div><strong>Business:</strong> Simple, documented backups instead of “we hope OneDrive is enough”.</div>
-              <div><strong>Both:</strong> Clear diagrams of where data lives and how it can be restored.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section class="section" id="services">
-    <h2 class="section-title">What I do with Synology</h2>
-    <p class="section-intro">
-      I don’t resell hardware. You either already have a Synology, or we decide together what makes sense to buy.
-      My focus is on design, configuration and making sure you understand how your data is protected.
-    </p>
-
-    <div class="cards-grid">
-      <article class="card">
-        <div class="chip">Home & Personal</div>
-        <h3>Backup & media server for households</h3>
-        <p>
-          For people who want their photos, media and files in one place — safer than just leaving everything on
-          laptops and phones.
-        </p>
-        <ul>
-          <li>Initial design: RAID / SHR, volumes and shared folders.</li>
-          <li>PC / Mac backup (Time Machine, Active Backup, etc.).</li>
-          <li>Photo & video organisation (Synology Photos / Plex).</li>
-          <li>Remote access with a focus on safety, not just “open ports”.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <div class="chip">Small Business</div>
-        <h3>Practical backup & recovery for small offices</h3>
-        <p>
-          For small businesses that have grown into the cloud and now need something more structured than “hope”.
-        </p>
-        <ul>
-          <li>3-2-1 backup layout using Synology + cloud / off-site.</li>
-          <li>Encrypted off-site replication between two locations.</li>
-          <li>Basic DR run-through: “if X fails, here is what we do”.</li>
-          <li>Simple documentation in plain English for owners and staff.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <div class="chip">Ongoing Care</div>
-        <h3>Health checks, clean-ups & remote tweaks</h3>
-        <p>
-          For people who already have a Synology running, but aren’t fully sure how healthy or secure it is.
-        </p>
-        <ul>
-          <li>Review of volumes, SMART data and alerts.</li>
-          <li>Snapshot and backup job review (or creation).</li>
-          <li>Remote tidy-up of shared folders, permissions and access.</li>
-          <li>Suggestions for next steps if risk is higher than expected.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <!-- WHO I HELP -->
-  <section class="section" id="who">
-    <h2 class="section-title">Who this is for</h2>
-    <p class="section-intro">
-      I’m not aiming at huge enterprises. I’m aiming at people and teams who are busy doing real work and want someone
-      who will sit down, map out where data lives, and make Synology work for them.
-    </p>
-
-    <div class="two-col">
-      <div class="two-col-box">
-        <h3>Home users & families</h3>
-        <ul>
-          <li>You have a Synology (or want one) but haven’t had time to set it up properly.</li>
-          <li>Photos and videos are scattered across phones, laptops and old drives.</li>
-          <li>You’d like a simple, central place for media and backups — with a clear diagram of how it all fits.</li>
-          <li>You prefer a one-to-one explanation over forums and random YouTube videos.</li>
-        </ul>
-      </div>
-
-      <div class="two-col-box">
-        <h3>Small businesses & solo practices</h3>
-        <ul>
-          <li>1–25 people: clinics, trades, accountants, small agencies, local offices.</li>
-          <li>Most documents live in Microsoft 365 / Google Workspace, with no real backup plan.</li>
-          <li>You want Synology used for structured backup and local copies, not random file dumps.</li>
-          <li>You’d like at least one other person who understands your setup if something goes wrong.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXAMPLE SETUPS -->
-  <section class="section" id="examples">
-    <h2 class="section-title">Example Synology setups I can design</h2>
-    <p class="section-intro">
-      Every environment is slightly different, but these examples give a sense of the sort of work I actually do with people.
-    </p>
-
-    <div class="examples-shell">
-      <div class="examples-list">
-        <div class="example-item">
-          <strong>1. Home backup + media hub</strong>
-          <span>
-            A 2–4 bay Synology in the house, with SHR or RAID for resilience. Time Machine / PC backups enabled, Synology
-            Photos running for family images, and Plex or Video Station for films and series. Remote access via a VPN or
-            a carefully limited set of secure services — not a bunch of open ports.
-          </span>
-        </div>
-
-        <div class="example-item">
-          <strong>2. Small office with cloud plus Synology</strong>
-          <span>
-            Microsoft 365 or Google Workspace used day-to-day, with a Synology onsite taking regular backups of key data
-            plus periodic off-site copies to a second Synology or cloud target. Clear, written notes for the business
-            owner: where data is, how to restore, and what to do if a PC, office or provider fails.
-          </span>
-        </div>
-
-        <div class="example-item">
-          <strong>3. Two-location 3-2-1 layout</strong>
-          <span>
-            One Synology in the main office, another in a secondary location (or trusted home office). Primary system
-            backs up locally and then replicates encrypted data to the second unit. Periodic test restores confirm that
-            files can be recovered from both locations.
-          </span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
+  <!-- INTRO -->
   <section class="section">
-    <h2 class="section-title">How I usually work</h2>
-    <p class="section-intro">
-      This is a side-hustle, not an anonymous helpdesk. The goal is a small number of people and businesses looked after
-      properly, not selling “plans”.
-    </p>
-
-    <div class="steps">
-      <div class="step">
-        <div><span class="step-num">1</span><strong>Short call or email exchange</strong></div>
-        <p>
-          You tell me what kit you already have, roughly how much data you hold, and what you actually want to protect.
-        </p>
-      </div>
-      <div class="step">
-        <div><span class="step-num">2</span><strong>Proposed layout & approach</strong></div>
-        <p>
-          I sketch a Synology-based layout (or refine your current one) and explain it back in plain language:
-          what backs up where, and how you’d restore.
-        </p>
-      </div>
-      <div class="step">
-        <div><span class="step-num">3</span><strong>Remote or on-site configuration</strong></div>
-        <p>
-          If you’re happy, we agree a one-off fee or simple ongoing arrangement, and I help implement and document the setup.
-        </p>
-      </div>
+    <div class="hero-shell">
+      <div class="hero-tag">Portfolio • Synology • Backup • Small-Office Networking</div>
+      <h1 class="hero-title">Anonymised case studies showing how I approach real-world backup and IT problems.</h1>
+      <p class="hero-text">
+        These examples are written to help MSP owners and IT managers see <strong>how I think and work</strong>, not to sell
+        a product. Names, locations and details are adjusted or anonymised, but the overall scenarios and approaches
+        reflect real work I’ve done in my own lab and with small environments.
+      </p>
+      <p class="hero-note">
+        Focus regions: Ireland, Northern Ireland and the UK. Core strengths: Synology, 3–2–1 backups, basic Microsoft 365,
+        small-office networking and clear communication with non-technical clients.
+      </p>
     </div>
   </section>
 
-  <!-- ABOUT / CONTACT -->
-  <section class="section about-section" id="about">
-    <div class="about-layout">
-      <div>
-        <h2 class="section-title">Who’s behind BoltProof?</h2>
-        <p class="about-text">
-          My name is <strong>Elias Thomaidis</strong>. I live in the Ballinasloe / Galway area and work in technology
-          and infrastructure. On the side, I help people get real value from Synology — turning “a box in the corner”
-          into something they can genuinely rely on.
-        </p>
-        <p class="about-text">
-          I’ve spent years around payments, financial services and cloud systems, and I enjoy translating that mindset
-          into practical setups for homes and small organisations: backups that actually run, and recoveries that are
-          actually tested.
-        </p>
+  <!-- CASE LIST -->
+  <section class="section">
+    <h2 class="section-title">Case Study 1 – Turning “OneDrive is our backup” into a real 3–2–1 strategy</h2>
+    <p class="section-intro">
+      A small professional-services office (mix of remote and on-site staff) believed they were fully covered because
+      everything was stored in OneDrive and SharePoint. They had no local backups and no off-site copy outside Microsoft’s cloud.
+    </p>
 
-        <h3 style="font-size:15px;margin-top:10px;margin-bottom:4px;">Areas I’m comfortable with</h3>
-        <ul class="skills-list">
-          <li>Synology NAS setup: RAID / SHR, volumes, shared folders and permissions.</li>
-          <li>Snapshot Replication, Hyper Backup and off-site copy design.</li>
-          <li>Basic Microsoft 365 / Google Workspace integration for backup.</li>
-          <li>Small-office networking: routers, basic VLANs, secure remote access.</li>
-          <li>Explaining all of the above in plain, non-dramatic English.</li>
+    <div class="case-list">
+
+      <article class="case">
+        <div class="case-header">
+          <div>
+            <div class="case-title">Context & risk</div>
+            <span class="case-pill">Cloud ≠ backup</span>
+          </div>
+          <div class="case-meta">
+            10–12 staff<br/>Mixed Windows laptops
+          </div>
+        </div>
+
+        <div class="case-section-label">Situation</div>
+        <p>
+          All company data lived in Microsoft 365 – OneDrive and SharePoint. There was a strong belief that “Microsoft
+          backs everything up anyway”, and no willingness to think about ransomware or account issues.
+        </p>
+        <ul>
+          <li>No offline or independent copy of business-critical documents.</li>
+          <li>No understanding of retention windows or versioning limits.</li>
+          <li>No plan if an account was compromised or files were encrypted and synced.</li>
         </ul>
 
-        <p class="about-locations">
-          I’m available remotely across Ireland, Northern Ireland and the UK, with on-site options in the Galway / Athlone area where practical.
-        </p>
-      </div>
-
-      <aside class="contact-card">
-        <h3>Contact Elias</h3>
+        <div class="case-section-label">Approach</div>
         <p>
-          If you’d like help planning or fixing a Synology setup — home or small business — you can reach me directly:
+          My first step was to map where data actually lived: key SharePoint libraries, team folders, owner-specific data
+          and any legacy storage still on local machines. I then explained, in plain English, the difference between:
         </p>
-        <p><strong>Phone:</strong> <a href="tel:+353892339862">+353 89 233 9862</a></p>
-        <p><strong>Email:</strong> <a href="mailto:elias@boltproof.com">elias@boltproof.com</a></p>
-        <p><strong>WhatsApp:</strong> Use the green icon in the corner of this page.</p>
-        <p class="contact-note">
-          There’s no automated booking system and no obligation. You can simply outline your situation and I’ll tell you,
-          honestly, whether I’m a good fit to help.
+        <ul>
+          <li><strong>Sync & collaboration</strong> (what Microsoft 365 is excellent at), and</li>
+          <li><strong>Independent backup</strong> (what they did not have).</li>
+        </ul>
+        <p>
+          Using my Synology experience, I proposed a simple 3–2–1 design:
         </p>
-      </aside>
+        <ul>
+          <li>1× Synology NAS onsite with SHR and encrypted volumes.</li>
+          <li>Regular pulls of key SharePoint libraries to the NAS (using Microsoft APIs / tools).</li>
+          <li>Encrypted replication of that NAS to a second Synology in a separate location.</li>
+        </ul>
+
+        <div class="case-section-label">Outcome</div>
+        <p>
+          The business owner could clearly see that:
+        </p>
+        <ul>
+          <li>Microsoft 365 remained the live “working” platform.</li>
+          <li>Synology provided a second, independent copy of the data.</li>
+          <li>An off-site Synology gave them a third copy and proper DR posture.</li>
+        </ul>
+        <p>
+          We then walked through a test: simulate a SharePoint deletion, show how the NAS copy would be used to restore,
+          and document that as a simple one-page recovery process.
+        </p>
+
+        <div class="case-section-label">What this shows for an MSP</div>
+        <p>
+          I’m comfortable:
+        </p>
+        <ul>
+          <li>Explaining why cloud alone is not enough, without scaring clients.</li>
+          <li>Using Synology gear to implement 3–2–1 in a way that fits small-business reality.</li>
+          <li>Documenting a <strong>simple, human-readable restore plan</strong> the owner can understand.</li>
+        </ul>
+
+        <p class="case-note">
+          In a formal MSP environment, I would align this with your existing backup stack (Veeam, Acronis,
+          Synology Active Backup, etc.) rather than imposing my own.
+        </p>
+      </article>
+
+      <article class="case">
+        <div class="case-header">
+          <div>
+            <div class="case-title">Case Study 2 – Consolidating scattered family data onto Synology</div>
+            <span class="case-pill">Personal / SOHO backup</span>
+          </div>
+          <div class="case-meta">
+            Mixed devices<br/>Photos & documents
+          </div>
+        </div>
+
+        <div class="case-section-label">Situation</div>
+        <p>
+          A typical household with data scattered across USB drives, old laptops, phones and cloud accounts. No one
+          knew where the “real” copy of important documents or family photos lived.
+        </p>
+        <ul>
+          <li>Multiple unmanaged OneDrive / iCloud / Google accounts.</li>
+          <li>No clear backup of any device.</li>
+          <li>Genuine fear of losing photos and school documents.</li>
+        </ul>
+
+        <div class="case-section-label">Approach</div>
+        <p>
+          Using a 2–4 bay Synology NAS, I:
+        </p>
+        <ul>
+          <li>Created a simple folder structure for Documents, Photos and Archives.</li>
+          <li>Configured SHR, enabled encryption where appropriate, and set up user accounts.</li>
+          <li>Set up Time Machine for macOS and file-level backups for Windows PCs.</li>
+          <li>Migrated existing photo libraries into Synology Photos and tested access from phones and a TV.</li>
+        </ul>
+        <p>
+          I also added a basic off-site component: periodic encrypted backup of the NAS to a second device
+          located in a different property.
+        </p>
+
+        <div class="case-section-label">Outcome</div>
+        <p>
+          The result was:
+        </p>
+        <ul>
+          <li>One central place where the family knew their data lived.</li>
+          <li>Automatic backup of laptops instead of “remembering to plug in a USB drive”.</li>
+          <li>Verified restores of both a laptop document folder and a photo album.</li>
+        </ul>
+
+        <div class="case-section-label">What this shows for an MSP</div>
+        <p>
+          Although this is a personal use case, the skills transfer directly to:
+        </p>
+        <ul>
+          <li>Very small offices and micro-businesses.</li>
+          <li>SOHO setups where there is no IT team.</li>
+          <li>Explaining Synology in a way non-technical people can use day to day.</li>
+        </ul>
+      </article>
+
+      <article class="case">
+        <div class="case-header">
+          <div>
+            <div class="case-title">Case Study 3 – Small office NAS with off-site DR using two sites</div>
+            <span class="case-pill">3–2–1 with Synology</span>
+          </div>
+          <div class="case-meta">
+            6–8 staff<br/>Project files
+          </div>
+        </div>
+
+        <div class="case-section-label">Situation</div>
+        <p>
+          A small office needed shared storage for project files, with two physical sites available within Ireland. 
+          They wanted shared access, but also some protection if one site was unusable.
+        </p>
+
+        <div class="case-section-label">Approach</div>
+        <p>
+          I designed a layout using two Synology units:
+        </p>
+        <ul>
+          <li><strong>Site A:</strong> Main NAS with SHR, shared folders and permissions for staff.</li>
+          <li><strong>Site B:</strong> Secondary NAS used as an encrypted replication target.</li>
+          <li>Hyper Backup / Snapshot Replication between sites on a scheduled basis.</li>
+          <li>Tested restoring a deleted project folder directly from the remote copy.</li>
+        </ul>
+        <p>
+          I also documented:
+        </p>
+        <ul>
+          <li>Which folders were replicated.</li>
+          <li>How long snapshots were kept.</li>
+          <li>What to do if Site A was unavailable for an extended period.</li>
+        </ul>
+
+        <div class="case-section-label">Outcome</div>
+        <p>
+          Without much complexity, the business achieved a practical 3–2–1 pattern:
+        </p>
+        <ul>
+          <li>Primary working copy on the PCs and the main NAS.</li>
+          <li>Local backup and snapshots at Site A.</li>
+          <li>Off-site encrypted copy at Site B.</li>
+        </ul>
+
+        <div class="case-section-label">What this shows for an MSP</div>
+        <p>
+          I can:
+        </p>
+        <ul>
+          <li>Use Synology’s built-in tools in a sensible way for small environments.</li>
+          <li>Think in terms of <strong>failure scenarios</strong>, not just features.</li>
+          <li>Write clear notes on how and where to restore when something goes wrong.</li>
+        </ul>
+      </article>
+
+      <article class="case">
+        <div class="case-header">
+          <div>
+            <div class="case-title">Case Study 4 – “What if the office burns down?” tabletop exercise</div>
+            <span class="case-pill">Disaster recovery thinking</span>
+          </div>
+          <div class="case-meta">
+            Lab / hypothetical<br/>Aligned to SME reality
+          </div>
+        </div>
+
+        <div class="case-section-label">Situation</div>
+        <p>
+          As part of my own learning, I ran a simple tabletop exercise using my Synology lab: assume the main office
+          (and main NAS) is destroyed overnight. What can be recovered, from where, and how fast?
+        </p>
+
+        <div class="case-section-label">Approach</div>
+        <p>
+          I worked through the following steps:
+        </p>
+        <ul>
+          <li>Identify which services and data were “business critical” on day 1 vs “nice to have”.</li>
+          <li>Check which of those actually had an off-site copy (remote Synology, cloud, etc.).</li>
+          <li>Simulate loss of the primary NAS by turning it off and only working from the DR copy.</li>
+          <li>Measure how long it would realistically take to restore file shares.</li>
+          <li>Note down the practical gaps: licences, hardware lead times, bandwidth constraints.</li>
+        </ul>
+
+        <div class="case-section-label">Outcome</div>
+        <p>
+          The exercise clarified:
+        </p>
+        <ul>
+          <li>Which data was well protected and which was not.</li>
+          <li>How important it is to have <strong>tested</strong> restores, not just backups that “should work”.</li>
+          <li>Why written, step-by-step recovery notes are critical for SMEs under stress.</li>
+        </ul>
+
+        <div class="case-section-label">What this shows for an MSP</div>
+        <p>
+          I naturally think in terms of:
+        </p>
+        <ul>
+          <li>Impact on the business, not just uptime of boxes.</li>
+          <li>Clear recovery steps an on-call engineer or junior could follow.</li>
+          <li>Balancing ideal designs with what small clients can afford and maintain.</li>
+        </ul>
+      </article>
+
     </div>
   </section>
 
@@ -854,9 +603,8 @@
 
 <footer>
   <div class="footer-inner">
-    This website describes an independent Synology NAS and backup consultancy run on a side-hustle basis. It does not
-    represent Synology or any other vendor. Nothing here is legal advice; organisations should seek their own
-    professional guidance where required.<br />
+    These case studies are anonymised and simplified to protect privacy and to keep the focus on approach and thinking.
+    This site is a personal portfolio for MSP / IT support opportunities, not a commercial backup or hosting service.<br />
     © 2025 BoltProof / Elias Thomaidis. All rights reserved.
   </div>
 </footer>
