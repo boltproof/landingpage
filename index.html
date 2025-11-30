@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BoltProof • Case Studies – Synology & MSP-Style Work</title>
-  <meta name="description" content="Anonymised case studies from home lab and real-world scenarios, showing Synology, backup, DR and small-office networking skills for MSP / IT support roles.">
+  <title>BoltProof • MSP / IT Support Portfolio – Ireland & UK</title>
+  <meta name="description" content="Portfolio site for Elias Thomaidis – pivoting into MSP / IT support with hands-on backup, NAS, networking, Microsoft 365, domains, DNS, simple websites and email. Based near Ballinasloe / Galway, open to roles across Ireland and the UK.">
 
   <!-- Inter font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,7 +24,6 @@
       --accent: #2563eb;
       --accent-deep: #1d4ed8;
       --border-subtle: #e5e7eb;
-      --danger: #dc2626;
       --radius-card: 14px;
       --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.05);
     }
@@ -45,10 +44,13 @@
     .page {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 0 16px 40px;
+      padding: 0 16px 32px;
     }
 
-    /* HEADER */
+    /* Anchor offset for sticky header */
+    section[id] { scroll-margin-top: 80px; }
+
+    /* HEADER / NAV */
     header {
       position: sticky;
       top: 0;
@@ -90,6 +92,12 @@
       font-weight: 700;
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
     .nav-links {
       display: flex;
       gap: 18px;
@@ -98,10 +106,8 @@
       color: var(--text-muted);
     }
 
-    .nav-links a {
-      position: relative;
-      padding-bottom: 2px;
-    }
+    .nav-links a { position: relative; padding-bottom: 2px; }
+    .nav-links a:hover { color: var(--text-main); }
 
     .nav-links a::after {
       content: "";
@@ -111,11 +117,7 @@
       width: 0;
       height: 1px;
       background: var(--text-main);
-      transition: width 0.2s ease-out;
-    }
-
-    .nav-links a:hover {
-      color: var(--text-main);
+      transition: width 0.18s ease-out;
     }
 
     .nav-links a:hover::after {
@@ -129,6 +131,20 @@
 
     .nav-links a.active::after {
       width: 100%;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--accent-deep);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 600;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
+      white-space: nowrap;
     }
 
     /* GENERAL SECTIONS */
@@ -147,19 +163,20 @@
       max-width: 780px;
     }
 
-    /* HERO / INTRO */
+    /* HERO */
     .hero-shell {
-      margin-top: 16px;
+      margin-top: 14px;
       background: radial-gradient(circle at top, #ffffff 0, #f5f5f7 55%, #e0f2fe 100%);
-      border-radius: 20px;
-      padding: 18px 16px 18px;
-      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.06);
+      border-radius: 18px;
+      padding: 18px 16px;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.06);
     }
 
-    .hero-title {
-      font-size: 24px;
-      font-weight: 800;
-      margin-bottom: 6px;
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
     }
 
     .hero-tag {
@@ -168,106 +185,222 @@
       text-transform: uppercase;
       font-weight: 600;
       color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .hero h1 {
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .hero-lead {
+      font-size: 14px;
+      color: #374151;
       margin-bottom: 4px;
     }
 
-    .hero-text {
-      font-size: 14px;
-      color: #374151;
-      max-width: 820px;
-      line-height: 1.7;
+    .hero-note-strong {
+      font-size: 12px;
+      color: #111827;
+      margin-top: 4px;
+      font-weight: 600;
     }
 
     .hero-note {
       font-size: 12px;
       color: var(--text-muted);
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
-    /* CASE STUDIES LIST */
-    .case-list {
+    .hero-cta {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
+      border: none;
+    }
+
+    .btn-ghost {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-card {
+      width: 100%;
+      max-width: 320px;
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 12px 12px 14px;
+      border: 1px solid #e0e7ff;
+      box-shadow: var(--shadow-soft);
+      font-size: 12px;
+    }
+
+    .hero-card-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      font-size: 11px;
+      color: #374151;
+    }
+
+    .hero-metrics strong { font-weight: 600; }
+
+    /* GRID CARDS */
+    .grid-3 {
       display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 18px;
-      margin-top: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
     }
 
-    .case {
+    .card {
       background: #ffffff;
       border-radius: var(--radius-card);
+      padding: 12px 12px 10px;
       border: 1px solid var(--border-subtle);
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.03);
-      padding: 14px 14px 12px;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.02);
       font-size: 13px;
+      color: #374151;
     }
 
-    .case-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
+    .card h3 {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .card ul {
+      padding-left: 16px;
+      line-height: 1.6;
+    }
+
+    /* TWO-COL */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .box {
+      background: var(--bg-subtle);
+      border-radius: 14px;
+      padding: 12px 12px 10px;
+      border: 1px solid var(--border-subtle);
+      font-size: 13px;
+      color: #374151;
+    }
+
+    .box h3 { font-size: 15px; margin-bottom: 4px; }
+    .box ul { padding-left: 16px; line-height: 1.6; }
+
+    /* EXAMPLES */
+    .examples-shell {
+      background: var(--bg-subtle);
+      border-radius: 16px;
+      padding: 14px 12px 10px;
+      border: 1px solid var(--border-subtle);
+      margin-top: 8px;
+    }
+
+    .examples-list {
+      display: grid;
       gap: 8px;
+      font-size: 13px;
+      color: #111827;
+    }
+
+    .example-item strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .example-item span {
+      color: #4b5563;
+    }
+
+    /* ABOUT / CONTACT */
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .about-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
       margin-bottom: 6px;
     }
 
-    .case-title {
-      font-size: 16px;
-      font-weight: 700;
-    }
-
-    .case-meta {
-      font-size: 11px;
-      color: var(--text-muted);
-      text-align: right;
-      white-space: nowrap;
-    }
-
-    .case-pill {
-      display: inline-flex;
-      padding: 2px 7px;
-      border-radius: 999px;
-      font-size: 11px;
-      background: #eff6ff;
-      color: #1d4ed8;
-      margin-top: 2px;
-    }
-
-    .case-section-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.13em;
-      color: #9ca3af;
+    .about-locations {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
       margin-top: 6px;
-      margin-bottom: 2px;
-      font-weight: 600;
     }
 
-    .case p {
-      margin-bottom: 4px;
-      color: #374151;
-      line-height: 1.6;
+    .contact-card {
+      background: #020617;
+      color: #e5e7eb;
+      border-radius: 16px;
+      padding: 12px 12px 10px;
     }
 
-    .case ul {
-      padding-left: 16px;
-      margin-bottom: 4px;
-      color: #374151;
-      line-height: 1.6;
+    .contact-card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+      color: #ffffff;
     }
 
-    .case strong {
-      font-weight: 600;
+    .contact-card p {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-bottom: 5px;
     }
 
-    .case-note {
+    .contact-card a { color: #e5e7eb; }
+
+    .contact-note {
+      margin-top: 6px;
       font-size: 11px;
-      color: var(--text-muted);
-      margin-top: 4px;
+      color: #9ca3af;
     }
 
     /* FOOTER */
     footer {
-      margin-top: 26px;
-      padding: 10px 0 8px;
+      margin-top: 22px;
+      padding: 8px 0;
       border-top: 1px solid #e5e7eb;
     }
 
@@ -305,10 +438,18 @@
     }
 
     /* RESPONSIVE */
-    @media (max-width: 800px) {
+    @media (max-width: 900px) {
       .nav-links { display: none; }
-      .hero-shell { padding: 16px 14px; }
-      .hero-title { font-size: 22px; }
+      .nav-cta { font-size: 11px; padding: 6px 12px; }
+      .hero-shell { padding: 18px 12px; }
+      .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+      .hero h1 { font-size: 22px; }
+      .two-col { grid-template-columns: minmax(0, 1fr); }
+      .about-layout { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .section { padding: 22px 0; }
     }
   </style>
 </head>
@@ -321,281 +462,311 @@
       <div class="logo-mark">BP</div>
       <span>BoltProof</span>
     </div>
-    <nav class="nav-links">
-      <a href="index.html#top">Home</a>
-      <a href="index.html#skills">Skills</a>
-      <a href="index.html#lab">Home Lab</a>
-      <a href="index.html#examples">Scenarios</a>
-      <a href="case-studies.html" class="active">Case Studies</a>
-      <a href="index.html#about">About & Contact</a>
-    </nav>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="#top" class="active">Overview</a>
+        <a href="#skills">Core Skills</a>
+        <a href="#lab">Home Lab</a>
+        <a href="#architectures">Hub</a>
+        <a href="#examples">Scenarios</a>
+        <a href="#about">About</a>
+      </nav>
+      <a href="https://cal.com/boltproof" target="_blank" class="nav-cta">Book a call</a>
+    </div>
   </div>
 </header>
 
 <main class="page">
 
-  <!-- INTRO -->
-  <section class="section">
+  <!-- HERO / OVERVIEW -->
+  <section class="section hero" id="top">
     <div class="hero-shell">
-      <div class="hero-tag">Portfolio • Synology • Backup • Small-Office Networking</div>
-      <h1 class="hero-title">Anonymised case studies showing how I approach real-world backup and IT problems.</h1>
-      <p class="hero-text">
-        These examples are written to help MSP owners and IT managers see <strong>how I think and work</strong>, not to sell
-        a product. Names, locations and details are adjusted or anonymised, but the overall scenarios and approaches
-        reflect real work I’ve done in my own lab and with small environments.
-      </p>
-      <p class="hero-note">
-        Focus regions: Ireland, Northern Ireland and the UK. Core strengths: Synology, 3–2–1 backups, basic Microsoft 365,
-        small-office networking and clear communication with non-technical clients.
-      </p>
+      <div class="hero-inner">
+        <div>
+          <div class="hero-tag">MSP / IT Support • Backup • Networking</div>
+          <h1>MSP / IT support engineer pivot with real-world backup, networking, Microsoft 365, domains and email.</h1>
+          <p class="hero-lead">
+            I’m deliberately moving into MSP / IT support roles in Ireland and the UK – combining 20+ years of
+            customer-facing technology work with a home lab focused on backup, NAS, small-office networking, simple
+            websites and Microsoft 365.
+          </p>
+          <p class="hero-note-strong">
+            This page is not a commercial offering – it’s a factual overview of how I think about IT support problems
+            for MSP owners or IT managers to review.
+          </p>
+          <p class="hero-note">
+            Based near Ballinasloe / Galway. Open to roles across Galway, Midlands, Athlone, Limerick and remote (Ireland / UK).
+          </p>
+
+          <div class="hero-cta">
+            <a href="mailto:elias@boltproof.com" class="btn-primary">Email Elias – request CV</a>
+            <a href="https://cal.com/boltproof" target="_blank" class="btn-primary" style="background:#1d4ed8;">
+              Book a quick call
+            </a>
+            <span class="btn-ghost">or message me on WhatsApp via the green icon.</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="hero-card-title">BoltProof.com – what it represents</div>
+            <div class="hero-metrics">
+              <div><strong>Today:</strong> A simple, factual portfolio page.</div>
+              <div><strong>Design goal:</strong> One clean domain that can front-end lab services securely
+                via Cloudflare Zero Trust and Tailscale – without open ports.</div>
+              <div><strong>Use:</strong> To demonstrate how I approach backup, networking, domains, DNS and remote access design.</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- CASE LIST -->
-  <section class="section">
-    <h2 class="section-title">Case Study 1 – Turning “OneDrive is our backup” into a real 3–2–1 strategy</h2>
+  <!-- CORE SKILLS -->
+  <section class="section" id="skills">
+    <h2 class="section-title">Core skills – focused on what MSPs actually need</h2>
     <p class="section-intro">
-      A small professional-services office (mix of remote and on-site staff) believed they were fully covered because
-      everything was stored in OneDrive and SharePoint. They had no local backups and no off-site copy outside Microsoft’s cloud.
+      This is aligned with what small and mid-sized MSPs handle every day: backup, Microsoft 365, Windows, networking,
+      domains / DNS, basic web and helping non-technical users without making things worse.
     </p>
 
-    <div class="case-list">
-
-      <article class="case">
-        <div class="case-header">
-          <div>
-            <div class="case-title">Context & risk</div>
-            <span class="case-pill">Cloud ≠ backup</span>
-          </div>
-          <div class="case-meta">
-            10–12 staff<br/>Mixed Windows laptops
-          </div>
-        </div>
-
-        <div class="case-section-label">Situation</div>
-        <p>
-          All company data lived in Microsoft 365 – OneDrive and SharePoint. There was a strong belief that “Microsoft
-          backs everything up anyway”, and no willingness to think about ransomware or account issues.
-        </p>
+    <div class="grid-3">
+      <article class="card">
+        <h3>Backup & Storage</h3>
         <ul>
-          <li>No offline or independent copy of business-critical documents.</li>
-          <li>No understanding of retention windows or versioning limits.</li>
-          <li>No plan if an account was compromised or files were encrypted and synced.</li>
-        </ul>
-
-        <div class="case-section-label">Approach</div>
-        <p>
-          My first step was to map where data actually lived: key SharePoint libraries, team folders, owner-specific data
-          and any legacy storage still on local machines. I then explained, in plain English, the difference between:
-        </p>
-        <ul>
-          <li><strong>Sync & collaboration</strong> (what Microsoft 365 is excellent at), and</li>
-          <li><strong>Independent backup</strong> (what they did not have).</li>
-        </ul>
-        <p>
-          Using my Synology experience, I proposed a simple 3–2–1 design:
-        </p>
-        <ul>
-          <li>1× Synology NAS onsite with SHR and encrypted volumes.</li>
-          <li>Regular pulls of key SharePoint libraries to the NAS (using Microsoft APIs / tools).</li>
-          <li>Encrypted replication of that NAS to a second Synology in a separate location.</li>
-        </ul>
-
-        <div class="case-section-label">Outcome</div>
-        <p>
-          The business owner could clearly see that:
-        </p>
-        <ul>
-          <li>Microsoft 365 remained the live “working” platform.</li>
-          <li>Synology provided a second, independent copy of the data.</li>
-          <li>An off-site Synology gave them a third copy and proper DR posture.</li>
-        </ul>
-        <p>
-          We then walked through a test: simulate a SharePoint deletion, show how the NAS copy would be used to restore,
-          and document that as a simple one-page recovery process.
-        </p>
-
-        <div class="case-section-label">What this shows for an MSP</div>
-        <p>
-          I’m comfortable:
-        </p>
-        <ul>
-          <li>Explaining why cloud alone is not enough, without scaring clients.</li>
-          <li>Using Synology gear to implement 3–2–1 in a way that fits small-business reality.</li>
-          <li>Documenting a <strong>simple, human-readable restore plan</strong> the owner can understand.</li>
-        </ul>
-
-        <p class="case-note">
-          In a formal MSP environment, I would align this with your existing backup stack (Veeam, Acronis,
-          Synology Active Backup, etc.) rather than imposing my own.
-        </p>
-      </article>
-
-      <article class="case">
-        <div class="case-header">
-          <div>
-            <div class="case-title">Case Study 2 – Consolidating scattered family data onto Synology</div>
-            <span class="case-pill">Personal / SOHO backup</span>
-          </div>
-          <div class="case-meta">
-            Mixed devices<br/>Photos & documents
-          </div>
-        </div>
-
-        <div class="case-section-label">Situation</div>
-        <p>
-          A typical household with data scattered across USB drives, old laptops, phones and cloud accounts. No one
-          knew where the “real” copy of important documents or family photos lived.
-        </p>
-        <ul>
-          <li>Multiple unmanaged OneDrive / iCloud / Google accounts.</li>
-          <li>No clear backup of any device.</li>
-          <li>Genuine fear of losing photos and school documents.</li>
-        </ul>
-
-        <div class="case-section-label">Approach</div>
-        <p>
-          Using a 2–4 bay Synology NAS, I:
-        </p>
-        <ul>
-          <li>Created a simple folder structure for Documents, Photos and Archives.</li>
-          <li>Configured SHR, enabled encryption where appropriate, and set up user accounts.</li>
-          <li>Set up Time Machine for macOS and file-level backups for Windows PCs.</li>
-          <li>Migrated existing photo libraries into Synology Photos and tested access from phones and a TV.</li>
-        </ul>
-        <p>
-          I also added a basic off-site component: periodic encrypted backup of the NAS to a second device
-          located in a different property.
-        </p>
-
-        <div class="case-section-label">Outcome</div>
-        <p>
-          The result was:
-        </p>
-        <ul>
-          <li>One central place where the family knew their data lived.</li>
-          <li>Automatic backup of laptops instead of “remembering to plug in a USB drive”.</li>
-          <li>Verified restores of both a laptop document folder and a photo album.</li>
-        </ul>
-
-        <div class="case-section-label">What this shows for an MSP</div>
-        <p>
-          Although this is a personal use case, the skills transfer directly to:
-        </p>
-        <ul>
-          <li>Very small offices and micro-businesses.</li>
-          <li>SOHO setups where there is no IT team.</li>
-          <li>Explaining Synology in a way non-technical people can use day to day.</li>
+          <li>3–2–1 backup mindset for SMEs.</li>
+          <li>NAS (Synology and others), RAID/SHR, volumes and shares.</li>
+          <li>Snapshots, versioning and running test restores.</li>
         </ul>
       </article>
 
-      <article class="case">
-        <div class="case-header">
-          <div>
-            <div class="case-title">Case Study 3 – Small office NAS with off-site DR using two sites</div>
-            <span class="case-pill">3–2–1 with Synology</span>
-          </div>
-          <div class="case-meta">
-            6–8 staff<br/>Project files
-          </div>
-        </div>
-
-        <div class="case-section-label">Situation</div>
-        <p>
-          A small office needed shared storage for project files, with two physical sites available within Ireland. 
-          They wanted shared access, but also some protection if one site was unusable.
-        </p>
-
-        <div class="case-section-label">Approach</div>
-        <p>
-          I designed a layout using two Synology units:
-        </p>
+      <article class="card">
+        <h3>Networking</h3>
         <ul>
-          <li><strong>Site A:</strong> Main NAS with SHR, shared folders and permissions for staff.</li>
-          <li><strong>Site B:</strong> Secondary NAS used as an encrypted replication target.</li>
-          <li>Hyper Backup / Snapshot Replication between sites on a scheduled basis.</li>
-          <li>Tested restoring a deleted project folder directly from the remote copy.</li>
-        </ul>
-        <p>
-          I also documented:
-        </p>
-        <ul>
-          <li>Which folders were replicated.</li>
-          <li>How long snapshots were kept.</li>
-          <li>What to do if Site A was unavailable for an extended period.</li>
-        </ul>
-
-        <div class="case-section-label">Outcome</div>
-        <p>
-          Without much complexity, the business achieved a practical 3–2–1 pattern:
-        </p>
-        <ul>
-          <li>Primary working copy on the PCs and the main NAS.</li>
-          <li>Local backup and snapshots at Site A.</li>
-          <li>Off-site encrypted copy at Site B.</li>
-        </ul>
-
-        <div class="case-section-label">What this shows for an MSP</div>
-        <p>
-          I can:
-        </p>
-        <ul>
-          <li>Use Synology’s built-in tools in a sensible way for small environments.</li>
-          <li>Think in terms of <strong>failure scenarios</strong>, not just features.</li>
-          <li>Write clear notes on how and where to restore when something goes wrong.</li>
+          <li>Routers, WAN/LAN basics, DHCP and DNS.</li>
+          <li>WiFi troubleshooting and simple VLAN separation.</li>
+          <li>VPN concepts (OpenVPN, WireGuard, Tailscale, NordVPN routing).</li>
         </ul>
       </article>
 
-      <article class="case">
-        <div class="case-header">
-          <div>
-            <div class="case-title">Case Study 4 – “What if the office burns down?” tabletop exercise</div>
-            <span class="case-pill">Disaster recovery thinking</span>
-          </div>
-          <div class="case-meta">
-            Lab / hypothetical<br/>Aligned to SME reality
-          </div>
-        </div>
-
-        <div class="case-section-label">Situation</div>
-        <p>
-          As part of my own learning, I ran a simple tabletop exercise using my Synology lab: assume the main office
-          (and main NAS) is destroyed overnight. What can be recovered, from where, and how fast?
-        </p>
-
-        <div class="case-section-label">Approach</div>
-        <p>
-          I worked through the following steps:
-        </p>
+      <article class="card">
+        <h3>Microsoft 365</h3>
         <ul>
-          <li>Identify which services and data were “business critical” on day 1 vs “nice to have”.</li>
-          <li>Check which of those actually had an off-site copy (remote Synology, cloud, etc.).</li>
-          <li>Simulate loss of the primary NAS by turning it off and only working from the DR copy.</li>
-          <li>Measure how long it would realistically take to restore file shares.</li>
-          <li>Note down the practical gaps: licences, hardware lead times, bandwidth constraints.</li>
-        </ul>
-
-        <div class="case-section-label">Outcome</div>
-        <p>
-          The exercise clarified:
-        </p>
-        <ul>
-          <li>Which data was well protected and which was not.</li>
-          <li>How important it is to have <strong>tested</strong> restores, not just backups that “should work”.</li>
-          <li>Why written, step-by-step recovery notes are critical for SMEs under stress.</li>
-        </ul>
-
-        <div class="case-section-label">What this shows for an MSP</div>
-        <p>
-          I naturally think in terms of:
-        </p>
-        <ul>
-          <li>Impact on the business, not just uptime of boxes.</li>
-          <li>Clear recovery steps an on-call engineer or junior could follow.</li>
-          <li>Balancing ideal designs with what small clients can afford and maintain.</li>
+          <li>User and mailbox creation, aliases and shared mailboxes.</li>
+          <li>Basic MFA setup and user guidance.</li>
+          <li>Outlook / mobile client configuration and troubleshooting.</li>
+          <li>Understanding why M365 sync ≠ full backup and how to mitigate that.</li>
         </ul>
       </article>
 
+      <article class="card">
+        <h3>Domains, DNS & Email</h3>
+        <ul>
+          <li>Registering domains, choosing TLDs (.com / .ie / .co.uk).</li>
+          <li>Managing A / CNAME / MX / TXT records.</li>
+          <li>Cloudflare Email Routing (e.g. <code>elias@boltproof.com</code>).</li>
+          <li>SPF / DKIM / DMARC basics and deliverability awareness.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Simple Websites</h3>
+        <ul>
+          <li>Building compact HTML/CSS static sites (like this one).</li>
+          <li>Deploying to GitHub Pages or simple shared hosting.</li>
+          <li>Hooking domains and DNS correctly to the site.</li>
+          <li>Adding clean contact details and basic CTAs.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Windows & Soft Skills</h3>
+        <ul>
+          <li>Windows desktop setup, updates and troubleshooting.</li>
+          <li>File shares, NTFS permissions and simple group structures.</li>
+          <li>Explaining risk and options in plain English.</li>
+          <li>Owning issues until they’re fixed, not bouncing tickets.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- HOME LAB -->
+  <section class="section" id="lab">
+    <h2 class="section-title">Home lab – where I break and fix things safely</h2>
+    <p class="section-intro">
+      Rather than just reading, I run a small lab where I can test ideas, make mistakes and fix them. The point is to
+      be comfortable with the kinds of problems MSP engineers see regularly.
+    </p>
+
+    <div class="two-col">
+      <div class="box">
+        <h3>Core environment</h3>
+        <ul>
+          <li>NAS devices (e.g. Synology DS916+, DS418) with SHR/RAID layouts and snapshots.</li>
+          <li>Router with multiple networks, basic firewall rules and VPN usage.</li>
+          <li>Mac and Windows machines for real-world client-style setups.</li>
+          <li>Backup jobs between devices, including off-site-style replication.</li>
+        </ul>
+        <p style="font-size:12px;color:#6b7280;margin-top:4px;">
+          The goal is not a huge homelab, but a realistic environment where I can practise backup, recovery and
+          small-office-style networking.
+        </p>
+      </div>
+
+      <div class="box">
+        <h3>Services running in the lab</h3>
+        <ul>
+          <li>File storage and backups on NAS devices.</li>
+          <li>Media services (e.g. Plex) as a way to practise publishing safely.</li>
+          <li>Remote access tools and VPNs for reaching internal resources.</li>
+          <li>Cloudflare and Tailscale used together to control access.</li>
+        </ul>
+        <p style="font-size:12px;color:#6b7280;margin-top:4px;">
+          These aren’t “products” – they’re lab components to explore, break and improve so I bring that experience to
+          a future MSP or IT support team.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOLTPROOF.COM HUB / ARCHITECTURES -->
+  <section class="section" id="architectures">
+    <h2 class="section-title">BoltProof.com as a secure hub (design idea)</h2>
+    <p class="section-intro">
+      A key part of my learning is turning BoltProof.com into a single entry point for multiple services – without
+      exposing my home IP or leaving ports open. This mirrors what many MSPs want to do for clients.
+    </p>
+
+    <div class="two-col">
+      <div class="box">
+        <h3>Concept: one login, many internal services</h3>
+        <ul>
+          <li><strong>Public site:</strong> <code>boltproof.com</code> – this portfolio page.</li>
+          <li><strong>Login:</strong> <code>boltproof.com/login</code> – protected by Cloudflare Zero Trust / Access.</li>
+          <li><strong>After login, routed internally via Tailscale:</strong></li>
+          <ul>
+            <li><code>boltproof.com/nas</code> → NAS admin UI.</li>
+            <li><code>boltproof.com/plex</code> → Plex web interface.</li>
+            <li><code>boltproof.com/mac</code> → Mac mini (VNC / SSH).</li>
+            <li><code>boltproof.com/qbit</code> → qBittorrent UI.</li>
+            <li><code>boltproof.com/admin</code> → admin-only tools.</li>
+          </ul>
+        </ul>
+        <p style="font-size:12px;color:#6b7280;margin-top:4px;">
+          All of this would sit behind Cloudflare and Tailscale – with no direct exposure of my home IP or direct
+          port-forwarding to critical services.
+        </p>
+      </div>
+
+      <div class="box">
+        <h3>Why this matters for MSP-style work</h3>
+        <ul>
+          <li>Shows understanding of zero-trust-style access instead of open ports.</li>
+          <li>Combines DNS, certificates, identity and private networking.</li>
+          <li>Mirrors how modern MSPs want to front services for clients.</li>
+          <li>Gives hands-on experience with Cloudflare, Tailscale and reverse proxy patterns.</li>
+        </ul>
+        <p style="font-size:12px;color:#6b7280;margin-top:4px;">
+          As this design matures, BoltProof.com becomes both a personal lab and a practical example of secure remote
+          access that I can discuss in interviews.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENARIOS -->
+  <section class="section" id="examples">
+    <h2 class="section-title">Scenarios I think about when designing setups</h2>
+    <p class="section-intro">
+      To give a better sense of my approach, here are a few simple scenarios I keep in mind when I’m planning backup
+      or access – even in my own lab. These are not case studies, just examples of how I think.
+    </p>
+
+    <div class="examples-shell">
+      <div class="examples-list">
+        <div class="example-item">
+          <strong>1. Ransomware + cloud sync ≠ safe</strong>
+          <span>
+            If a user’s laptop is hit by ransomware and their OneDrive or Google Drive syncs encrypted files to the
+            cloud, you can still lose everything. I assume cloud sync is for convenience, not a backup. So I design a
+            second, independent backup (e.g. NAS snapshots + off-site copy) that doesn’t blindly sync changes.
+          </span>
+        </div>
+
+        <div class="example-item">
+          <strong>2. “The NAS is our backup” – is it really?</strong>
+          <span>
+            A NAS used as a file server is not automatically a backup. I separate “primary storage” from “backup
+            storage”, and I always ask: if the NAS itself fails, where do we restore from? That leads to a proper
+            3–2–1 layout and at least one off-site or offline copy.
+          </span>
+        </div>
+
+        <div class="example-item">
+          <strong>3. Remote access for a small office</strong>
+          <span>
+            Instead of opening RDP or NAS ports straight to the internet, I’d prefer a VPN or something like Tailscale
+            plus Cloudflare Access. Staff log in via the company domain, and only then can they reach internal tools.
+            That reduces random scanning and simple credential stuffing attacks.
+          </span>
+        </div>
+
+        <div class="example-item">
+          <strong>4. Domains, basic sites and professional email</strong>
+          <span>
+            For a small business, having <code>info@their-domain.com</code> and a clean one-page site is often enough.
+            I’m comfortable registering the domain, wiring up DNS and email routing, and deploying a simple static site
+            similar to this one so they look professional without a huge stack.
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / CONTACT -->
+  <section class="section" id="about">
+    <div class="about-layout">
+      <div>
+        <h2 class="section-title">About me & how to get in touch</h2>
+        <p class="about-text">
+          My name is <strong>Elias Thomaidis</strong>. I’m based near Ballinasloe, in the west of Ireland, and I’ve
+          spent many years working in technology and client-facing roles. I’m now deliberately steering into MSP / IT
+          support work where I can combine communication skills with hands-on technical work.
+        </p>
+        <p class="about-text">
+          This site is intentionally simple. It exists to show how I think about backup, networking, domains, email and
+          safe remote access – without marketing language or packages. If you read this and think, “He’d fit in our
+          MSP / IT support team”, I’d be happy to talk.
+        </p>
+        <p class="about-locations">
+          Region: Galway, Athlone, Midlands, Limerick and surrounding areas. Remote work across Ireland / UK is also of interest.
+        </p>
+      </div>
+
+      <aside class="contact-card">
+        <h3>Contact Elias</h3>
+        <p>
+          If you’d like my CV, or to discuss a role or project, you can reach me here:
+        </p>
+        <p><strong>Phone:</strong> <a href="tel:+353892339862">+353 89 233 9862</a></p>
+        <p><strong>Email:</strong> <a href="mailto:elias@boltproof.com">elias@boltproof.com</a></p>
+        <p><strong>Book a call:</strong> 
+          <a href="https://cal.com/boltproof" target="_blank" style="color:#e5e7eb;text-decoration:underline;">
+            https://cal.com/boltproof
+          </a>
+        </p>
+
+        <a href="https://cal.com/boltproof" target="_blank"
+           style="display:inline-block;margin-top:8px;padding:6px 12px;background:#2563eb;
+           color:#fff;border-radius:8px;font-size:12px;font-weight:600;">
+          Book a call with Elias
+        </a>
+
+        <p class="contact-note">
+          Or message me on WhatsApp using the green icon. A short note with who you are, where you’re based and what you’re thinking about is more than enough to start.
+        </p>
+      </aside>
     </div>
   </section>
 
@@ -603,8 +774,8 @@
 
 <footer>
   <div class="footer-inner">
-    These case studies are anonymised and simplified to protect privacy and to keep the focus on approach and thinking.
-    This site is a personal portfolio for MSP / IT support opportunities, not a commercial backup or hosting service.<br />
+    This site is a personal portfolio for MSP / IT support work. It is not a formal MSP or commercial service and
+    does not provide legal, insurance or regulatory advice – only technical perspective and experience.<br />
     © 2025 BoltProof / Elias Thomaidis. All rights reserved.
   </div>
 </footer>
