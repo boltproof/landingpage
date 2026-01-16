@@ -1,992 +1,117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BoltProof • Systems & IT Skills Overview</title>
-  <meta name="description" content="Technical overview of skills across backup, NAS, networking, Microsoft 365, domains, DNS, simple websites and secure remote access.">
-
-  <!-- Inter font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <!-- Simple shield favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.8em' font-size='70'>🛡️</text></svg>">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BoltProof Links</title>
+  <meta name="robots" content="noindex,nofollow" />
   <style>
-    :root {
-      --bg-page: #ffffff;
-      --bg-soft: #f5f5f7;
-      --bg-subtle: #f9fafb;
-      --text-main: #020617;
-      --text-muted: #6b7280;
-      --accent: #2563eb;
-      --accent-deep: #1d4ed8;
-      --accent-soft: #dbeafe;
-      --border-subtle: #e5e7eb;
-      --radius-card: 16px;
-      --shadow-soft: 0 16px 40px rgba(15, 23, 42, 0.08);
+    :root { color-scheme: dark; }
+    body{
+      margin:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 20% 0%, #1a2a44 0%, #0b1220 60%, #070b14 100%);
+      color:#e9eef7;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
     }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html, body { height: 100%; }
-
-    body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text-main);
-      background: var(--bg-page);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { text-decoration: none; color: inherit; }
-
-    .page {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 16px 32px;
-    }
-
-    /* Anchor offset for sticky header */
-    section[id] { scroll-margin-top: 80px; }
-
-    /* HEADER / NAV */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(14px);
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid rgba(229, 231, 235, 0.9);
-    }
-
-    .nav {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 8px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      font-size: 18px;
-      color: var(--text-main);
-    }
-
-    .logo-mark {
-      width: 30px;
-      height: 30px;
-      border-radius: 10px;
-      background: radial-gradient(circle at 30% 20%, #ffffff 0, #3b82f6 40%, #1d4ed8 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      font-size: 14px;
-      font-weight: 800;
-      box-shadow: 0 10px 26px rgba(37, 99, 235, 0.45);
-    }
-
-    .logo-sub {
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--text-muted);
-      line-height: 1.2;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-muted);
-    }
-
-    .nav-links a {
-      position: relative;
-      padding-bottom: 2px;
-    }
-
-    .nav-links a:hover { color: var(--text-main); }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 1px;
-      background: var(--text-main);
-      transition: width 0.18s ease-out;
-    }
-
-    .nav-links a:hover::after { width: 100%; }
-
-    .nav-links a.active {
-      color: var(--text-main);
-      font-weight: 600;
-    }
-
-    .nav-links a.active::after { width: 100%; }
-
-    .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: var(--accent-deep);
-      color: #ffffff;
-      font-size: 12px;
-      font-weight: 600;
-      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
-      white-space: nowrap;
-    }
-
-    /* GENERAL SECTIONS */
-    .section { padding: 26px 0; }
-
-    .section-title-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-
-    .section-icon {
-      width: 26px;
-      height: 26px;
-      border-radius: 9px;
-      background: var(--accent-soft);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-    }
-
-    .section-title {
-      font-size: 22px;
-      text-align: left;
-    }
-
-    .section-intro {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-      max-width: 780px;
-    }
-
-    /* HERO */
-    .hero-shell {
-      margin-top: 14px;
-      background: radial-gradient(circle at top left, #eff6ff 0, #f5f5f7 50%, #e0f2fe 100%);
-      border-radius: 20px;
-      padding: 20px 18px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid #e5e7eb;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 20px;
-      align-items: center;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .hero-tag-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-
-    .hero h1 {
-      font-size: 24px;
-      line-height: 1.25;
-      font-weight: 800;
-      margin-bottom: 6px;
-      color: var(--text-main);
-    }
-
-    .hero-lead {
-      font-size: 14px;
-      color: #374151;
-      margin-bottom: 4px;
-    }
-
-    .hero-note-strong {
-      font-size: 12px;
-      color: #111827;
-      margin-top: 4px;
-      font-weight: 600;
-    }
-
-    .hero-note {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    .hero-cta {
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 8px 16px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #ffffff;
-      font-size: 13px;
-      font-weight: 600;
-      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
-      border: none;
-    }
-
-    .btn-primary span.icon {
-      font-size: 14px;
-    }
-
-    .btn-ghost {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .hero-visual {
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero-card {
-      width: 100%;
-      max-width: 340px;
-      background: #0b1120;
+    .card{
+      width:min(820px, 100%);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
       border-radius: 18px;
-      padding: 14px 14px 16px;
-      border: 1px solid #1f2937;
-      color: #e5e7eb;
-      font-size: 12px;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.75);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+      padding: 28px;
+      backdrop-filter: blur(10px);
     }
-
-    .hero-card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 8px;
+    header{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    h1{ margin:0; font-size:26px; }
+    .subtitle{ margin:8px 0 0 0; color:rgba(233,238,247,0.75); line-height:1.4; }
+    .badge{
+      font-size:12px; padding:6px 10px; border:1px solid rgba(255,255,255,0.14);
+      border-radius:999px; color:rgba(233,238,247,0.8); background:rgba(255,255,255,0.06);
+      height: fit-content;
     }
-
-    .hero-card-title {
-      font-size: 12px;
-      font-weight: 600;
-      color: #e5e7eb;
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:12px;
+      margin-top:16px;
     }
-
-    .hero-card-pill {
-      font-size: 10px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: rgba(148, 163, 184, 0.2);
-      color: #cbd5f5;
+    @media (min-width: 740px){ .grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    a.tile{
+      text-decoration:none; color:inherit;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      border-radius: 14px;
+      padding: 14px;
+      display:flex; flex-direction:column; gap:6px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
     }
-
-    .hero-metrics {
-      display: grid;
-      gap: 4px;
-      font-size: 11px;
-      color: #cbd5f5;
+    a.tile:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.18);
     }
-
-    .hero-metrics strong { font-weight: 600; }
-
-    .hero-metrics-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin-top: 6px;
-    }
-
-    .hero-badge {
-      font-size: 10px;
-      padding: 3px 7px;
-      border-radius: 999px;
-      background: rgba(37, 99, 235, 0.18);
-      color: #e5e7eb;
-    }
-
-    /* GRID CARDS */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-      margin-top: 12px;
-    }
-
-    .card {
-      background: #ffffff;
-      border-radius: var(--radius-card);
-      padding: 14px 14px 12px;
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.02);
-      font-size: 13px;
-      color: #374151;
-    }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-
-    .card-icon {
-      width: 26px;
-      height: 26px;
-      border-radius: 9px;
-      background: #eff6ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-    }
-
-    .card h3 {
-      font-size: 15px;
-    }
-
-    .card ul {
-      padding-left: 16px;
-      line-height: 1.6;
-    }
-
-    /* TWO-COL */
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 16px;
-      margin-top: 10px;
-    }
-
-    .box {
-      background: var(--bg-subtle);
-      border-radius: 16px;
-      padding: 14px 14px 12px;
-      border: 1px solid var(--border-subtle);
-      font-size: 13px;
-      color: #374151;
-    }
-
-    .box-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-
-    .box-icon {
-      width: 24px;
-      height: 24px;
-      border-radius: 9px;
-      background: #e5f3ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-    }
-
-    .box h3 { font-size: 15px; }
-    .box ul { padding-left: 16px; line-height: 1.6; }
-
-    /* EXAMPLES */
-    .examples-shell {
-      background: var(--bg-subtle);
-      border-radius: 18px;
-      padding: 14px 14px 12px;
-      border: 1px solid var(--border-subtle);
-      margin-top: 8px;
-    }
-
-    .examples-list {
-      display: grid;
-      gap: 10px;
-      font-size: 13px;
-      color: #111827;
-    }
-
-    .example-item strong {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 2px;
-    }
-
-    .example-bullet-icon {
-      font-size: 14px;
-    }
-
-    .example-item span {
-      color: #4b5563;
-    }
-
-    /* ABOUT / CONTACT */
-    .about-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 18px;
-      align-items: flex-start;
-    }
-
-    .about-text {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 6px;
-    }
-
-    .about-locations {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--accent);
-      margin-top: 6px;
-    }
-
-    .contact-card {
-      background: #020617;
-      color: #e5e7eb;
-      border-radius: 18px;
-      padding: 14px 14px 12px;
-      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.75);
-      border: 1px solid #1f2937;
-    }
-
-    .contact-card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-
-    .contact-card-title {
-      font-size: 16px;
-      color: #ffffff;
-    }
-
-    .contact-pill {
-      font-size: 10px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: rgba(148, 163, 184, 0.2);
-      color: #cbd5f5;
-    }
-
-    .contact-card p {
-      font-size: 12px;
-      color: #9ca3af;
-      margin-bottom: 5px;
-    }
-
-    .contact-card a { color: #e5e7eb; }
-
-    .contact-note {
-      margin-top: 6px;
-      font-size: 11px;
-      color: #9ca3af;
-    }
-
-    /* FOOTER */
-    footer {
-      margin-top: 22px;
-      padding: 10px 0;
-      border-top: 1px solid #e5e7eb;
-      background: #f9fafb;
-    }
-
-    .footer-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 16px;
-      font-size: 11px;
-      color: #6b7280;
-      text-align: left;
-      line-height: 1.5;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 6px;
-    }
-
-    .footer-name {
-      font-weight: 500;
-      color: #4b5563;
-    }
-
-    /* WHATSAPP FLOAT */
-    .whatsapp-float {
-      position: fixed;
-      right: 16px;
-      bottom: 18px;
-      width: 50px;
-      height: 50px;
-      border-radius: 999px;
-      background: #22c55e;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 14px 28px rgba(22, 163, 74, 0.4);
-      z-index: 60;
-      cursor: pointer;
-    }
-
-    .whatsapp-float svg {
-      width: 24px;
-      height: 24px;
-      fill: #ffffff;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .nav-cta { font-size: 11px; padding: 6px 12px; }
-      .hero-shell { padding: 18px 12px; }
-      .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 14px; }
-      .hero h1 { font-size: 22px; }
-      .two-col { grid-template-columns: minmax(0, 1fr); }
-      .about-layout { grid-template-columns: minmax(0, 1fr); }
-    }
-
-    @media (max-width: 600px) {
-      .section { padding: 22px 0; }
+    .name{ font-weight:650; }
+    .desc{ color:rgba(233,238,247,0.70); font-size:13px; line-height:1.35; }
+    .footer{
+      margin-top:18px;
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      color:rgba(233,238,247,0.65);
+      font-size:12px;
     }
   </style>
 </head>
-
 <body>
-
-<header>
-  <div class="nav">
-    <div class="logo">
-      <div class="logo-mark">BP</div>
+  <main class="card">
+    <header>
       <div>
-        <div>BoltProof</div>
-        <div class="logo-sub">Systems & IT skills overview</div>
+        <h1>BoltProof — Service Links</h1>
+        <p class="subtitle">Private shortcuts to your NAS services.</p>
       </div>
+      <div class="badge">Tip: bookmark this page</div>
+    </header>
+
+    <section class="grid">
+      <a class="tile" href="https://paperless.boltproof.com">
+        <div class="name">Documents</div>
+        <div class="desc">Paperless-ngx</div>
+      </a>
+
+      <a class="tile" href="https://photos.boltproof.com">
+        <div class="name">Photos</div>
+        <div class="desc">Synology Photos</div>
+      </a>
+
+      <a class="tile" href="https://files.boltproof.com">
+        <div class="name">Files</div>
+        <div class="desc">Synology Drive / File access</div>
+      </a>
+
+      <a class="tile" href="https://backup.boltproof.com">
+        <div class="name">Backups</div>
+        <div class="desc">Backup console</div>
+      </a>
+
+      <a class="tile" href="https://plex.boltproof.com">
+        <div class="name">Media</div>
+        <div class="desc">Plex (optional)</div>
+      </a>
+
+      <a class="tile" href="https://admin.boltproof.com">
+        <div class="name">Admin</div>
+        <div class="desc">DSM admin (restrict access)</div>
+      </a>
+    </section>
+
+    <div class="footer">
+      <div>Security: keep admin locked down (2FA + IP allowlist or Tailscale).</div>
+      <div><span>Meta: noindex enabled</span></div>
     </div>
-    <div class="nav-right">
-      <nav class="nav-links">
-        <a href="#top" class="active">Overview</a>
-        <a href="#skills">Technical Areas</a>
-        <a href="#lab">Home Lab</a>
-        <a href="#architectures">Hub Design</a>
-        <a href="#examples">Scenarios</a>
-        <a href="#about">About</a>
-      </nav>
-      <a href="https://cal.com/boltproof" target="_blank" class="nav-cta">Book a call</a>
-    </div>
-  </div>
-</header>
-
-<main class="page">
-
-  <!-- OVERVIEW -->
-  <section class="section hero" id="top">
-    <div class="hero-shell">
-      <div class="hero-inner">
-        <div>
-          <div class="hero-tag">
-            <span class="hero-tag-dot"></span>
-            SYSTEMS • BACKUP • NETWORKING • M365
-          </div>
-          <h1>Small-environment IT: backup, storage, networking, Microsoft 365, domains and secure access.</h1>
-          <p class="hero-lead">
-            This page outlines practical experience across backup and storage, small-office networking, Microsoft 365,
-            domains / DNS, email, simple websites and secure remote access approaches.
-          </p>
-          <p class="hero-note-strong">
-            The focus is on clear, repeatable patterns suitable for home offices and small businesses, rather than large enterprise environments.
-          </p>
-          <p class="hero-note">
-            Region of work: West of Ireland and Midlands, with remote collaboration possible across Ireland and the UK.
-          </p>
-
-          <div class="hero-cta">
-            <a href="mailto:elias@boltproof.com" class="btn-primary">
-              <span class="icon">✉️</span>
-              <span>Email – elias@boltproof.com</span>
-            </a>
-            <a href="https://cal.com/boltproof" target="_blank" class="btn-primary" style="background:#1d4ed8;">
-              <span class="icon">📅</span>
-              <span>Book a quick call</span>
-            </a>
-            <span class="btn-ghost">WhatsApp contact is available via the green icon.</span>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="hero-card" aria-label="Summary card">
-            <div class="hero-card-header">
-              <div class="hero-card-title">BoltProof.com</div>
-              <div class="hero-card-pill">Static technical overview</div>
-            </div>
-            <div class="hero-metrics">
-              <div><strong>Scope:</strong> Backup, NAS, LAN/WAN, Microsoft 365, DNS, domains and remote access.</div>
-              <div><strong>Style:</strong> Factual, non-commercial, documentation-like summary.</div>
-              <div><strong>Use:</strong> Reference page for IT teams, MSPs and hiring managers to review skills quickly.</div>
-            </div>
-            <div class="hero-metrics-badges" aria-hidden="true">
-              <div class="hero-badge">Backup & NAS</div>
-              <div class="hero-badge">LAN / Wi-Fi</div>
-              <div class="hero-badge">Microsoft 365</div>
-              <div class="hero-badge">Domains & DNS</div>
-              <div class="hero-badge">Secure access</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TECHNICAL AREAS -->
-  <section class="section" id="skills">
-    <div class="section-title-row">
-      <div class="section-icon">🧩</div>
-      <h2 class="section-title">Technical focus areas</h2>
-    </div>
-    <p class="section-intro">
-      The emphasis is on small-to-medium environments: reliable backup, clean networking layouts, Microsoft 365 basics,
-      domain and DNS configuration, and straightforward web and email setups.
-    </p>
-
-    <div class="grid-3">
-      <article class="card">
-        <div class="card-header">
-          <div class="card-icon">💾</div>
-          <h3>Backup & storage</h3>
-        </div>
-        <ul>
-          <li>3–2–1 style backup thinking for small businesses and home offices.</li>
-          <li>Use of NAS devices (e.g. Synology and others), RAID/SHR, volumes and shared folders.</li>
-          <li>Snapshots, versioning, verification and test restores instead of assuming backup success.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <div class="card-header">
-          <div class="card-icon">🌐</div>
-          <h3>Networking</h3>
-        </div>
-        <ul>
-          <li>Router configuration, WAN and LAN basics, DHCP and DNS usage.</li>
-          <li>Wi-Fi setup and troubleshooting in typical home/office layouts.</li>
-          <li>VPN concepts: site-to-site and client-based approaches (e.g. WireGuard / Tailscale style).</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <div class="card-header">
-          <div class="card-icon">📨</div>
-          <h3>Microsoft 365</h3>
-        </div>
-        <ul>
-          <li>User and mailbox creation, aliases and basic shared mailbox scenarios.</li>
-          <li>Outlook desktop and mobile client configuration and basic fault-finding.</li>
-          <li>Awareness that Microsoft 365 sync is not a full backup, and ways to mitigate that risk.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <div class="card-header">
-          <div class="card-icon">🔐</div>
-          <h3>Domains, DNS & email</h3>
-        </div>
-        <ul>
-          <li>Domain registration and TLD selection for individuals and small organisations.</li>
-          <li>A, CNAME, MX and TXT record configuration with providers such as Cloudflare.</li>
-          <li>Cloudflare Email Routing to personal inboxes (e.g. <code>elias@boltproof.com</code>).</li>
-          <li>SPF, DKIM and DMARC basics and simple deliverability checks.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <div class="card-header">
-          <div class="card-icon">🧱</div>
-          <h3>Simple websites</h3>
-        </div>
-        <ul>
-          <li>Static HTML/CSS sites similar to this page for clear information pages.</li>
-          <li>Hosting on GitHub Pages or lightweight shared hosting platforms.</li>
-          <li>Connecting the site to a custom domain and maintaining DNS records.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <div class="card-header">
-          <div class="card-icon">🖥️</div>
-          <h3>Windows & user support</h3>
-        </div>
-        <ul>
-          <li>Windows desktop setup, OS updates and routine troubleshooting.</li>
-          <li>File sharing, NTFS permissions and straightforward access structures.</li>
-          <li>Explaining changes and risk in plain language suitable for non-technical users.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <!-- HOME LAB -->
-  <section class="section" id="lab">
-    <div class="section-title-row">
-      <div class="section-icon">🧪</div>
-      <h2 class="section-title">Home lab – summary</h2>
-    </div>
-    <p class="section-intro">
-      A small, realistic lab environment is used to explore backup, storage, networking and remote-access patterns.
-      The aim is to mirror the types of components commonly encountered in smaller environments.
-    </p>
-
-    <div class="two-col">
-      <div class="box">
-        <div class="box-header">
-          <div class="box-icon">🗂️</div>
-          <h3>Current lab environment</h3>
-        </div>
-        <ul>
-          <li>NAS devices with SHR/RAID arrays, shared folders and scheduled backup jobs.</li>
-          <li>Router with multiple networks, basic firewall rules and VPN configuration.</li>
-          <li>Combination of macOS and Windows machines for testing common client setups.</li>
-          <li>Backup and replication between devices to simulate off-site or secondary copies.</li>
-        </ul>
-        <p style="font-size:12px;color:#6b7280;margin-top:4px;">
-          The emphasis is on reliability and repeatability at small scale, rather than high complexity.
-        </p>
-      </div>
-
-      <div class="box">
-        <div class="box-header">
-          <div class="box-icon">⚙️</div>
-          <h3>Services used for testing</h3>
-        </div>
-        <ul>
-          <li>File storage and backup tasks across different devices and shares.</li>
-          <li>Media and utility services (e.g. Plex) as examples of internal user-facing apps.</li>
-          <li>Remote access using VPN and zero-trust-style tools such as Tailscale.</li>
-          <li>Use of Cloudflare for DNS management and secure access patterns.</li>
-        </ul>
-        <p style="font-size:12px;color:#6b7280;margin-top:4px;">
-          Components are used as test pieces to understand behaviour and failure modes, not as commercial products.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- HUB DESIGN -->
-  <section class="section" id="architectures">
-    <div class="section-title-row">
-      <div class="section-icon">🛡️</div>
-      <h2 class="section-title">BoltProof.com as a simple secure hub – design idea</h2>
-    </div>
-    <p class="section-intro">
-      BoltProof.com can serve as a single entry point to several internal services, keeping the underlying IP space
-      private and avoiding directly exposed ports. This mirrors modern small-scale “hub” designs.
-    </p>
-
-    <div class="two-col">
-      <div class="box">
-        <div class="box-header">
-          <div class="box-icon">🔗</div>
-          <h3>Single entry with protected access</h3>
-        </div>
-        <ul>
-          <li><strong>Public page:</strong> <code>boltproof.com</code> – this static overview site.</li>
-          <li><strong>Login page concept:</strong> <code>boltproof.com/login</code> – protected via Cloudflare Access.</li>
-          <li><strong>Internal routing:</strong> once authenticated, traffic is routed over a private mesh (e.g. Tailscale).</li>
-          <li><strong>Example mappings:</strong></li>
-          <ul>
-            <li><code>boltproof.com/nas</code> → NAS admin interface.</li>
-            <li><code>boltproof.com/plex</code> → media interface.</li>
-            <li><code>boltproof.com/mac</code> → remote Mac access.</li>
-            <li><code>boltproof.com/qbit</code> → utility or admin tools.</li>
-          </ul>
-        </ul>
-        <p style="font-size:12px;color:#6b7280;margin-top:4px;">
-          The design keeps the home IP hidden and uses identity-aware access rather than static port forwarding.
-        </p>
-      </div>
-
-      <div class="box">
-        <div class="box-header">
-          <div class="box-icon">📐</div>
-          <h3>Why this pattern is useful</h3>
-        </div>
-        <ul>
-          <li>Provides a consistent login experience and central starting point for internal tools.</li>
-          <li>Combines DNS, certificates, identity and private routing in a controlled design.</li>
-          <li>Reduces exposure of administrative interfaces to the open internet.</li>
-          <li>Gives a concrete example of secure small-environment remote access that can be replicated elsewhere.</li>
-        </ul>
-        <p style="font-size:12px;color:#6b7280;margin-top:4px;">
-          The approach is transferable to small businesses needing safe access to a limited set of internal services.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SCENARIOS -->
-  <section class="section" id="examples">
-    <div class="section-title-row">
-      <div class="section-icon">📚</div>
-      <h2 class="section-title">Example scenarios and design assumptions</h2>
-    </div>
-    <p class="section-intro">
-      Several typical situations strongly influence how backup, storage and access are approached. These are common
-      scenarios in small-environment IT, not client-specific projects.
-    </p>
-
-    <div class="examples-shell">
-      <div class="examples-list">
-        <div class="example-item">
-          <strong><span class="example-bullet-icon">🔒</span>Ransomware and cloud sync</strong>
-          <span>
-            Cloud file sync services will usually sync encrypted or deleted files as readily as healthy ones. Designs
-            therefore treat Microsoft 365, OneDrive or Google Drive as collaboration layers, and rely on separate,
-            independent backups for actual recovery capability.
-          </span>
-        </div>
-
-        <div class="example-item">
-          <strong><span class="example-bullet-icon">📦</span>“The NAS is the backup” – validating assumptions</strong>
-          <span>
-            A single NAS used as the main storage location is not sufficient on its own. Design checks always ask:
-            if this device fails completely, where does the restore come from? This drives the use of additional copies,
-            snapshots and off-site or offline elements.
-          </span>
-        </div>
-
-        <div class="example-item">
-          <strong><span class="example-bullet-icon">🛜</span>Remote access to internal systems</strong>
-          <span>
-            For typical small environments, a preference is given to VPN or identity-aware access tools over exposing
-            RDP, NAS or admin interfaces directly to the internet. Cloudflare Access and Tailscale-style solutions are
-            examples of tools that support this pattern.
-          </span>
-        </div>
-
-        <div class="example-item">
-          <strong><span class="example-bullet-icon">🌍</span>Domains, simple sites and domain-based email</strong>
-          <span>
-            For individuals or small businesses, a custom domain, a static information site and domain-based email
-            (e.g. <code>info@domain.com</code> or <code>name@domain.com</code>) are often sufficient. The focus is on
-            correct DNS records, stable email routing and a small, maintainable site rather than complex stacks.
-          </span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT / CONTACT -->
-  <section class="section" id="about">
-    <div class="about-layout">
-      <div>
-        <div class="section-title-row">
-          <div class="section-icon">ℹ️</div>
-          <h2 class="section-title">About & contact</h2>
-        </div>
-        <p class="about-text">
-          This page serves as a concise technical overview of skills and patterns in small-environment IT:
-          backup and storage, NAS usage, LAN/Wi-Fi, Microsoft 365, domains, DNS and secure access.
-        </p>
-        <p class="about-text">
-          It is intended as a reference for IT teams, managed service providers and hiring managers who want to
-          quickly understand how these areas are approached in practice.
-        </p>
-        <p class="about-locations">
-          Typical working region: Galway, Athlone, Midlands, Limerick and surrounding areas, with the option for
-          remote work across Ireland and the UK.
-        </p>
-      </div>
-
-      <aside class="contact-card">
-        <div class="contact-card-header">
-          <div class="contact-card-title">Contact details</div>
-          <div class="contact-pill">Direct contact</div>
-        </div>
-        <p>
-          For further detail, a CV, or to discuss potential roles or work, the following contact options are available:
-        </p>
-        <p><strong>Name:</strong> Elias Thomaidis</p>
-        <p><strong>Phone:</strong> <a href="tel:+353892339862">+353 89 233 9862</a></p>
-        <p><strong>Email:</strong> <a href="mailto:elias@boltproof.com">elias@boltproof.com</a></p>
-        <p><strong>Book a call:</strong>
-          <a href="https://cal.com/boltproof" target="_blank" style="color:#e5e7eb;text-decoration:underline;">
-            https://cal.com/boltproof
-          </a>
-        </p>
-
-        <a href="https://cal.com/boltproof" target="_blank"
-           style="display:inline-block;margin-top:8px;padding:6px 12px;background:#2563eb;
-           color:#fff;border-radius:8px;font-size:12px;font-weight:600;">
-          Book a call with Elias
-        </a>
-
-        <p class="contact-note">
-          WhatsApp can be used via the green icon on this page. A brief message with context (who you are and what
-          you are reviewing) is helpful.
-        </p>
-      </aside>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="footer-inner">
-    <div>
-      This is a static, non-commercial technical overview page. It does not offer legal, insurance or regulatory advice.
-      It is intended solely as a concise reference of current systems knowledge and areas of focus.
-    </div>
-    <div class="footer-name">
-      © 2025 BoltProof • Elias Thomaidis
-    </div>
-  </div>
-</footer>
-
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/353892339862" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 32 32" aria-hidden="true">
-    <path d="M16 3C9.373 3 4 8.373 4 15c0 2.57.842 4.95 2.293 6.899L5 27l5.25-1.26A11.9 11.9 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10a9.9 9.9 0 0 1-4.9-1.318l-.35-.205-3.11.747.83-3.03-.22-.312A9.9 9.9 0 0 1 6 15C6 9.486 10.486 5 16 5zm-3.13 4.5a1 1 0 0 0-.7.33c-.3.33-.98.96-.98 2.26 0 1.3.83 2.56.95 2.74.13.18 1.63 2.6 4.02 3.54 2.39.93 2.88.75 3.4.7.52-.05 1.68-.69 1.92-1.37.24-.68.24-1.26.17-1.37-.07-.11-.26-.18-.54-.32-.28-.14-1.68-.83-1.94-.92-.26-.1-.45-.14-.64.14-.19.27-.74.92-.9 1.11-.17.19-.33.21-.61.07-.28-.14-1.2-.44-2.29-1.4-.85-.76-1.42-1.7-1.59-1.98-.17-.28-.02-.43.13-.57.14-.14.28-.33.42-.49.14-.16.19-.27.28-.46.09-.19.04-.35-.02-.49-.07-.14-.61-1.46-.86-2-.22-.53-.45-.46-.63-.47z"/>
-  </svg>
-</a>
-
+  </main>
 </body>
 </html>
