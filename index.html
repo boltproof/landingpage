@@ -34,18 +34,19 @@
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "BoltProof",
-    "description": "The world's premier Synology consultancy. We design, build, secure, and maintain Synology NAS environments for businesses worldwide.",
+    "description": "The world's premier Synology consultancy — now also covering infrastructure security hardening and AI automation. We design, build, secure, and maintain business-critical systems worldwide.",
     "url": "https://boltproof.com",
     "email": "elias@boltproof.com",
     "areaServed": "Worldwide",
-    "knowsAbout": ["Synology", "DSM", "NAS", "Backup", "Disaster Recovery", "Tailscale", "WireGuard", "Docker", "Virtualization", "Active Directory"],
+    "knowsAbout": ["Synology", "DSM", "NAS", "Backup", "Disaster Recovery", "Tailscale", "WireGuard", "Docker", "Virtualization", "Active Directory", "Security Hardening", "AI Automation", "Workflow Automation"],
     "offerCatalog": {
       "@type": "OfferCatalog",
       "name": "Synology Services",
       "itemListElement": [
         {"@type":"Offer","itemOffered":{"@type":"Service","name":"Synology Setup & Lifecycle"}},
         {"@type":"Offer","itemOffered":{"@type":"Service","name":"Backup & Recovery Design"}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Security Hardening"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Security Hardening","url":"https://boltproof.com/security.html"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"AI Automation & Workflow Systems","url":"https://boltproof.com/automation.html"}},
         {"@type":"Offer","itemOffered":{"@type":"Service","name":"Ongoing Care Retainer"}}
       ]
     }
@@ -175,6 +176,7 @@
       transition: color var(--transition);
     }
     .nav-links a:hover { color: var(--white); }
+    .nav-links a.active { color: var(--indigo-light); }
 
     .nav-cta {
       display: flex;
@@ -983,10 +985,9 @@
         <span>BoltProof</span>
       </a>
       <div class="nav-links" id="navLinks">
-        <a href="#services">Services</a>
-        <a href="#features">Capabilities</a>
-        <a href="#process">Process</a>
-        <a href="#testimonials">Testimonials</a>
+        <a href="index.html" class="active">Synology</a>
+        <a href="security.html">Security</a>
+        <a href="automation.html">Automation</a>
         <a href="#blog">Blog</a>
         <a href="#pricing">Pricing</a>
         <a href="#demo-cta">Live Demo</a>
@@ -1043,6 +1044,33 @@
             <div class="label">data losses under our care</div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BEYOND SYNOLOGY (umbrella cross-sell) ===== -->
+  <section id="beyond" style="padding: 60px 0; background: var(--bg-elevated); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-header reveal" style="margin-bottom: 36px;">
+        <div class="section-label">Beyond Synology</div>
+        <h2 style="font-size: clamp(1.4rem, 3vw, 2rem);">One team, three ways we protect your business</h2>
+      </div>
+      <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        <a href="index.html#services" class="service-card reveal" style="text-decoration:none; color:inherit;">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/><circle cx="7" cy="7" r="1" fill="currentColor" stroke="none"/><circle cx="7" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="7" cy="17" r="1" fill="currentColor" stroke="none"/></svg></div>
+          <h3>Synology & Backup</h3>
+          <p>Our founding specialty — NAS setup, backup design, and lifecycle management. 500+ deployments, zero data losses.</p>
+        </a>
+        <a href="security.html" class="service-card reveal" style="text-decoration:none; color:inherit;">
+          <div class="service-icon" style="background: linear-gradient(135deg, #ef4444, #f87171); box-shadow: 0 0 20px rgba(239,68,68,0.15);"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Security Hardening →</h3>
+          <p>Firewall config, 2FA enforcement, VPN-only access, and our 12-point checklist applied to your whole network — not just the NAS.</p>
+        </a>
+        <a href="automation.html" class="service-card reveal" style="text-decoration:none; color:inherit;">
+          <div class="service-icon" style="background: linear-gradient(135deg, #14b8a6, #2dd4bf); box-shadow: 0 0 20px rgba(20,184,166,0.15);"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-6.219-8.56" stroke-linecap="round"/><path d="M12 3v6l4 2" stroke-linecap="round"/></svg></div>
+          <h3>AI Automation →</h3>
+          <p>Websites, workflow automation, and internal tools — built fixed-fee, deployed fast, crypto accepted.</p>
+        </a>
       </div>
     </div>
   </section>
@@ -1274,9 +1302,8 @@
           <ul>
             <li><a href="#services">Synology Setup</a></li>
             <li><a href="#services">Backup & Recovery</a></li>
-            <li><a href="#services">Security Hardening</a></li>
-            <li><a href="#services">Care Retainer</a></li>
-            <li><a href="#services">Hardware Consultation</a></li>
+            <li><a href="security.html">Security Hardening</a></li>
+            <li><a href="automation.html">AI Automation</a></li>
           </ul>
         </div>
         <div class="footer-col">

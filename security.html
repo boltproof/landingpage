@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Infrastructure Security Hardening | BoltProof</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="BoltProof hardens Synology and small-business infrastructure against ransomware and intrusion: firewall config, 2FA enforcement, VPN-only access, audits, and incident response. Free discovery call.">
+  <meta name="theme-color" content="#0e1420">
+
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
+  <meta property="og:title" content="Infrastructure Security Hardening | BoltProof">
+  <meta property="og:description" content="Firewall config, 2FA enforcement, VPN-only access, security audits, and ransomware-resistant architecture for small business infrastructure.">
+  <meta property="og:image" content="assets/BoltProof%20Original%20Logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://boltproof.com/security.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Infrastructure Security Hardening | BoltProof">
+  <meta name="twitter:description" content="Firewall config, 2FA enforcement, VPN-only access, security audits, and ransomware-resistant architecture.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Infrastructure Security Hardening",
+    "provider": {
+      "@type": "ProfessionalService",
+      "name": "BoltProof",
+      "url": "https://boltproof.com",
+      "email": "elias@boltproof.com",
+      "areaServed": "Worldwide"
+    },
+    "name": "Infrastructure Security Hardening",
+    "description": "Firewall configuration, 2FA enforcement, VPN-only remote access, security audits, and ransomware-resistant architecture for small business infrastructure.",
+    "url": "https://boltproof.com/security.html",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "450",
+      "offerCount": "3"
+    }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0e1420; --bg-elevated: #151c2c; --bg-card: #18202e; --bg-card-hover: #1e2839;
+      --border: #243044; --border-hover: #364967;
+      --indigo: #4f46e5; --indigo-light: #6366f1;
+      --indigo-glow: rgba(79, 70, 229, 0.15); --indigo-glow-strong: rgba(99, 102, 241, 0.25);
+      --text: #e8ecf4; --text-muted: #8893a8; --text-dim: #5d6985; --white: #ffffff;
+      --radius-sm: 8px; --radius: 12px; --radius-lg: 20px; --radius-xl: 28px;
+      --max-width: 1200px; --header-height: 72px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.3); --shadow-lg: 0 8px 40px rgba(0,0,0,0.4);
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      /* accent for this page: alert red-orange, signaling security/risk while staying in-family */
+      --accent: #ef4444; --accent-light: #f87171; --accent-glow: rgba(239, 68, 68, 0.15); --accent-glow-strong: rgba(248, 113, 113, 0.25);
+    }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--header-height); }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.6; font-weight: 400;
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden;
+    }
+    ::selection { background: var(--accent); color: var(--white); }
+    a { color: var(--accent-light); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--white); }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+    section { padding: 100px 0; position: relative; }
+
+    header { position: fixed; top: 0; left: 0; right: 0; height: var(--header-height); z-index: 100; background: rgba(14, 20, 32, 0.82); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); transition: all var(--transition); }
+    header.scrolled { background: rgba(14, 20, 32, 0.95); box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+    .nav { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.25rem; color: var(--white); letter-spacing: -0.02em; flex-shrink: 0; }
+    .nav-brand .logo-mark { width: 36px; height: 36px; background: linear-gradient(135deg, var(--indigo), var(--indigo-light)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.1rem; color: var(--white); box-shadow: 0 0 20px var(--indigo-glow); }
+    .nav-links { display: flex; align-items: center; gap: 28px; flex: 1; justify-content: center; }
+    .nav-links a { color: var(--text-muted); font-weight: 500; font-size: 0.9rem; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.active { color: var(--accent-light); }
+    .nav-cta { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; border-radius: var(--radius); font-weight: 600; font-size: 0.9rem; font-family: inherit; border: none; cursor: pointer; transition: all var(--transition); text-decoration: none; white-space: nowrap; }
+    .btn-primary { background: var(--accent); color: var(--white); box-shadow: 0 4px 14px var(--accent-glow); }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 6px 24px var(--accent-glow-strong); color: var(--white); }
+    .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { border-color: var(--border-hover); background: var(--bg-card); color: var(--white); }
+    .btn-ghost { background: transparent; color: var(--text-muted); padding: 10px 18px; }
+    .btn-ghost:hover { color: var(--white); background: var(--bg-card); }
+    .btn-lg { padding: 16px 32px; font-size: 1rem; }
+
+    #hero { min-height: 92vh; display: flex; align-items: center; padding-top: var(--header-height);
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, var(--accent-glow), transparent),
+                  radial-gradient(ellipse 60% 40% at 80% 60%, rgba(239,68,68,0.08), transparent); }
+    .hero-content { max-width: 880px; margin: 0 auto; text-align: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; font-size: 0.8rem; font-weight: 500; color: var(--text-muted); margin-bottom: 28px; }
+    .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 24px; color: var(--white); }
+    .hero h1 .gradient-text { background: linear-gradient(135deg, var(--accent-light), #fca5a5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero p.subtitle { font-size: clamp(1.1rem, 2.2vw, 1.35rem); color: var(--text-muted); max-width: 640px; margin: 0 auto 40px; line-height: 1.7; }
+    .hero-cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 64px; }
+
+    .trust-signals { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; max-width: 880px; margin: 0 auto; }
+    .trust-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 20px; text-align: center; transition: all var(--transition); }
+    .trust-card:hover { border-color: var(--border-hover); transform: translateY(-3px); box-shadow: var(--shadow); }
+    .trust-card .stat { font-size: 2rem; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+    .trust-card .stat .accent { color: var(--accent-light); }
+    .trust-card .label { font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; font-weight: 500; }
+
+    .section-header { text-align: center; max-width: 720px; margin: 0 auto 60px; }
+    .section-label { display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 14px; }
+    .section-header h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em; color: var(--white); line-height: 1.15; margin-bottom: 16px; }
+    .section-header p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.7; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
+    .service-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; transition: all var(--transition); position: relative; overflow: hidden; }
+    .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-light)); transform: scaleX(0); transform-origin: left; transition: transform var(--transition); }
+    .service-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon { width: 52px; height: 52px; border-radius: var(--radius); background: linear-gradient(135deg, var(--accent), var(--accent-light)); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 0 20px var(--accent-glow); }
+    .service-icon svg { width: 26px; height: 26px; stroke: var(--white); fill: none; stroke-width: 2; }
+    .service-card h3 { font-size: 1.25rem; font-weight: 700; color: var(--white); margin-bottom: 10px; letter-spacing: -0.01em; }
+    .service-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; }
+
+    #checklist { background: var(--bg-elevated); }
+    .checklist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 16px; }
+    .check-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; display: flex; gap: 16px; align-items: flex-start; transition: all var(--transition); }
+    .check-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .check-card .check-mark { width: 28px; height: 28px; border-radius: 50%; background: var(--accent-glow); border: 1px solid var(--accent); color: var(--accent-light); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; }
+    .check-card h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .check-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+    .process-timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
+    .process-step { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 22px; text-align: center; transition: all var(--transition); }
+    .process-step:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+    .process-step .step-num { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: var(--white); font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; box-shadow: 0 0 16px var(--accent-glow); }
+    .process-step h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .process-step p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+
+    #pricing { background: var(--bg-elevated); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .pricing-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px 28px; text-align: center; position: relative; transition: all var(--transition); }
+    .pricing-card:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+    .pricing-card.featured { border-color: var(--accent); box-shadow: 0 0 30px var(--accent-glow); }
+    .pricing-card .plan-tag { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+    .pricing-card .plan-price { font-size: 2.6rem; font-weight: 900; color: var(--white); letter-spacing: -0.02em; line-height: 1; margin-bottom: 4px; }
+    .pricing-card .plan-price .unit { font-size: 1rem; font-weight: 500; color: var(--text-muted); }
+    .pricing-card .plan-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; line-height: 1.5; }
+    .pricing-card ul { list-style: none; text-align: left; margin-bottom: 28px; }
+    .pricing-card ul li { font-size: 0.88rem; color: var(--text-muted); padding: 8px 0; display: flex; align-items: flex-start; gap: 10px; border-bottom: 1px solid var(--border); }
+    .pricing-card ul li:last-child { border-bottom: none; }
+    .pricing-card ul li::before { content: '✓'; color: var(--accent-light); font-weight: 700; flex-shrink: 0; }
+    .pricing-note { text-align: center; font-size: 0.9rem; color: var(--text-muted); margin-top: 40px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
+    .contact-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px 28px; text-align: center; transition: all var(--transition); text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .contact-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 0 24px var(--accent-glow); }
+    .contact-icon { width: 56px; height: 56px; border-radius: 14px; background: var(--bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+    .contact-card:hover .contact-icon { background: var(--accent); border-color: var(--accent); }
+    .contact-icon svg { width: 26px; height: 26px; stroke: var(--accent-light); fill: none; stroke-width: 2; transition: stroke var(--transition); }
+    .contact-card:hover .contact-icon svg { stroke: var(--white); }
+    .contact-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--white); }
+    .contact-card .contact-detail { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+    .contact-card .contact-action { font-size: 0.85rem; font-weight: 600; color: var(--accent-light); }
+
+    footer { background: var(--bg-elevated); border-top: 1px solid var(--border); padding: 60px 0 40px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand .nav-brand { margin-bottom: 16px; }
+    .footer-brand p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; max-width: 300px; }
+    .footer-col h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 0.88rem; color: var(--text-muted); }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-bottom p { font-size: 0.82rem; color: var(--text-dim); }
+
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all var(--transition); }
+
+    @media (max-width: 880px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-links.mobile-open { display: flex; position: fixed; top: var(--header-height); left: 0; right: 0; flex-direction: column; background: var(--bg-elevated); padding: 24px; gap: 20px; border-bottom: 1px solid var(--border); z-index: 99; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 60px 0; }
+      .container { padding: 0 18px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .trust-signals { grid-template-columns: 1fr 1fr; }
+    }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <header id="header">
+    <nav class="nav">
+      <a href="index.html" class="nav-brand">
+        <div class="logo-mark">B</div>
+        <span>BoltProof</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Synology</a>
+        <a href="security.html" class="active">Security</a>
+        <a href="automation.html">Automation</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="security.html#pricing">Pricing</a>
+      </div>
+      <div class="nav-cta">
+        <a href="https://cal.com/boltproof" class="btn btn-ghost" target="_blank" rel="noopener">Discovery Call</a>
+        <a href="https://wa.me/971585109454" class="btn btn-primary" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.967-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.2-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.033-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M12.002 2C5.795 2 .998 6.796.998 13.003c0 2.096.547 4.142 1.586 5.945L1 22.792l3.999-1.049a10.04 10.04 0 005.003 1.316c6.207 0 11.004-4.797 11.004-11.004C23.006 6.796 18.209 2 12.002 2"/></svg>
+          WhatsApp
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge"><span class="dot"></span> The security layer most NAS deployments skip</div>
+        <h1>Infrastructure that's <span class="gradient-text">hard to break into</span><br>and easy to recover</h1>
+        <p class="subtitle">
+          Firewall configuration, 2FA enforcement, VPN-only remote access, and ransomware-resistant
+          architecture — the hardening most businesses only think about after the breach.
+        </p>
+        <div class="hero-cta-group">
+          <a href="https://cal.com/boltproof" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Book a free security review</a>
+          <a href="#checklist" class="btn btn-secondary btn-lg">See the 12-point checklist</a>
+        </div>
+        <div class="trust-signals">
+          <div class="trust-card"><div class="stat">12</div><div class="label">point hardening checklist</div></div>
+          <div class="trust-card"><div class="stat">0</div><div class="label">exposed admin ports, ever</div></div>
+          <div class="trust-card"><div class="stat">2-4<span class="accent">h</span></div><div class="label">typical hardening time</div></div>
+          <div class="trust-card"><div class="stat">24<span class="accent">/7</span></div><div class="label">auto-block & alerting</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Services</div>
+        <h2>Security hardening, done properly once</h2>
+        <p>Not a one-time scan — a full architecture review that closes the gaps attackers actually use.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Security Audit & Hardening</h3>
+          <p>Full review of your current setup against our 12-point checklist: 2FA, firewall rules, exposed ports, permissions, and patch status — with every gap fixed, not just flagged.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></div>
+          <h3>Zero-Trust Remote Access</h3>
+          <p>Tailscale or WireGuard mesh VPN so your team reaches internal systems without a single exposed port to the public internet.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-6.219-8.56" stroke-linecap="round"/><path d="M12 3v6l4 2" stroke-linecap="round"/></svg></div>
+          <h3>Ransomware-Resistant Backup</h3>
+          <p>Air-gapped, versioned, off-site backups designed so a full compromise of production never means a full loss of recovery options.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg></div>
+          <h3>Access Control Review</h3>
+          <p>Least-privilege permission audits across shares, users, and groups — closing the silent over-permissioning that most breaches exploit.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/><circle cx="7" cy="7" r="1" fill="currentColor" stroke="none"/><circle cx="7" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="7" cy="17" r="1" fill="currentColor" stroke="none"/></svg></div>
+          <h3>Monitoring & Alerting</h3>
+          <p>Auto-block on repeated failed logins, real-time alerts on anomalies, and monthly log review so incidents are caught in minutes, not months.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="4"/></svg></div>
+          <h3>Incident Response Planning</h3>
+          <p>A documented, tested runbook for what happens when something goes wrong — who to call, how to isolate, how to recover, before you ever need it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="checklist">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">The Checklist</div>
+        <h2>The 12 points we apply to every deployment</h2>
+        <p>Read the full breakdown on our blog, or skip straight to having us implement it.</p>
+      </div>
+      <div class="checklist-grid">
+        <div class="check-card reveal"><div class="check-mark">1</div><div><h3>Two-Factor Authentication</h3><p>Enforced on every account, no exceptions for "convenience."</p></div></div>
+        <div class="check-card reveal"><div class="check-mark">2</div><div><h3>Default Admin Disabled</h3><p>Removes the single most-targeted username in every attacker's wordlist.</p></div></div>
+        <div class="check-card reveal"><div class="check-mark">3</div><div><h3>No Direct Internet Exposure</h3><p>VPN or authenticated reverse proxy only — never a bare exposed port.</p></div></div>
+        <div class="check-card reveal"><div class="check-mark">4</div><div><h3>Configured Firewall</h3><p>Deny by default, allow only what's explicitly needed.</p></div></div>
+        <div class="check-card reveal"><div class="check-mark">5</div><div><h3>Automatic Updates</h3><p>DSM and package patches applied on a schedule, not "eventually."</p></div></div>
+        <div class="check-card reveal"><div class="check-mark">6</div><div><h3>Unused Services Disabled</h3><p>Every open service is attack surface — we close what you don't use.</p></div></div>
+        <div class="check-card reveal"><div class="check-mark">7</div><div><h3>3-2-1 Backup Strategy</h3><p>Three copies, two media types, one copy off-site — always.</p></div></div>
+        <div class="check-card reveal"><div class="check-mark">8</div><div><h3>Snapshot Replication</h3><p>Point-in-time rollback so ransomware is an inconvenience, not a catastrophe.</p></div></div>
+        <div class="check-card reveal"><div class="check-mark">9</div><div><h3>Strong, Unique Passwords</h3><p>Per-account, generator-made, 16+ characters — the foundation everything else sits on.</p></div></div>
+        <div class="check-card reveal"><div class="check-mark">10</div><div><h3>Auto-Block & Login Limits</h3><p>Automatic IP blocking after repeated failed logins, with alerting.</p></div></div>
+        <div class="check-card reveal"><div class="check-mark">11</div><div><h3>Least-Privilege Permissions</h3><p>Access granted only to those who genuinely need it, reviewed regularly.</p></div></div>
+        <div class="check-card reveal"><div class="check-mark">12</div><div><h3>Air-Gapped Backups</h3><p>Backups disconnected from production so total compromise isn't total loss.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Process</div>
+        <h2>From audit to hardened, in one engagement</h2>
+        <p>No open-ended retainer required — a defined project with a clear end state.</p>
+      </div>
+      <div class="process-timeline">
+        <div class="process-step reveal"><div class="step-num">1</div><h3>Audit</h3><p>Free review against the 12-point checklist, documented gap by gap.</p></div>
+        <div class="process-step reveal"><div class="step-num">2</div><h3>Fixed Quote</h3><p>A fixed price to close every gap, sent within 24 hours.</p></div>
+        <div class="process-step reveal"><div class="step-num">3</div><h3>Harden</h3><p>We implement every fix — 2FA, firewall, VPN, backups — end to end.</p></div>
+        <div class="process-step reveal"><div class="step-num">4</div><h3>Verify & Handover</h3><p>We test the hardened state and hand over full documentation.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Pricing</div>
+        <h2>Fixed-fee security engagements</h2>
+        <p>No hourly billing. You know the cost before we touch a single setting.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card reveal">
+          <div class="plan-tag">Security Audit</div>
+          <div class="plan-price">Free</div>
+          <div class="plan-desc">Full review against the 12-point checklist</div>
+          <ul>
+            <li>Current configuration review</li>
+            <li>Gap analysis, point by point</li>
+            <li>Written report with fixed quote</li>
+            <li>No obligation, no pressure</li>
+          </ul>
+          <a href="https://cal.com/boltproof" class="btn btn-secondary" target="_blank" rel="noopener">Book free audit</a>
+        </div>
+        <div class="pricing-card featured reveal">
+          <div class="plan-tag">Full Hardening</div>
+          <div class="plan-price">$450<span class="unit">+</span></div>
+          <div class="crypto-discount" style="font-size: 0.8rem; font-weight: 600; color: #f7931a; margin-bottom: 14px; padding: 6px 12px; background: rgba(247, 147, 26, 0.1); border: 1px solid rgba(247, 147, 26, 0.25); border-radius: 100px; display: inline-block;">₿ $405+ <span style="font-weight: 400; opacity: 0.8;">(10% off in Bitcoin)</span></div>
+          <div class="plan-desc">Every gap on the checklist, closed</div>
+          <ul>
+            <li>2FA, firewall & auto-block configured</li>
+            <li>VPN-only remote access setup</li>
+            <li>Backup & snapshot hardening</li>
+            <li>Documentation & handover</li>
+          </ul>
+          <a href="https://cal.com/boltproof" class="btn btn-primary" target="_blank" rel="noopener">Get started</a>
+        </div>
+        <div class="pricing-card reveal">
+          <div class="plan-tag">Ongoing Monitoring</div>
+          <div class="plan-price">$150<span class="unit">/mo</span></div>
+          <div class="crypto-discount" style="font-size: 0.8rem; font-weight: 600; color: #f7931a; margin-bottom: 14px; padding: 6px 12px; background: rgba(247, 147, 26, 0.1); border: 1px solid rgba(247, 147, 26, 0.25); border-radius: 100px; display: inline-block;">₿ $135/mo <span style="font-weight: 400; opacity: 0.8;">(10% off in Bitcoin)</span></div>
+          <div class="plan-desc">Continuous alerting & monthly review</div>
+          <ul>
+            <li>Log review & anomaly alerts</li>
+            <li>Patch management</li>
+            <li>Quarterly re-audit</li>
+            <li>Priority incident response</li>
+          </ul>
+          <a href="https://cal.com/boltproof" class="btn btn-secondary" target="_blank" rel="noopener">Start monitoring</a>
+        </div>
+      </div>
+      <p class="pricing-note">Pricing varies with the number of systems and complexity of your network. You'll receive a fixed quote after the free audit — no hourly billing, no scope creep.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Contact</div>
+        <h2>Find out how exposed you are</h2>
+        <p>Free security audit. No pressure, no jargon — just a clear list of what needs fixing.</p>
+      </div>
+      <div class="contact-grid">
+        <a href="https://wa.me/971585109454" class="contact-card reveal" target="_blank" rel="noopener">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.96-.94 1.164-.173.198-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.2-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.033-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c0 5.45-4.437 9.885-9.885 9.885M12.002 2C5.795 2 .998 6.796.998 13.003c0 2.096.547 4.142 1.586 5.945L1 22.792l3.999-1.049a10.04 10.04 0 005.003 1.316c6.207 0 11.004-4.797 11.004-11.004C23.006 6.796 18.209 2 12.002 2" fill="currentColor"/></svg></div>
+          <h3>WhatsApp</h3>
+          <div class="contact-detail">Fastest response — message us anytime<br>+971 58 510 9454</div>
+          <div class="contact-action">Open WhatsApp →</div>
+        </a>
+        <a href="mailto:elias@boltproof.com" class="contact-card reveal">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7L22 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Email</h3>
+          <div class="contact-detail">For detailed inquiries<br>elias@boltproof.com</div>
+          <div class="contact-action">Send email →</div>
+        </a>
+        <a href="https://cal.com/boltproof" class="contact-card reveal" target="_blank" rel="noopener">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18" stroke-linecap="round"/></svg></div>
+          <h3>Book a Call</h3>
+          <div class="contact-detail">Free security audit<br>cal.com/boltproof</div>
+          <div class="contact-action">Schedule →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-brand"><div class="logo-mark">B</div><span>BoltProof</span></a>
+          <p>Synology infrastructure, security, and AI automation for businesses worldwide. Dubai-based, serving clients globally via secure remote access.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="index.html#services">Synology Setup</a></li>
+            <li><a href="security.html#services">Security Hardening</a></li>
+            <li><a href="automation.html">AI Automation</a></li>
+            <li><a href="security.html#checklist">12-Point Checklist</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html#features">Capabilities</a></li>
+            <li><a href="index.html#blog">Blog</a></li>
+            <li><a href="index.html#demo-cta">Live Demo</a></li>
+            <li><a href="security.html#pricing">Security Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="https://wa.me/971585109454" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="mailto:elias@boltproof.com">Email</a></li>
+            <li><a href="https://cal.com/boltproof" target="_blank" rel="noopener">Book a Call</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 BoltProof. All rights reserved.</p>
+        <p>Dubai, United Arab Emirates · Serving clients worldwide</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('mobile-open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('mobile-open')));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
