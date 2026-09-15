@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thank You — BoltProof</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0e1420; --bg-card: #18202e; --border: #243044;
+      --indigo: #4f46e5; --indigo-light: #6366f1; --indigo-glow: rgba(79,70,229,0.15);
+      --text: #e8ecf4; --text-muted: #8893a8;
+    }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg); color: var(--text);
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      padding: 24px; text-align: center;
+    }
+    .card {
+      max-width: 480px; background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 56px 40px;
+    }
+    .check {
+      width: 64px; height: 64px; margin: 0 auto 24px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--indigo), var(--indigo-light));
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 24px var(--indigo-glow);
+    }
+    .check svg { width: 32px; height: 32px; stroke: #fff; fill: none; stroke-width: 3; }
+    h1 { font-size: 1.6rem; font-weight: 800; color: #fff; margin-bottom: 12px; }
+    p { font-size: 1rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 28px; }
+    a.btn {
+      display: inline-block; padding: 12px 28px; border-radius: 12px;
+      background: var(--indigo); color: #fff; font-weight: 600; text-decoration: none;
+      transition: background 0.2s;
+    }
+    a.btn:hover { background: var(--indigo-light); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="check">
+      <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <h1>Message sent</h1>
+    <p>Thanks for reaching out — we'll get back to you within one business day. For anything urgent, WhatsApp us directly.</p>
+    <a href="/" class="btn">Back to home</a>
+  </div>
+</body>
+</html>
