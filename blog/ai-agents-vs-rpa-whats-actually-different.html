@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Agents vs. RPA: What's Actually Different | BoltProof</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RPA and AI agents solve different problems. A no-hype breakdown of the real technical differences, SME use cases, costs, and when each still wins.">
+  <meta property="og:title" content="AI Agents vs. RPA: What's Actually Different">
+  <meta property="og:description" content="A no-hype breakdown of the real technical differences, SME use cases, costs, and when each still wins.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://boltproof.com/blog/ai-agents-vs-rpa-whats-actually-different.html">
+  <meta property="og:image" content="https://boltproof.com/assets/og-image.png">
+  <link rel="canonical" href="https://boltproof.com/blog/ai-agents-vs-rpa-whats-actually-different.html">
+  <link rel="icon" href="../assets/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Agents vs. RPA: What's Actually Different (And When Each Makes Sense)",
+    "description": "RPA and AI agents solve different problems. A no-hype breakdown of the real technical differences, SME use cases, costs, and when each still wins.",
+    "author": {"@type": "Organization", "name": "BoltProof"},
+    "publisher": {"@type": "Organization", "name": "BoltProof", "url": "https://boltproof.com"},
+    "datePublished": "2026-09-16",
+    "mainEntityOfPage": "https://boltproof.com/blog/ai-agents-vs-rpa-whats-actually-different.html"
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0e1420; --bg-elevated: #151c2c; --bg-card: #18202e;
+      --border: #243044; --indigo: #4f46e5; --indigo-light: #6366f1;
+      --text: #e8ecf4; --text-muted: #8893a8; --text-dim: #5d6985;
+      --white: #fff; --radius: 12px; --max-width: 760px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.7;
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    }
+    ::selection { background: var(--indigo); color: var(--white); }
+    a { color: var(--indigo-light); text-decoration: none; }
+    a:hover { color: var(--white); }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.9rem; font-weight: 600; color: var(--text-muted);
+      margin-bottom: 32px; transition: color 0.25s;
+    }
+    .back-link:hover { color: var(--white); }
+
+    article { max-width: var(--max-width); margin: 0 auto; padding: 48px 24px 80px; }
+    .article-tag {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--indigo-light); margin-bottom: 16px;
+      padding: 4px 12px; background: rgba(79,70,229,0.15);
+      border-radius: 100px;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800;
+      letter-spacing: -0.02em; color: var(--white); line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .article-meta, .byline {
+      font-size: 0.85rem; color: var(--text-dim);
+      margin-bottom: 40px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    h2 {
+      font-size: 1.5rem; font-weight: 700; color: var(--white);
+      letter-spacing: -0.01em; margin: 40px 0 16px;
+    }
+    h3 {
+      font-size: 1.2rem; font-weight: 600; color: var(--white);
+      margin: 32px 0 12px;
+    }
+    p { margin-bottom: 20px; color: var(--text-muted); font-size: 1.02rem; }
+    strong { color: var(--text); font-weight: 600; }
+    ul, ol { margin: 16px 0 24px 24px; color: var(--text-muted); }
+    li { margin-bottom: 10px; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 0.94rem; }
+    th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--text-muted); }
+    th { color: var(--white); font-weight: 700; background: var(--bg-card); }
+    tr:hover td { background: var(--bg-card); }
+    blockquote {
+      border-left: 3px solid var(--indigo); padding: 16px 24px;
+      margin: 28px 0; background: var(--bg-card); border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 1.05rem; color: var(--text); font-style: italic;
+    }
+    .cta-box {
+      margin-top: 48px; padding: 32px;
+      background: linear-gradient(135deg, var(--bg-card), var(--bg-elevated));
+      border: 1px solid var(--border); border-radius: var(--radius);
+      text-align: center;
+    }
+    .cta-box h3 { color: var(--white); margin-bottom: 12px; }
+    .cta-box p { color: var(--text-muted); margin-bottom: 20px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: var(--radius);
+      background: var(--indigo); color: var(--white);
+      font-weight: 600; font-size: 0.9rem; text-decoration: none;
+      transition: all 0.25s;
+    }
+    .btn:hover { background: var(--indigo-light); color: var(--white); transform: translateY(-2px); }
+    @media (max-width: 600px) { table { display: block; overflow-x: auto; white-space: nowrap; } }
+  </style>
+</head>
+<body>
+  <article>
+    <a href="../index.html" class="back-link">← Back to BoltProof</a>
+    <span class="article-tag">AI Automation</span>
+    <h1>AI Agents vs. RPA: What's Actually Different (And When Each Makes Sense)</h1>
+    <div class="article-meta">Published September 2026 · 9 min read · BoltProof Insights</div>
+
+    <p>"AI agent" has become a label vendors slap on almost anything that used to be called a bot, a script, or a workflow. Meanwhile RPA (robotic process automation) got rebranded as "legacy" by the same vendors trying to sell you the new thing. Neither framing is honest. RPA and AI agents are built on fundamentally different technology, they fail in different ways, and they solve different classes of problem. Picking the wrong one for a given task is how automation projects quietly die six months after the demo.</p>
+
+    <p>This post is the version of that explanation we'd give a client before we quote anything — no hype, no "agentic revolution" language, just what each approach actually does under the hood and where the money gets wasted if you get the match wrong.</p>
+
+    <h2>What RPA actually is</h2>
+    <p>RPA tools (UiPath, Automation Anywhere, Power Automate Desktop, and similar) automate a process by recording and replaying deterministic steps: click this button, read this field, copy this value into that spreadsheet cell, wait for this screen to load. It's software that operates other software the way a human would — through the UI, or through structured APIs and file formats when available.</p>
+    <p>The defining property of RPA is that it is <strong>rule-based and deterministic</strong>. Given the same input and the same screen layout, it will do the exact same thing every time, with no judgment involved. That's a feature, not a limitation, for the right kind of work.</p>
+    <p>The trade-off is brittleness. If a vendor moves a button, renames a column, or changes an invoice template, the bot breaks. It doesn't "notice" the change and adapt — it fails, often silently, and someone finds out three days later when the reconciliation report is empty.</p>
+
+    <h2>What an AI agent actually is</h2>
+    <p>An AI agent, in the current, technically meaningful sense, is a system built around a large language model that can: read unstructured input (an email, a PDF, a chat message, a messy spreadsheet), reason about what needs to happen next, decide which tool or API to call to get there, and adjust its approach based on what comes back — without a human having pre-scripted every branch.</p>
+    <p>The defining property here is <strong>probabilistic reasoning over unstructured or ambiguous input</strong>. The agent isn't following a recorded click-path; it's interpreting intent and choosing actions. That's what lets it handle a supplier invoice that doesn't match any known template, or a customer email that could mean three different things depending on context.</p>
+    <p>The trade-off is exactly the flip side of RPA's: it is not deterministic. The same input can, in rare cases, produce a different output. It can misread context. It needs guardrails, logging, and a human-in-the-loop checkpoint for anything consequential.</p>
+
+    <h2>The core technical distinction, in one paragraph</h2>
+    <p>RPA automates <em>actions</em> on structured, predictable interfaces. AI agents automate <em>decisions</em> on unstructured, variable input. If the process can be fully specified in advance as a flowchart with no genuine judgment calls, RPA will do it more reliably and far more cheaply than an agent. If the process requires reading, interpreting, and deciding — things a human currently does by "just looking at it" — that's agent territory, and RPA will break constantly trying to force-fit it.</p>
+
+    <h2>Side-by-side comparison</h2>
+    <table>
+      <thead><tr><th>Dimension</th><th>Classic RPA</th><th>AI Agent</th></tr></thead>
+      <tbody>
+        <tr><td>Underlying mechanism</td><td>Recorded rules, UI/API scripting</td><td>LLM reasoning + tool calling</td></tr>
+        <tr><td>Handles ambiguous input</td><td>No — needs structured, consistent data</td><td>Yes — this is its main strength</td></tr>
+        <tr><td>Behavior consistency</td><td>Deterministic, identical every run</td><td>Probabilistic, can vary slightly</td></tr>
+        <tr><td>Failure mode</td><td>Breaks hard when UI/format changes</td><td>Can produce a plausible-but-wrong output</td></tr>
+        <tr><td>Setup cost</td><td>Low-to-moderate; process mapping + recording</td><td>Moderate-to-high; prompt design, tool integration, testing</td></tr>
+        <tr><td>Ongoing cost</td><td>Low, until something upstream changes</td><td>Ongoing API/inference cost per run</td></tr>
+        <tr><td>Auditability</td><td>Very high — every step is logged and identical</td><td>Requires deliberate logging/guardrails to audit reliably</td></tr>
+        <tr><td>Best fit</td><td>High-volume, stable, rule-based tasks</td><td>Variable, judgment-based, language-heavy tasks</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Where RPA still wins — real SME examples</h2>
+    <ul>
+      <li><strong>Nightly data reconciliation</strong> between two systems that don't talk to each other (e.g. moving fixed-format export files from an accounting system into a warehouse management system) — same fields, same format, every night.</li>
+      <li><strong>Structured form-filling</strong> into a government or supplier portal that has no API, where the fields never change.</li>
+      <li><strong>High-volume, low-variance data entry</strong>, like copying line items from a consistently-formatted supplier price list into an ERP.</li>
+      <li><strong>Screen-scraping legacy systems</strong> that will never get an API and where the screen layout is stable.</li>
+    </ul>
+    <p>In all of these, the process is genuinely a flowchart. There's no interpretation required, volume is high, and the cost of an occasional silent break is manageable because the process is monitored. Paying for LLM inference to do work that a $0.001-per-run deterministic bot already does perfectly is a waste of money.</p>
+
+    <h2>Where AI agents earn their cost — real SME examples</h2>
+    <ul>
+      <li><strong>Triaging inbound customer emails or support tickets</strong> that arrive in free text, with varying phrasing, urgency, and intent, and routing or drafting a first response accordingly.</li>
+      <li><strong>Reading and coding supplier invoices</strong> that arrive as PDFs in a dozen different layouts, extracting line items and matching them to purchase orders even when formats vary.</li>
+      <li><strong>First-pass document review</strong> — summarizing contracts, flagging non-standard clauses, or pulling key terms out of unstructured legal or compliance documents.</li>
+      <li><strong>Internal "ask the ops manual" assistants</strong> that answer employee questions by reasoning over your actual SOPs, rather than a rigid keyword-matched FAQ bot.</li>
+      <li><strong>Multi-step research or drafting tasks</strong>, such as pulling data from three internal systems, summarizing it, and drafting a report a human then reviews.</li>
+    </ul>
+    <p>The common thread: input that a human currently has to read and interpret before acting. That's the work RPA was never built to touch.</p>
+
+    <h2>The honest caveats about AI agents</h2>
+    <p>We'd rather lose a deal than let a client find these out after go-live.</p>
+    <ul>
+      <li><strong>Cost isn't fixed.</strong> Every agent run typically calls an LLM API, sometimes multiple times per task. At meaningful volume, this is a real recurring line item, not a one-time build cost the way RPA licensing often is.</li>
+      <li><strong>Reliability requires design, not hope.</strong> A production agent needs explicit guardrails: confidence thresholds, fallback to a human, structured output validation, and logging of every decision. An agent shipped without these will eventually do something confidently wrong.</li>
+      <li><strong>They are not a good fit for high-stakes, no-review-step processes.</strong> If a wrong output has real financial or legal consequences and there's no human checkpoint before it takes effect, that's the wrong place to remove deterministic control.</li>
+      <li><strong>Latency is higher.</strong> Reasoning over unstructured input takes longer, per task, than a scripted click sequence. For very high-throughput, low-complexity work, that matters.</li>
+      <li><strong>Debugging is different.</strong> When an RPA bot fails, you look at the log and see exactly which step broke. When an agent produces a bad output, root-causing it means examining the reasoning trace and the input it was given — a different skill set for whoever maintains it.</li>
+    </ul>
+
+    <h2>Most real deployments are hybrid</h2>
+    <p>In practice, the systems we build for clients rarely land purely on one side. A common pattern: an AI agent reads an incoming email or document, extracts and structures the relevant data, makes a judgment call about routing or classification — and then hands off to a conventional RPA-style workflow (or a plain API call) to actually execute the deterministic part, like updating a record or moving a file. Use the agent for the part that requires judgment. Use scripted automation for the part that doesn't. Paying for LLM reasoning on a step that was always deterministic is the single most common way we see automation budgets get inflated.</p>
+
+    <h2>A simple decision framework</h2>
+    <p>Ask three questions about the process you're trying to automate:</p>
+    <ul>
+      <li><strong>Is the input format consistent?</strong> If yes, and it stays that way, lean RPA.</li>
+      <li><strong>Does completing the task require interpreting meaning, not just extracting a value from a known location?</strong> If yes, lean agent.</li>
+      <li><strong>What happens if it's wrong?</strong> If the answer is "significant, unreviewed consequences," build in a human checkpoint regardless of which approach you use.</li>
+    </ul>
+
+    <div class="cta-box">
+      <h3>Not sure which side of the line your process falls on?</h3>
+      <p>If you suspect you've been sold an "AI agent" for something a $200 RPA license would do more reliably, message us and we'll give you a straight answer before you spend anything.</p>
+      <a href="https://wa.me/971585109454" target="_blank" rel="noopener" class="btn">Message us on WhatsApp →</a>
+    </div>
+  </article>
+
+  <!-- Cloudflare Web Analytics -->
+  <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e82b72c9fb1b4e1792efc9e790cec333"}'></script>
+
+</body>
+</html>

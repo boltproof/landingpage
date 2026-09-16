@@ -12,9 +12,13 @@
   <meta property="og:description" content="Infrastructure, cloud & backup, security hardening, and AI automation for growing businesses. Fixed-fee projects, no jargon, worldwide via remote access.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://boltproof.com/">
+  <meta property="og:image" content="https://boltproof.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="BoltProof — IT Consultancy & AI Automation for Business">
   <meta name="twitter:description" content="Infrastructure, cloud & backup, security hardening, and AI automation for growing businesses.">
+  <meta name="twitter:image" content="https://boltproof.com/assets/og-image.png">
   <link rel="canonical" href="https://boltproof.com/">
 
   <!-- Favicons -->
@@ -50,6 +54,55 @@
         {"@type":"Offer","itemOffered":{"@type":"Service","name":"Managed IT / Ongoing Care"}}
       ]
     }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do you work with businesses outside the UAE?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — the majority of our clients are outside the UAE. All work is delivered remotely via secure access (Tailscale/WireGuard), so location isn't a constraint. We've supported teams across the UK, US, and distributed remote teams spanning multiple countries."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does fixed-fee pricing actually work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "After the free discovery call and a short infrastructure review, you get a fixed quote covering the full project scope — no hourly billing, no surprise invoices. If scope changes mid-project, we re-quote before doing extra work, not after."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the actual difference between AI automation and traditional scripting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Traditional scripts and RPA follow fixed rules — they break when inputs change shape. AI agents use reasoning and tool use to handle ambiguity: reading unstructured emails, deciding what to do with edge cases, adapting to new formats without a rewrite. We use whichever is the right tool for the job — sometimes that's a simple script, not an AI agent."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do we need to replace our existing IT setup to work with you?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Most engagements start by hardening and improving what you already have — new backups, better security, cleaner access control — rather than ripping everything out. Full rebuilds happen when they're genuinely the better option, not by default."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens after the project is delivered?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You get full documentation and a handover call so your team can operate independently. If you want ongoing support, the Care Retainer covers monthly health checks, updates, and priority support — but it's optional, not required."
+        }
+      }
+    ]
   }
   </script>
 
@@ -363,6 +416,22 @@
     .capability-card h3 { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
     .capability-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
 
+    /* INSIGHTS / BLOG */
+    .insights-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; }
+    .insight-card {
+      display: block; background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 32px; transition: all var(--transition);
+    }
+    .insight-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .insight-tag {
+      display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--indigo-light); background: rgba(79,70,229,0.15); padding: 4px 12px; border-radius: 100px; margin-bottom: 16px;
+    }
+    .insight-card h3 { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 10px; line-height: 1.35; }
+    .insight-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; }
+    .insight-link { font-size: 0.85rem; font-weight: 600; color: var(--indigo-light); }
+    .insight-card:hover .insight-link { color: #fff; }
+
     /* PROCESS */
     #process { background: var(--bg-elevated); }
     .process-timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; position: relative; }
@@ -436,6 +505,21 @@
     .pricing-features li { padding: 8px 0; padding-left: 26px; position: relative; font-size: 0.9rem; color: var(--text); }
     .pricing-features li::before { content: '✓'; position: absolute; left: 0; color: var(--indigo-light); font-weight: 700; }
     .pricing-note { text-align: center; font-size: 0.85rem; color: var(--text-dim); margin-top: 32px; }
+
+    /* FAQ */
+    .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: border-color var(--transition); }
+    .faq-item:hover { border-color: var(--border-hover); }
+    .faq-question {
+      width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 22px 26px; background: none; border: none; cursor: pointer; text-align: left;
+      font-family: inherit; font-size: 1rem; font-weight: 600; color: #fff;
+    }
+    .faq-chevron { width: 20px; height: 20px; stroke: var(--text-muted); fill: none; stroke-width: 2; flex-shrink: 0; transition: transform var(--transition); }
+    .faq-question[aria-expanded="true"] .faq-chevron { transform: rotate(180deg); stroke: var(--indigo-light); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height var(--transition), padding var(--transition); }
+    .faq-answer p { padding: 0 26px 22px; font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; }
+    .faq-item.open .faq-answer { max-height: 300px; }
 
     /* CONTACT */
     #contact { background: var(--bg-elevated); }
@@ -765,6 +849,49 @@
     </div>
   </section>
 
+  <!-- BLOG / INSIGHTS -->
+  <section id="insights">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Insights</div>
+        <h2>Practical, no-hype writing on IT and AI</h2>
+        <p>Vendor-neutral, numbers-driven guides — not marketing fluff.</p>
+      </div>
+      <div class="insights-grid">
+        <a href="blog/ai-agents-vs-rpa-whats-actually-different.html" class="insight-card">
+          <span class="insight-tag">AI Automation</span>
+          <h3>AI Agents vs. RPA: What's Actually Different</h3>
+          <p>The real technical distinction, SME use cases for each, and the honest caveats about AI agents nobody puts in the pitch.</p>
+          <span class="insight-link">Read article →</span>
+        </a>
+        <a href="blog/build-vs-buy-internal-tools-2026.html" class="insight-card">
+          <span class="insight-tag">Strategy</span>
+          <h3>When to Build vs. Buy Internal Tools in 2026</h3>
+          <p>AI coding tools changed the economics. A 3-year cost framework and decision checklist for internal software.</p>
+          <span class="insight-link">Read article →</span>
+        </a>
+        <a href="blog/securing-your-nas-12-point-checklist.html" class="insight-card">
+          <span class="insight-tag">Security</span>
+          <h3>Securing Your Infrastructure: A 12-Point Checklist</h3>
+          <p>The 12 security configurations every deployment needs — from 2FA to firewall rules to backup air-gapping.</p>
+          <span class="insight-link">Read article →</span>
+        </a>
+        <a href="blog/why-on-prem-storage-2026.html" class="insight-card">
+          <span class="insight-tag">Strategy</span>
+          <h3>Why Your Business Needs On-Prem Storage in 2026</h3>
+          <p>The cloud promised infinite scale and zero maintenance. Here's why on-prem is having a renaissance.</p>
+          <span class="insight-link">Read article →</span>
+        </a>
+        <a href="blog/synology-vs-cloud-tco.html" class="insight-card">
+          <span class="insight-tag">Cost Analysis</span>
+          <h3>On-Prem vs Cloud: The Total Cost of Ownership</h3>
+          <p>We break down the real numbers — storage, egress, support, and the hidden costs nobody puts on the pricing page.</p>
+          <span class="insight-link">Read article →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- PROCESS -->
   <section id="process">
     <div class="container">
@@ -943,6 +1070,64 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">FAQ</div>
+        <h2>Common questions</h2>
+        <p>Straight answers to what most people ask before their first call.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do you work with businesses outside the UAE?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes — the majority of our clients are outside the UAE. All work is delivered remotely via secure access (Tailscale/WireGuard), so location isn't a constraint. We've supported teams across the UK, US, and distributed remote teams spanning multiple countries.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How does fixed-fee pricing actually work?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>After the free discovery call and a short infrastructure review, you get a fixed quote covering the full project scope — no hourly billing, no surprise invoices. If scope changes mid-project, we re-quote before doing extra work, not after.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What's the actual difference between AI automation and traditional scripting?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Traditional scripts and RPA follow fixed rules — they break when inputs change shape. AI agents use reasoning and tool use to handle ambiguity: reading unstructured emails, deciding what to do with edge cases, adapting to new formats without a rewrite. We use whichever is the right tool for the job — sometimes that's a simple script, not an AI agent.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do we need to replace our existing IT setup to work with you?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>No. Most engagements start by hardening and improving what you already have — new backups, better security, cleaner access control — rather than ripping everything out. Full rebuilds happen when they're genuinely the better option, not by default.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What happens after the project is delivered?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>You get full documentation and a handover call so your team can operate independently. If you want ongoing support, the Care Retainer covers monthly health checks, updates, and priority support — but it's optional, not required.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="container">
@@ -1066,7 +1251,26 @@
         if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
       });
     }
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(el => {
+          el.classList.remove('open');
+          el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
   </script>
 
+  <!-- Cloudflare Web Analytics -->
+  <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e82b72c9fb1b4e1792efc9e790cec333"}'></script>
+  <!-- End Cloudflare Web Analytics -->
 </body>
 </html>
