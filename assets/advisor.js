@@ -108,5 +108,11 @@
     var l=document.querySelector(".advisor-launch");if(l)l.onclick=window.BoltProofAdvisor.open;
     var i=document.querySelector("[data-advisor-inline]");if(i)window.BoltProofAdvisor.inline(i.id);
     var t=document.querySelector(".nav-toggle");if(t)t.onclick=function(){document.querySelector(".nav-links").classList.toggle("open");};
+    var tt=document.querySelector(".theme-toggle");
+    if(tt) tt.onclick=function(){
+      var isLight = document.documentElement.getAttribute("data-theme")==="light";
+      if(isLight){ document.documentElement.removeAttribute("data-theme"); try{localStorage.setItem("bp-theme","dark");}catch(e){} }
+      else{ document.documentElement.setAttribute("data-theme","light"); try{localStorage.setItem("bp-theme","light");}catch(e){} }
+    };
   });
 })();
