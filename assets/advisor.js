@@ -10,7 +10,7 @@
       bullets:["Largest open models (Llama 405B, Qwen3 235B full precision)","10+ concurrent users, several departments","Real-time transcription, code generation, shared inference server","Room to grow for years"]}
   };
   var Q = [
-    {id:"industry",q:"What does your business do?",chips:["Law firm","Clinic / dental","Accounting","Real estate","Retail / e-commerce","Consulting / agency","Software / dev team","Other"]},
+    {id:"industry",q:"What does your business do?",chips:["Clinic / dental","Accounting","Real estate","Retail / e-commerce","Consulting / agency","Software / dev team","Other"]},
     {id:"staff",q:"How many people would use it?",chips:["1–3","4–10","11–25","26–50","50+"]},
     {id:"data",q:"How sensitive is the data it will see?",chips:["Client files / patient records","Internal documents only","Mostly public content"]},
     {id:"docs",q:"Roughly how many documents should it know about?",chips:["Under 1,000","1,000–20,000","20,000–100,000","More than 100,000"]},
@@ -41,10 +41,10 @@
     if(A.use==="Transcription / translation") s+=1;
     if(A.use==="Code generation") s+=2;
     if(A.use==="Automations (email, invoices, CRM)") s+=1;
-    if(A.industry==="Law firm"||A.industry==="Clinic / dental") s+=1;
+    if(A.industry==="Clinic / dental") s+=1;
     var key = s<=1?"desk":(s<=4?"work":"power");
     if(key==="desk") why.push("Under 10 staff and mostly chat or document Q&A: the AI Desk covers this comfortably.");
-    if(key==="work") why.push((A.industry==="Law firm"||A.industry==="Clinic / dental")?"Legal and clinical wording is where 70B-class models earn their keep.":"Team size and workload sit in the Workhorse range.");
+    if(key==="work") why.push((A.industry==="Clinic / dental")?"Clinical wording is where 70B-class models earn their keep.":"Team size and workload sit in the Workhorse range.");
     if(key==="work"&&A.use==="Automations (email, invoices, CRM)") why.push("Automations run in the background while staff chat, which needs the extra memory.");
     if(key==="power") why.push("At this headcount or document volume you need 10+ concurrent users and the largest models.");
     return {key:key,why:why.join(" ")};
