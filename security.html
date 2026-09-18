@@ -18,6 +18,9 @@
 <section class="section" style="padding-top:24px"><div class="container prose">
 <p class="lead">A private AI system is only as private as the machine it runs on. Every BoltProof deployment is hardened against the same checklist we'd apply to any small-business server, then covered by BoltProof Care for ongoing monitoring. This page is the technical detail behind that promise.</p>
 
+<h2>The security model in plain terms</h2>
+<p>The AI itself runs on a Mac physically located in your office. It is never exposed to the public internet — there is no port forwarding and no public-facing IP address. Staff reach it only over Tailscale, a private encrypted network that authenticates each device individually; a device that isn't explicitly authorized on your Tailscale network simply cannot reach the machine. If you take BoltProof Care, our remote support connects the same way, over that same authenticated network, not through a separate remote-access tool or an exposed port added for us — and you can revoke our access at any time from your Tailscale admin console. This is what "private" and "on-site" mean in practice: not that no network connection ever exists, but that every connection is authenticated, encrypted, and under your control.</p>
+
 <h2>What's included in every deployment</h2>
 <div class="grid-3">
 <div class="card"><h3>Security audit &amp; hardening</h3><p>Full review against our 12-point checklist: 2FA, firewall rules, exposed ports, permissions and patch status — with every gap fixed, not just flagged.</p></div>
