@@ -109,6 +109,8 @@ p{margin-bottom:16px;color:var(--text)}
 .grid-2,.grid-3,.grid-4{display:grid;gap:20px}
 .grid-2{grid-template-columns:repeat(2,1fr)}
 .grid-3{grid-template-columns:repeat(3,1fr)}
+.industries-grid{display:flex;flex-wrap:wrap;justify-content:center}
+.industries-grid>a{flex:0 1 300px}
 .grid-4{grid-template-columns:repeat(4,1fr)}
 @media(max-width:860px){.grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
