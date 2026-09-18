@@ -136,6 +136,13 @@ p{margin-bottom:16px;color:var(--text)}
 .faq{margin:16px 0}
 .faq dt{font-weight:600;font-size:19px;margin-top:24px;padding-top:24px;border-top:1px solid var(--line)}
 .faq dd{margin:10px 0 0;color:var(--text-2)}
+.tech-faq{margin:24px 0}
+.tech-faq details{border-top:1px solid var(--line);padding:16px 0}
+.tech-faq summary{font-weight:600;font-size:17px;cursor:pointer;list-style:none}
+.tech-faq summary::-webkit-details-marker{display:none}
+.tech-faq summary::before{content:"+ ";color:var(--accent,#4f46e5)}
+.tech-faq details[open] summary::before{content:"– "}
+.tech-faq p{margin:10px 0 0;color:var(--text-2)}
 .table{overflow-x:auto;margin:24px 0;border:1px solid var(--line);border-radius:var(--radius-sm)}
 table{width:100%;border-collapse:collapse;font-size:15px}
 th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--text)}
