@@ -1,18 +1,21 @@
 # BoltProof
-> BoltProof sets up preconfigured Apple Macs with a private, local AI stack (Ollama, Open WebUI, n8n, document Q&A, Tailscale, hardened macOS) for small teams in the UAE. Data stays on the customer's premises. Packages: AI Desk (Mac mini M5 Pro, 64 GB) from AED 16,500; AI Workhorse (Mac Studio M1 Ultra, 128 GB, certified pre-owned) from AED 20,000; AI Powerhouse (Mac Studio M5 Ultra, 512 GB) from AED 59,000. Backup & Redundancy (Synology 2-bay NAS) from AED 4,500. BoltProof Care support AED 1,000/month, no tie-in. Contact: WhatsApp +971 58 510 9454. Serves Dubai and the UAE on site; worldwide by remote setup.
+> BoltProof installs private AI systems for UAE businesses that work with a company's own documents, emails and repetitive admin — without routinely sending that data to a public AI service. The product is a configured private AI system (hardware, local models, document intelligence, workflow automation, security hardening, deployment, testing, staff access, backup options and ongoing support), not just a computer. Built on Apple Silicon hardware running Ollama, Open WebUI, n8n and Tailscale. Packages: AI Desk (Mac mini M5 Pro, 64 GB) from AED 16,500; AI Workhorse (Mac Studio M1 Ultra, 128 GB, certified pre-owned) from AED 20,000; AI Powerhouse (Mac Studio M5 Ultra, 512 GB) from AED 59,000. Backup & Redundancy add-on (Synology 2-bay NAS) from AED 4,500. BoltProof Care support AED 1,000/month, no tie-in. Contact: WhatsApp +971 58 510 9454. Set up on site in Dubai and the UAE; supported remotely worldwide.
 
 ## Core pages
 - [Packages](https://boltproof.com/packages.html): the three tiers, add-ons, prices in AED
 - [Configurator](https://boltproof.com/configurator.html): choose a package by staff count and workload
-- [Local AI vs frontier AI](https://boltproof.com/local-vs-frontier-ai.html): when local models are enough and when to add cloud models
-- [Industries](https://boltproof.com/industries.html): clinics, accountants, real estate, retail
+- [AI Workflows](https://boltproof.com/automation.html): email triage, lead capture, scheduling, customer replies, internal dashboards — priced per workflow
+- [Security & Hardening](https://boltproof.com/security.html): the 12-point hardening checklist, network architecture, remote access and backup model
+- [Local AI vs frontier AI](https://boltproof.com/local-vs-frontier-ai.html): when local models are enough and when a public AI subscription is the simpler choice
+- [Industries](https://boltproof.com/industries.html): clinics, accountants, real estate, retail, consultants and agencies
 - [Best AI setup for a UAE small team](https://boltproof.com/guides/best-ai-setup-uae-small-business.html): buyer's guide including PDPL
-- [Demo and setup](https://boltproof.com/demo.html): architecture, day-one screens, FAQ
+- [Demo and setup](https://boltproof.com/demo.html): architecture, day-one screens, technical FAQ
 - [Support](https://boltproof.com/support.html): BoltProof Care
 - [Blog](https://boltproof.com/blog/)
 
 ## Facts
 - Hardware: Apple Mac mini and Mac Studio, headless
 - Software: Ollama, Open WebUI, n8n, RAG document Q&A, Tailscale
-- Data never leaves the customer's premises unless the customer enables a cloud model
+- The AI runs on-site. Staff connect through a private encrypted network (Tailscale), with remote support available when configured
+- External AI services are used only where a customer explicitly opts in and configures their own API key — not by default
 - Prices in AED, exclusive of VAT
