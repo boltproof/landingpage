@@ -1,9 +1,9 @@
 # BoltProof
-> BoltProof installs private AI systems for UAE businesses that work with a company's own documents, emails and repetitive admin — without routinely sending that data to a public AI service. The product is a configured private AI system (hardware, local models, document intelligence, workflow automation, security hardening, deployment, testing, staff access, backup options and ongoing support), not just a computer. Built on Apple Silicon hardware running Ollama, Open WebUI, n8n and Tailscale. Packages: AI Desk (Mac mini M5 Pro, 64 GB) from AED 16,500; AI Workhorse (Mac Studio M1 Ultra, 128 GB, certified pre-owned) from AED 20,000; AI Powerhouse (Mac Studio M5 Ultra, 512 GB) from AED 59,000. Backup & Redundancy add-on (Synology 2-bay NAS) from AED 4,500. BoltProof Care support AED 1,000/month, no tie-in. Contact: WhatsApp +971 58 510 9454. Set up on site in Dubai and the UAE; supported remotely worldwide.
+> BoltProof helps UAE businesses design and run private AI on their own data — safely, on infrastructure they control. We are a consultancy: we assess your workflows, set up a private AI system on whatever hardware you have or need, build the AI workflows, and keep it running. Hardware is never the product. Built with open local models (Ollama, Open WebUI, n8n, Tailscale) on Apple Silicon or any hardware the customer already runs. Pricing is value-based: a free assessment, then a fixed-fee proposal — no hourly rates, no published price list. Contact: WhatsApp +971 58 510 9454. Set up on site in Dubai and the UAE; supported remotely worldwide.
 
 ## Core pages
-- [Packages](https://boltproof.com/packages.html): the three tiers, add-ons, prices in AED
-- [Configurator](https://boltproof.com/configurator.html): choose a package by staff count and workload
+- [How we work](https://boltproof.com/packages.html): the consultancy — assess, set up, care
+- [Book an assessment](https://boltproof.com/configurator.html): tell us about your business, we reply with a written recommendation and fixed-fee proposal
 - [AI Workflows](https://boltproof.com/automation.html): email triage, lead capture, scheduling, customer replies, internal dashboards — priced per workflow
 - [Security & Hardening](https://boltproof.com/security.html): the 12-point hardening checklist, network architecture, remote access and backup model
 - [Local AI vs frontier AI](https://boltproof.com/local-vs-frontier-ai.html): when local models are enough and when a public AI subscription is the simpler choice
@@ -14,8 +14,8 @@
 - [Blog](https://boltproof.com/blog/)
 
 ## Facts
-- Hardware: Apple Mac mini and Mac Studio, headless
+- Hardware-agnostic: works with Apple Silicon, a PC, or servers the customer already runs
 - Software: Ollama, Open WebUI, n8n, RAG document Q&A, Tailscale
 - The AI runs on-site. Staff connect through a private encrypted network (Tailscale), with remote support available when configured
 - External AI services are used only where a customer explicitly opts in and configures their own API key — not by default
-- Prices in AED, exclusive of VAT
+- Engagements are fixed-fee proposals in AED, exclusive of VAT
