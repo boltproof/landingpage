@@ -34,8 +34,8 @@ img,svg{max-width:100%;height:auto;display:block}
 .nav-inner{max-width:var(--max-wide);margin:0 auto;padding:0 22px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand{display:flex;align-items:center;gap:8px;font-weight:600;font-size:17px;color:var(--text);letter-spacing:-.01em}
 .brand:hover{text-decoration:none}
-.brand-mark{width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;flex:none}
-.brand-mark svg{width:16px;height:16px}
+.brand-mark{width:28px;height:28px;display:grid;place-items:center;flex:none}
+.brand-mark img{width:28px;height:28px;display:block;object-fit:contain}
 .nav-links{display:flex;gap:22px;align-items:center}
 .nav-links a{color:var(--text);font-size:14px;opacity:.85}
 .nav-links a:hover{opacity:1;text-decoration:none}
