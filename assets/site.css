@@ -1,27 +1,29 @@
 /* BoltProof — Apple-style design system (dark default, light toggle) */
 :root{
-  --bg:#000000;--bg-alt:#161618;--bg-alt-2:#1d1d1f;--surface:#1d1d1f;--surface-2:#242426;
-  --band-bg:#161618;--band-input-bg:#242426;
-  --text:#f5f5f7;--text-2:#a1a1a6;
-  --accent:#5b5bf0;--accent-2:#7b7bf5;--line:#38383c;--line-soft:#2c2c2e;
+  --bg:#07070f;--bg-alt:#0e0e1a;--bg-alt-2:#12121f;--surface:#10101d;--surface-2:#161624;
+  --band-bg:#0c0c16;--band-input-bg:#161624;
+  --text:#f5f5f9;--text-2:#9d9db4;
+  --accent:#6d5cff;--accent-2:#22d3ee;--line:#262636;--line-soft:#1d1d2c;
   --radius:18px;--radius-sm:12px;--max:1024px;--max-wide:1200px;
   --shadow:0 24px 64px rgba(0,0,0,.5);--shadow-sm:0 8px 24px rgba(0,0,0,.4);
-  --nav-bg:rgba(0,0,0,.72);--wa-icon:#fff;
+  --nav-bg:rgba(7,7,15,.72);--wa-icon:#fff;
+  --aurora-1:rgba(109,92,255,.22);--aurora-2:rgba(34,211,238,.16);--aurora-3:rgba(168,85,247,.15);--aurora-4:rgba(34,211,238,.10);
   --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
   color-scheme: dark;
 }
 [data-theme="light"]{
   --bg:#ffffff;--bg-alt:#f5f5f7;--bg-alt-2:#f5f5f7;--surface:#ffffff;--surface-2:#f5f5f7;
-  --band-bg:#000000;--band-input-bg:#1d1d1f;
+  --band-bg:#0b0b14;--band-input-bg:#161624;
   --text:#1d1d1f;--text-2:#6e6e73;
-  --accent:#4f46e5;--accent-2:#6366f1;--line:#d2d2d7;--line-soft:#e5e5ea;
+  --accent:#5b5bf0;--accent-2:#0ea5e9;--line:#d2d2d7;--line-soft:#e5e5ea;
   --shadow:0 24px 64px rgba(0,0,0,.18);--shadow-sm:0 8px 24px rgba(0,0,0,.12);
   --nav-bg:rgba(255,255,255,.8);
+  --aurora-1:rgba(109,92,255,.10);--aurora-2:rgba(14,165,233,.08);--aurora-3:rgba(168,85,247,.08);--aurora-4:rgba(14,165,233,.06);
   color-scheme: light;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased;font-size:17px;transition:background .25s ease,color .25s ease}
+body{font-family:var(--font);color:var(--text);background:transparent;line-height:1.5;-webkit-font-smoothing:antialiased;font-size:17px;transition:background .25s ease,color .25s ease}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 img,svg{max-width:100%;height:auto;display:block}
@@ -258,3 +260,42 @@ footer{background:var(--bg-alt);border-top:1px solid var(--line);padding:48px 22
 .page-head h1{font-size:clamp(34px,5.5vw,60px);max-width:860px;margin:0 auto 16px}
 .page-head .sub{margin:0 auto}
 @media(max-width:600px){.section{padding:64px 18px}.hero{padding:80px 18px 56px}.card{padding:24px 20px}}
+
+/* ===== ANIMATED AURORA BACKGROUND ===== */
+html{background:var(--bg)}
+body::before,body::after{content:"";position:fixed;inset:-25%;z-index:-1;pointer-events:none;will-change:transform}
+body::before{
+  background:
+    radial-gradient(680px 680px at 16% 12%, var(--aurora-1), transparent 62%),
+    radial-gradient(760px 760px at 84% 20%, var(--aurora-2), transparent 62%),
+    radial-gradient(560px 560px at 52% 88%, var(--aurora-3), transparent 60%);
+  animation:aurora-a 26s ease-in-out infinite alternate;
+}
+body::after{
+  background:
+    radial-gradient(520px 520px at 80% 74%, var(--aurora-4), transparent 60%),
+    radial-gradient(640px 640px at 20% 88%, var(--aurora-1), transparent 64%);
+  animation:aurora-b 34s ease-in-out infinite alternate;
+}
+@keyframes aurora-a{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(-44px,34px,0) scale(1.09)}}
+@keyframes aurora-b{0%{transform:translate3d(0,0,0) scale(1.06)}100%{transform:translate3d(52px,-30px,0) scale(1)}}
+
+/* ===== MICRO-MOTION ===== */
+.hero h1,.hero .sub,.hero .cta-row{animation:fade-up .9s cubic-bezier(.22,1,.36,1) both}
+.hero .sub{animation-delay:.12s}
+.hero .cta-row{animation-delay:.24s}
+.page-head{animation:fade-up .8s cubic-bezier(.22,1,.36,1) both}
+@keyframes fade-up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+.card,.tile{transition:transform .3s cubic-bezier(.22,1,.36,1),border-color .3s,box-shadow .3s}
+.card:hover{transform:translateY(-5px);border-color:rgba(109,92,255,.45)}
+.tile:hover{transform:translateY(-5px);border-color:rgba(109,92,255,.45)}
+.tile.featured:hover{box-shadow:0 18px 50px rgba(109,92,255,.3)}
+
+.btn-primary{transition:all .2s}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 32px rgba(109,92,255,.45)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  body::before,body::after{display:none}
+}
