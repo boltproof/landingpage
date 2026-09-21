@@ -54,6 +54,24 @@
 .roi-output .big{font-size:36px;font-weight:700;letter-spacing:-.02em;color:var(--accent-2)}
 .roi-output .lbl{font-size:13px;color:var(--text-2);margin-top:4px}
 .roi-disclaimer{font-size:13px;color:var(--text-2);margin-top:16px;text-align:center}
+
+/* HERO CONTACT FORM (split layout) */
+.hero-split{padding:100px 22px 72px}
+.hero-split .hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;max-width:1200px;margin:0 auto;text-align:left}
+.hero-split .hero-copy .eyebrow{margin-bottom:14px}
+.hero-split .hero-copy h1{max-width:640px;margin:0 0 18px}
+.hero-split .hero-copy .sub{margin:0 0 28px;max-width:560px}
+.hero-split .cta-row{justify-content:flex-start}
+.hero-form-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;box-shadow:var(--shadow-sm)}
+.hero-form-card h3{font-size:19px;margin-bottom:6px}
+.hero-form-card .hf-sub{font-size:14px;color:var(--text-2);margin-bottom:18px}
+.hero-form-card .hf-sub b{color:var(--accent-2)}
+.hero-form-card input,.hero-form-card select,.hero-form-card textarea{width:100%;font:inherit;font-size:15px;padding:11px 13px;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--bg-alt);color:var(--text);margin-bottom:12px}
+.hero-form-card textarea{resize:vertical;min-height:64px}
+.hero-form-card button{width:100%;font:inherit;font-size:16px;font-weight:600;background:var(--accent);color:#fff;border:0;border-radius:var(--radius-sm);padding:13px;cursor:pointer;transition:background .2s}
+.hero-form-card button:hover{background:var(--accent-2)}
+.hero-form-card .hf-note{font-size:12px;color:var(--text-2);text-align:center;margin-top:10px}
+@media(max-width:900px){.hero-split .hero-inner{grid-template-columns:1fr}.hero-split .hero-copy h1,.hero-split .hero-copy .sub{max-width:100%}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","@id":"https://boltproof.com/#business","name":"BoltProof","url":"https://boltproof.com","telephone":"+971****9454","description":"BoltProof works with UAE businesses to design and set up a private AI system that automates document search, email triage, drafting and reporting, with data kept on infrastructure the customer controls and no routine transfer of confidential data to public AI services.","image":"https://boltproof.com/assets/og-image.png","currenciesAccepted":"AED","sameAs":[],"contactPoint":{"@type":"ContactPoint","contactType":"sales","telephone":"+971****9454","url":"https://wa.me/971585109454","availableLanguage":["en"]},"knowsAbout":["private AI","local large language models","Ollama","Open WebUI","n8n","Apple Mac","Synology NAS","Tailscale","business process automation"],"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Private AI Assessment"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"AI System Setup"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"BoltProof Care"}}]}</script><script src="assets/motion.js" defer></script></head><body><header class="nav"><div class="nav-inner">
 <a class="brand" href="index.html"><span class="brand-mark"><img src="assets/logo-128.png" alt="BoltProof" width="28" height="28" aria-hidden="true"></span>BoltProof</a>
@@ -61,11 +79,32 @@
 <button class="theme-toggle" type="button" aria-label="Toggle light/dark theme"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button><button class="nav-toggle" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div></header>
 
-<section class="hero"><div class="container wide">
+<section class="hero hero-split"><div class="hero-inner">
+<div class="hero-copy">
 <p class="eyebrow">Private AI · UAE</p>
 <h1>Your own private AI. In your office.</h1>
 <p class="sub">BoltProof works with you to design and set up a private AI system that works with your company's documents, emails and day-to-day admin — without routinely sending that information to a public AI service. You approve everything it sends.</p>
 <div class="cta-row"><a class="btn-primary" href="https://wa.me/971585109454?text=Hi%2C%20I%27d%20like%20to%20see%20BoltProof%20work%20on%20my%20own%20documents">See it work on my documents</a><a class="btn-secondary" href="configurator.html">Book a Private AI Assessment</a></div>
+</div>
+<form class="hero-form-card" action="https://formsubmit.co/elias@boltproof.com" method="POST">
+<input type="hidden" name="_subject" value="New enquiry from boltproof.com hero form">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<h3>Get a free Private AI Assessment</h3>
+<p class="hf-sub">Tell us what you'd want it to do. We reply within <b>1 business day</b>.</p>
+<select name="Interest">
+<option value="Not sure yet — advise me">Not sure yet — advise me</option>
+<option value="Document / email automation">Document / email automation</option>
+<option value="Private in-office AI system">Private in-office AI system</option>
+<option value="BoltProof Care (ongoing support)">BoltProof Care (ongoing support)</option>
+</select>
+<input type="text" name="Name" placeholder="Name" required>
+<input type="email" name="Work email" placeholder="Work email" required>
+<input type="tel" name="Phone" placeholder="Phone (optional)">
+<textarea name="Details" placeholder="Briefly, what should it do? (optional)"></textarea>
+<button type="submit">Get my free assessment</button>
+<p class="hf-note">No cost, no obligation.</p>
+</form>
 </div></section>
 
 <section class="section" id="automations"><div class="container wide center">
