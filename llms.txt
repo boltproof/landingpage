@@ -13,6 +13,16 @@
 - [Support](https://boltproof.com/support.html): BoltProof Care
 - [Blog](https://boltproof.com/blog/)
 
+## Learn and the book
+- [Learn (free guides)](https://boltproof.com/learn.html): six plain-English guides to running private AI on your own hardware
+- [Can you really run AI on a computer you already own?](https://boltproof.com/guides/01-can-you-run-ai-on-your-own-computer.html)
+- [How much RAM do I actually need?](https://boltproof.com/guides/02-how-much-ram-do-you-need.html)
+- [Your first local AI in 10 minutes](https://boltproof.com/guides/03-first-local-ai-10-minutes.html)
+- [Point your AI at your own documents](https://boltproof.com/guides/04-point-ai-at-your-documents.html)
+- [Keep your AI off the internet](https://boltproof.com/guides/05-keep-your-ai-off-the-internet.html)
+- [Local AI and the UAE](https://boltproof.com/guides/06-local-ai-uae-data-residency.html)
+- [Your Data, Your Rules (the book)](https://boltproof.com/book.html): by Elias Thomas
+
 ## Facts
 - Hardware-agnostic: works with Apple Silicon, a PC, or servers the customer already runs
 - Software: Ollama, Open WebUI, n8n, RAG document Q&A, Tailscale
