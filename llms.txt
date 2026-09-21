@@ -21,7 +21,7 @@
 - [Point your AI at your own documents](https://boltproof.com/guides/04-point-ai-at-your-documents.html)
 - [Keep your AI off the internet](https://boltproof.com/guides/05-keep-your-ai-off-the-internet.html)
 - [Local AI and the UAE](https://boltproof.com/guides/06-local-ai-uae-data-residency.html)
-- [Your Data, Your Rules (the book)](https://boltproof.com/book.html): by Elias Thomas
+- [Your Data, Your Rules (the book)](https://boltproof.com/book.html): by Eli Thomas
 
 ## Facts
 - Hardware-agnostic: works with Apple Silicon, a PC, or servers the customer already runs
