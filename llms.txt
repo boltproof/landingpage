@@ -10,7 +10,7 @@
 - [Industries](https://boltproof.com/industries.html): clinics, accountants, real estate, retail, consultants and agencies
 - [Best AI setup for a UAE small team](https://boltproof.com/guides/best-ai-setup-uae-small-business.html): buyer's guide including PDPL
 - [Demo and setup](https://boltproof.com/demo.html): architecture, day-one screens, technical FAQ
-- [Support](https://boltproof.com/support.html): BoltProof Care
+- [Support](https://boltproof.com/support.html): Warranty and support
 - [Blog](https://boltproof.com/blog/)
 
 ## Learn and the book
@@ -21,7 +21,6 @@
 - [Point your AI at your own documents](https://boltproof.com/guides/04-point-ai-at-your-documents.html)
 - [Keep your AI off the internet](https://boltproof.com/guides/05-keep-your-ai-off-the-internet.html)
 - [Local AI and the UAE](https://boltproof.com/guides/06-local-ai-uae-data-residency.html)
-- [Your Data, Your Rules (the book)](https://boltproof.com/book.html): by Eli Thomas
 
 ## Facts
 - Hardware-agnostic: works with Apple Silicon, a PC, or servers the customer already runs
