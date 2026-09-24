@@ -99,7 +99,7 @@ svg[viewBox]{max-width:100%;height:auto}
 
 /* BUTTONS */
 .btn-primary,.btn-secondary,.btn-link{display:inline-flex;align-items:center;gap:6px;font-size:17px;font-weight:500;border-radius:980px;padding:12px 24px;transition:all .2s;text-decoration:none!important;cursor:pointer;border:0;font-family:inherit;line-height:1.2}
-.btn-primary{background:var(--accent);color:#fff}
+.btn-primary{background:var(--accent);color:#fff;border:1px solid transparent}
 .btn-primary:hover{background:var(--accent-2)}
 .btn-secondary{background:transparent;color:var(--accent);border:1px solid var(--accent)}
 .btn-secondary:hover{background:var(--accent);color:#fff}
@@ -108,6 +108,16 @@ svg[viewBox]{max-width:100%;height:auto}
 .btn-link{padding:0;color:var(--accent);font-size:17px}
 .btn-link::after{content:" ›"}
 .prose .btn-primary,.prose .btn-secondary{margin:6px 8px 6px 0}
+/* Next-step CTA block: prompt on its own line, buttons on a row beneath it.
+   Prevents a button sitting mid-sentence and the rest wrapping under it. */
+.next-step{margin:28px 0 0}
+.next-step p{margin:0 0 16px;color:var(--text-2);font-size:17px}
+.next-step .cta-row{justify-content:flex-start;gap:12px}
+.prose .next-step .btn-primary,.prose .next-step .btn-secondary{margin:0}
+@media(max-width:560px){
+  .next-step .cta-row{flex-direction:column;align-items:stretch}
+  .next-step .cta-row a{text-align:center}
+}
 
 /* GRIDS + CARDS */
 .grid-2,.grid-3,.grid-4{display:grid;gap:20px}
