@@ -85,6 +85,8 @@ p{margin-bottom:16px;color:var(--text)}
 .prose > .lead{margin-bottom:32px;text-align:center;margin-left:auto;margin-right:auto}
 .prose .grid-2,.prose .grid-3{margin:28px 0}
 .prose svg[viewBox]{width:100%;height:auto;margin:24px 0;background:var(--bg-alt);border-radius:var(--radius);padding:16px}
+/* Any inline SVG with a viewBox must never exceed its container (fixes mobile side-scroll) */
+svg[viewBox]{max-width:100%;height:auto}
 
 /* HERO */
 .hero{padding:120px 22px 80px;text-align:center}
