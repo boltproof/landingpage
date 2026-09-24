@@ -110,9 +110,9 @@ svg[viewBox]{max-width:100%;height:auto}
 .prose .btn-primary,.prose .btn-secondary{margin:6px 8px 6px 0}
 /* Next-step CTA block: prompt on its own line, buttons on a row beneath it.
    Prevents a button sitting mid-sentence and the rest wrapping under it. */
-.next-step{margin:28px 0 0}
+.next-step{margin:28px 0 0;text-align:center}
 .next-step p{margin:0 0 16px;color:var(--text-2);font-size:17px}
-.next-step .cta-row{justify-content:flex-start;gap:12px}
+.next-step .cta-row{justify-content:center;gap:12px}
 .prose .next-step .btn-primary,.prose .next-step .btn-secondary{margin:0}
 @media(max-width:560px){
   .next-step .cta-row{flex-direction:column;align-items:stretch}
