@@ -31,17 +31,17 @@ img,svg{max-width:100%;height:auto;display:block}
 
 /* NAV */
 .nav{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line-soft)}
-.nav-inner{max-width:var(--max-wide);margin:0 auto;padding:0 22px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-inner{max-width:var(--max-wide);margin:0 auto;padding:0 22px;height:52px;display:flex;align-items:center;gap:24px}
 .brand{display:flex;align-items:center;gap:8px;font-weight:600;font-size:17px;color:var(--text);letter-spacing:-.01em}
 .brand:hover{text-decoration:none}
 .brand-mark{width:28px;height:28px;display:grid;place-items:center;flex:none}
 .brand-mark img{width:28px;height:28px;display:block;object-fit:contain}
-.nav-links{display:flex;gap:22px;align-items:center}
+.nav-links{display:flex;gap:22px;align-items:center;margin-left:14px}
 .nav-links a{color:var(--text);font-size:14px;opacity:.85}
 .nav-links a:hover{opacity:1;text-decoration:none}
 .nav-cta{background:var(--accent);color:#fff!important;padding:7px 14px;border-radius:980px;font-size:13px;font-weight:500;opacity:1!important}
 .nav-toggle{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer;color:var(--text)}
-.theme-toggle{background:var(--surface-2);border:1px solid var(--line);width:34px;height:34px;border-radius:50%;cursor:pointer;display:grid;place-items:center;color:var(--text);flex:none;transition:background .2s}
+.theme-toggle{background:var(--surface-2);border:1px solid var(--line);width:34px;height:34px;border-radius:50%;cursor:pointer;display:grid;place-items:center;color:var(--text);flex:none;margin-left:auto;transition:background .2s}
 .theme-toggle:hover{border-color:var(--accent)}
 .theme-toggle svg{width:17px;height:17px}
 .theme-toggle .icon-sun{display:none}
