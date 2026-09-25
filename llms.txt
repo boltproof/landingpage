@@ -10,7 +10,6 @@
 - [Industries](https://boltproof.com/industries.html): clinics, accountants, real estate, retail, consultants and agencies
 - [Best AI setup for a UAE small team](https://boltproof.com/guides/best-ai-setup-uae-small-business.html): buyer's guide including PDPL
 - [Demo and setup](https://boltproof.com/demo.html): architecture, day-one screens, technical FAQ
-- [Support](https://boltproof.com/support.html): Warranty and support
 - [Blog](https://boltproof.com/blog/)
 
 ## Learn and the book
