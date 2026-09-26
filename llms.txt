@@ -1,5 +1,5 @@
 # BoltProof
-> BoltProof helps UAE businesses design and run private AI on their own data — safely, on infrastructure they control. We are a consultancy: we assess your workflows, set up a private AI system on whatever hardware you have or need, build the AI workflows, and keep it running. Hardware is never the product. Built with open local models (Ollama, Open WebUI, n8n, Tailscale) on Apple Silicon or any hardware the customer already runs. Pricing is value-based: a free assessment, then a fixed-fee proposal — no hourly rates, no published price list. Contact: WhatsApp +971 58 510 9454. Set up on site in Dubai and the UAE; supported remotely worldwide.
+> BoltProof helps UAE businesses design and run private AI on their own data — safely, on infrastructure they control. We are a consultancy: we assess your workflows, set up a private AI system on whatever hardware you have or need, build the AI workflows, and keep it running. Hardware is never the product. Built with open local models (Ollama, Open WebUI, n8n, Tailscale) on Apple Silicon or any hardware the customer already runs. Pricing is value-based: a free assessment, then a clear written quote — no hourly rates, no published price list. Contact: WhatsApp +971 58 510 9454. Set up on site in Dubai and the UAE; supported remotely worldwide.
 
 ## Core pages
 - [How we work](https://boltproof.com/packages.html): the consultancy — assess, set up, care
@@ -26,4 +26,4 @@
 - Software: Ollama, Open WebUI, n8n, RAG document Q&A, Tailscale
 - The AI runs on-site. Staff connect through a private encrypted network (Tailscale), with remote support available when configured
 - External AI services are used only where a customer explicitly opts in and configures their own API key — not by default
-- Engagements are fixed-fee proposals in AED, exclusive of VAT
+- Engagements are quoted in AED as a clear written quote
