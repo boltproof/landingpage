@@ -1,0 +1,12 @@
+{
+  "note": "Planning estimates only (about 70% of bandwidth divided by 4-bit model size). Replace with BoltProof measurements.",
+  "unit": "generation tokens/sec, 4-bit models",
+  "chips": [
+    {"chip": "M4 Pro",   "gpu_cores": 20, "bandwidth_gbs": 273, "max_memory_gb": 64,  "8b": "35-40",   "32b": "9-10",  "70b": "4 (64GB only)"},
+    {"chip": "M3 Max",   "gpu_cores": 40, "bandwidth_gbs": 400, "max_memory_gb": 128, "8b": "50-55",   "32b": "13-14", "70b": "6-7"},
+    {"chip": "M4 Max",   "gpu_cores": 40, "bandwidth_gbs": 546, "max_memory_gb": 128, "8b": "70-75",   "32b": "18-19", "70b": "8-9"},
+    {"chip": "M5 Max",   "gpu_cores": 40, "bandwidth_gbs": 614, "max_memory_gb": 128, "8b": "80-85",   "32b": "20-21", "70b": "9-10"},
+    {"chip": "M2 Ultra", "gpu_cores": 76, "bandwidth_gbs": 800, "max_memory_gb": 192, "8b": "105-110", "32b": "27-28", "70b": "12-13"},
+    {"chip": "M3 Ultra", "gpu_cores": 80, "bandwidth_gbs": 819, "max_memory_gb": 512, "8b": "110-115", "32b": "28-29", "70b": "13-14"}
+  ]
+}
