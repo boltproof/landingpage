@@ -2,7 +2,8 @@
 > BoltProof helps UAE businesses design and run private AI on their own data — safely, on infrastructure they control. We are a consultancy: we assess your workflows, set up a private AI system on whatever hardware you have or need, build the AI workflows, and keep it running. Hardware is never the product. Built with open local models (Ollama, Open WebUI, n8n, Tailscale) on Apple Silicon or any hardware the customer already runs. Pricing is value-based: a free assessment, then a clear written quote — no hourly rates, no published price list. Contact: WhatsApp +971 58 510 9454. Set up on site in Dubai and the UAE; supported remotely worldwide.
 
 ## Core pages
-- [How we work](https://boltproof.com/packages.html): the consultancy — assess, set up, care
+- [All services — IT, repair, networks, private AI](https://boltproof.com/services.html): the full range of hands-on IT services BoltProof provides across the UAE — no job too big or small
+- [Private AI — how we work](https://boltproof.com/packages.html): the consultancy — assess, set up, care
 - [Book an assessment](https://boltproof.com/configurator.html): tell us about your business, we reply with a written recommendation and fixed-fee proposal
 - [AI Workflows](https://boltproof.com/automation.html): email triage, lead capture, scheduling, customer replies, internal dashboards — priced per workflow
 - [Security & Hardening](https://boltproof.com/security.html): the 12-point hardening checklist, network architecture, remote access and backup model
