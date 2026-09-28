@@ -1,0 +1,12 @@
+{
+  "id": "BP-0016",
+  "status": "available",
+  "price_aed": null,
+  "title": "MacBook Pro 16 M3 Max 128GB / 8TB",
+  "price_display": "POA",
+  "memory_gb": 128,
+  "storage": "8TB SSD",
+  "image": "mbp16-m3max-front.jpg",
+  "battery_health": 93,
+  "battery_cycles": 92
+}

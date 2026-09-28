@@ -1,0 +1,12 @@
+{
+  "id": "BP-0015",
+  "status": "available",
+  "price_aed": null,
+  "title": "MacBook Pro 16 M3 Max 128GB / 4TB",
+  "price_display": "POA",
+  "memory_gb": 128,
+  "storage": "4TB SSD",
+  "image": "mbp16-m3max-front.jpg",
+  "battery_health": 86,
+  "battery_cycles": 289
+}
