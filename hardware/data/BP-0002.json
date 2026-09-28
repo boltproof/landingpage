@@ -13,11 +13,11 @@
   "tier": "Surge",
   "price_aed": 22000,
   "status": "available",
-  "applecare_end": "2027-03",
+  "applecare_end": "2027-03-21",
   "applecare_note": "AppleCare+ active. Buyer can extend or renew directly with Apple.",
   "condition_grade": null,
-  "battery_health": null,
-  "battery_cycles": null,
+  "battery_health": 94,
+  "battery_cycles": 179,
   "tests": {
     "date": null,
     "runtime": null,
@@ -35,5 +35,6 @@
     "32b": "13-14",
     "70b": "6-7"
   },
-  "photos": []
+  "photos": [],
+  "in_box": "Original box, 140W adapter, cable"
 }

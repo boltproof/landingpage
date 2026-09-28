@@ -1,23 +1,23 @@
 {
-  "id": "BP-0001",
-  "slug": "macbook-pro-16-m3-max-128gb-8tb-0001",
+  "id": "BP-0004",
+  "slug": "macbook-pro-16-m3-max-128gb-2tb-0004",
   "model": "MacBook Pro 16-inch",
   "chip": "M3 Max",
   "cpu_cores": 16,
   "gpu_cores": 40,
   "memory_gb": 128,
   "bandwidth_gbs": 400,
-  "storage_tb": 8,
+  "storage_tb": 2,
   "year": 2023,
   "colour": null,
   "tier": "Surge",
-  "price_aed": 25000,
+  "price_aed": null,
   "status": "available",
-  "applecare_end": "2027-01-21",
-  "applecare_note": "AppleCare+ active. Buyer can extend or renew directly with Apple.",
+  "applecare_end": null,
+  "applecare_note": "No AppleCare+.",
   "condition_grade": null,
   "battery_health": 92,
-  "battery_cycles": 142,
+  "battery_cycles": 166,
   "tests": {
     "date": null,
     "runtime": null,
@@ -36,5 +36,5 @@
     "70b": "6-7"
   },
   "photos": [],
-  "in_box": "Original box, 140W adapter, cable"
+  "in_box": "Box, 140W adapter, cable"
 }
