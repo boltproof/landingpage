@@ -1,0 +1,10 @@
+{
+  "id": "BP-0005",
+  "title": "MacBook Pro 16 M3 Max 36GB / 1TB",
+  "price_aed": null,
+  "price_display": "POA",
+  "status": "available",
+  "memory_gb": 36,
+  "storage": "1TB SSD",
+  "image": "mbp16-m3max-front.jpg"
+}

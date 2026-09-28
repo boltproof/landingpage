@@ -422,3 +422,9 @@ html[data-theme="light"] .hw-chips span:last-child{color:var(--accent)}
 .hw-banner{border-top:0;padding:14px 22px}
 .hw-banner-img img{width:150px}
 @media(max-width:640px){.hw-banner-img{display:none}.hw-banner{padding:12px 18px}.hw-banner h2{font-size:18px}.hw-banner-copy p:last-child{font-size:14px}}
+
+/* More MacBooks section */
+.hw-grid .hw-chips span.plain,html[data-theme="light"] .hw-grid .hw-chips span.plain{background:var(--surface-2);border-color:var(--line);color:var(--text-2)}
+.section.hw-hub.hw-more{padding-top:24px}
+.hw-more .hw-media img{mix-blend-mode:multiply}
+.hw-specs dt{white-space:nowrap}
