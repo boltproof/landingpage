@@ -428,3 +428,8 @@ html[data-theme="light"] .hw-chips span:last-child{color:var(--accent)}
 .section.hw-hub.hw-more{padding-top:24px}
 .hw-more .hw-media img{mix-blend-mode:multiply}
 .hw-specs dt{white-space:nowrap}
+
+.hw-grid .hw-chips span.warn,.hw-chips span.warn{background:rgba(245,166,35,.12);border-color:rgba(245,166,35,.4);color:#f5b544}
+html[data-theme="light"] .hw-grid .hw-chips span.warn,html[data-theme="light"] .hw-chips span.warn{background:#fff4e0;border-color:#f0c070;color:#9a5b00}
+.hw-grid .hw-chips:has(.warn),.hw-chips:has(.warn){flex-wrap:wrap}
+.hw-chips span.warn{flex:1 0 100%;text-align:center}
