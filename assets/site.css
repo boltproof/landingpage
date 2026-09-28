@@ -417,3 +417,8 @@ html[data-theme="light"] .hw-chips span:last-child{color:var(--accent)}
 .hw-banner-img{flex:none;display:block}
 .hw-banner-img img{width:180px;height:auto;display:block;border-radius:10px;border:1px solid var(--line);background:#000}
 @media(max-width:640px){.hw-banner-inner{flex-direction:column-reverse;align-items:flex-start;gap:14px}.hw-banner-img img{width:100%;max-width:320px}}
+
+/* banner sits at top, directly under header */
+.hw-banner{border-top:0;padding:14px 22px}
+.hw-banner-img img{width:150px}
+@media(max-width:640px){.hw-banner-img{display:none}.hw-banner{padding:12px 18px}.hw-banner h2{font-size:18px}.hw-banner-copy p:last-child{font-size:14px}}
