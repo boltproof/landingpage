@@ -1,0 +1,11 @@
+{
+  "id": "BP-0014",
+  "status": "available",
+  "price_aed": null,
+  "title": "MacBook Pro 16 M3 Max 48GB / 2TB",
+  "price_display": "POA",
+  "memory_gb": 48,
+  "storage": "2TB SSD",
+  "image": "mbp16-m3max-front.jpg",
+  "video": "m3max-16-48gb-2tb.mp4"
+}

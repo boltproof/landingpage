@@ -1,0 +1,12 @@
+{
+  "id": "BP-0003",
+  "status": "available",
+  "price_aed": 10000,
+  "title": "MacBook Pro 14 M1 Max 64GB / 8TB",
+  "price_display": "AED 10,000",
+  "memory_gb": 64,
+  "storage": "8TB SSD",
+  "image": "mbp14-m1max-front.jpg",
+  "battery_health": 82,
+  "battery_cycles": 243
+}

@@ -1,0 +1,11 @@
+{
+  "id": "BP-0013",
+  "status": "available",
+  "price_aed": null,
+  "title": "MacBook Pro 16 M3 Max 64GB / 1TB",
+  "price_display": "POA",
+  "memory_gb": 64,
+  "storage": "1TB SSD",
+  "image": "mbp16-m3max-front.jpg",
+  "video": "m3max-16-64gb-1tb.mp4"
+}
